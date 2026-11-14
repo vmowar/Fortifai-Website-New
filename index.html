@@ -30,8 +30,8 @@
       --sev-high-bg: #FEF3C7;
       --sev-med: #2E5A8A;
       --sev-med-bg: #EBF3FA;
-      --sev-low: #4A6B53;
-      --sev-low-bg: #ECFDF5;
+      --sev-low: #16A34A;
+      --sev-low-bg: #DCFCE7;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -65,7 +65,7 @@
     .page-view {
       display: none;
       flex: 1;
-      animation: fadeInPage 0.18s ease-out;
+      animation: fadeInPage 0.2s ease-out;
     }
     .page-view.active {
       display: block;
@@ -120,7 +120,6 @@
       position: relative;
     }
 
-    /* PRECISION FORTIFAI LOGO LOCKUP (MATCHES OFFICIAL BRAND MARK) */
     .brand-logo {
       display: inline-flex;
       align-items: center;
@@ -278,12 +277,6 @@
       line-height: 1.35;
     }
 
-    .nav-ctas {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -315,9 +308,7 @@
       color: #FFFFFF;
       font-weight: 600;
     }
-    .btn-primary-blue:hover {
-      background: var(--navy-deep);
-    }
+    .btn-primary-blue:hover { background: var(--navy-deep); }
 
     .btn-hero-white {
       background: #FFFFFF;
@@ -339,11 +330,11 @@
       border-color: #FFFFFF;
     }
 
-    /* DEEP ARCHITECTURAL BLUE HERO (HOMEPAGE) */
+    /* PATTERN 1: HYPHENATE-STYLE SPLIT HERO WITH OVERLAPPING LAYERED UI CARDS */
     .hero-blue-canvas {
       background: linear-gradient(135deg, #0D1520 0%, #152C47 52%, #2E5A8A 100%);
       color: #FFFFFF;
-      padding: 72px 0 150px;
+      padding: 72px 0 88px;
       position: relative;
       overflow: hidden;
     }
@@ -359,10 +350,13 @@
       pointer-events: none;
     }
 
-    .hero-content {
+    .hero-split-grid {
       position: relative;
       z-index: 2;
-      max-width: 880px;
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      gap: 48px;
+      align-items: center;
     }
 
     .category-pill {
@@ -374,10 +368,10 @@
       background: rgba(102, 153, 204, 0.16);
       border: 1px solid rgba(102, 153, 204, 0.4);
       color: #FFFFFF;
-      font-size: 12px;
+      font-size: 11.5px;
       letter-spacing: 0.7px;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .live-dot {
@@ -388,22 +382,20 @@
     }
 
     h1.hero-headline {
-      font-size: clamp(38px, 5.2vw, 62px);
+      font-size: clamp(36px, 4.4vw, 54px);
       font-weight: 600;
-      line-height: 1.06;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
+      line-height: 1.08;
+      letter-spacing: -1.3px;
+      margin-bottom: 18px;
     }
 
     h1.hero-headline .muted-tone { color: var(--blue-brand); }
 
     .hero-subtext {
-      font-size: clamp(16px, 1.8vw, 19px);
+      font-size: 16.5px;
       color: #CBD5E1;
-      max-width: 660px;
-      line-height: 1.5;
-      margin-bottom: 30px;
-      font-weight: 400;
+      line-height: 1.55;
+      margin-bottom: 28px;
     }
 
     .hero-cta-row {
@@ -412,192 +404,100 @@
       flex-wrap: wrap;
     }
 
-    /* SUBPAGE HEADER BANNER */
-    .subpage-header {
-      background: linear-gradient(180deg, #F2F4F7 0%, #FFFFFF 100%);
-      border-bottom: 1px solid var(--border-light);
-      padding: 56px 0 44px;
-    }
-
-    /* FLOATING PRODUCT STAGE */
-    .product-stage-wrapper {
-      margin-top: -105px;
+    /* LAYERED HERO MICRO-UI WIDGET STACK (MATCHES HYPHENATE VIDEO 0:05) */
+    .hero-widget-stack {
       position: relative;
-      z-index: 10;
-      margin-bottom: 56px;
+      padding: 12px 0 36px 20px;
     }
 
-    .product-window {
+    .widget-back-card {
       background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: 12px;
-      box-shadow: 0 28px 60px -15px rgba(13, 21, 32, 0.22);
-      overflow: hidden;
-    }
-
-    .window-topbar {
-      background: var(--navy-deep);
-      color: #FFFFFF;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .window-dots {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-    .w-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.22);
-    }
-
-    .stage-switcher {
-      display: flex;
-      gap: 6px;
-      background: rgba(255,255,255,0.08);
-      padding: 4px;
-      border-radius: 6px;
-    }
-
-    .stage-btn {
-      background: transparent;
-      color: var(--blue-steel);
-      border: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .stage-btn.active {
-      background: var(--blue-interactive);
-      color: #FFFFFF;
-    }
-
-    .sara-ui-body {
+      color: var(--text-ink);
+      border-radius: 14px;
       padding: 24px;
-      background: var(--bg-alabaster);
-    }
-
-    .sara-kpi-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .sara-kpi-card {
-      background: #FFFFFF;
+      box-shadow: 0 24px 48px rgba(7, 12, 19, 0.38);
       border: 1px solid var(--border-light);
-      border-radius: 8px;
-      padding: 16px;
     }
 
-    .kpi-top {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .kpi-num {
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--navy-deep);
-      margin-bottom: 4px;
-    }
-
-    .kpi-tag {
-      display: inline-block;
-      font-size: 11px;
-      padding: 2px 7px;
-      border-radius: 4px;
-      font-weight: 500;
-    }
-    .tag-crit { background: var(--sev-crit-bg); color: var(--sev-crit); }
-    .tag-med { background: var(--sev-med-bg); color: var(--sev-med); }
-    .tag-low { background: var(--sev-low-bg); color: var(--sev-low); }
-
-    .sara-visual-grid {
+    .wb-metric-split {
       display: grid;
-      grid-template-columns: 1.35fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
-    }
-
-    .ui-panel {
-      background: #FFFFFF;
-      border: 1px solid var(--border-light);
-      border-radius: 8px;
-      padding: 18px;
-    }
-
-    .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
+      padding-bottom: 18px;
       border-bottom: 1px solid var(--border-light);
+      margin-bottom: 16px;
     }
 
-    .panel-title {
-      font-size: 13.5px;
+    .wb-big-val {
+      font-size: 28px;
       font-weight: 600;
       color: var(--navy-deep);
+      margin-top: 4px;
     }
 
-    .prov-badge {
-      font-size: 10.5px;
-      padding: 2px 7px;
-      border-radius: 4px;
-      border: 1px solid var(--border-light);
-      background: var(--bg-alabaster);
-      color: var(--text-slate);
+    .widget-front-floating {
+      position: relative;
+      margin-top: -18px;
+      margin-left: 36px;
+      background: #FFFFFF;
+      color: var(--text-ink);
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 22px 44px rgba(13, 21, 32, 0.28);
+      border: 1px solid #CBD5E1;
     }
 
-    .wf-row { margin-bottom: 11px; }
-    .wf-label-line {
+    .wf-queue-row {
       display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      margin-bottom: 4px;
-    }
-    .wf-track {
-      height: 8px;
-      background: var(--bg-alabaster);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .wf-fill { height: 100%; border-radius: 4px; }
-
-    .signal-row {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border-light);
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--bg-alabaster);
       font-size: 12.5px;
     }
-    .signal-row:last-child { border-bottom: none; }
+    .wf-queue-row:last-child { border-bottom: none; padding-bottom: 0; }
 
-    /* WHITE & ALABASTER CONTENT SECTIONS */
+    .status-pill {
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .pill-approved { background: var(--sev-low-bg); color: var(--sev-low); }
+    .pill-hold { background: var(--sev-crit-bg); color: var(--sev-crit); }
+    .pill-review { background: var(--sev-high-bg); color: var(--sev-high); }
+
+    /* PATTERN 2: HYPHENATE-STYLE FULL-WIDTH STATEMENT BANNER (VIDEO 0:09) */
+    .statement-band {
+      background: var(--navy-deep);
+      color: #FFFFFF;
+      padding: 64px 0;
+      border-bottom: 1px solid rgba(102, 153, 204, 0.2);
+    }
+
+    .statement-quote {
+      font-size: clamp(28px, 3.8vw, 46px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      max-width: 980px;
+    }
+    .statement-quote span {
+      color: rgba(153, 175, 188, 0.55);
+    }
+
+    /* PATTERN 3: "01 — 06" STEP-BY-STEP MICRO-UI SHOWCASE (VIDEO 0:12 - 0:18) */
     .section-white {
       background: #FFFFFF;
-      padding: 68px 0;
+      padding: 76px 0;
       border-bottom: 1px solid var(--border-light);
     }
 
     .section-alabaster {
       background: var(--bg-alabaster);
-      padding: 68px 0;
+      padding: 76px 0;
       border-bottom: 1px solid var(--border-light);
     }
 
@@ -627,6 +527,282 @@
       line-height: 1.5;
     }
 
+    .step-showcase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .step-showcase-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    /* Left Square Tinted Micro-UI Stage */
+    .micro-ui-stage {
+      background: linear-gradient(145deg, #EBF3FA 0%, #F2F4F7 100%);
+      border: 1px solid #D8E6F3;
+      border-radius: 14px;
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 410px;
+    }
+
+    .micro-widget-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 26px;
+      width: 100%;
+      max-width: 460px;
+      box-shadow: 0 18px 38px rgba(13, 21, 32, 0.08);
+      animation: fadeInPage 0.2s ease-out;
+    }
+
+    /* Right 01-06 Selector List */
+    .step-selector-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .step-row-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .step-row-btn:hover {
+      border-color: var(--blue-brand);
+      background: var(--bg-subtle);
+    }
+    .step-row-btn.active {
+      background: var(--navy-deep);
+      color: #FFFFFF;
+      border-color: var(--navy-deep);
+      box-shadow: 0 10px 24px rgba(13, 21, 32, 0.14);
+    }
+
+    .step-num-badge {
+      font-size: 11.5px;
+      padding: 4px 8px;
+      border-radius: 5px;
+      background: var(--bg-alabaster);
+      color: var(--blue-interactive);
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-row-btn.active .step-num-badge {
+      background: var(--blue-interactive);
+      color: #FFFFFF;
+    }
+
+    .step-row-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .step-row-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+    .step-row-btn.active .step-row-desc {
+      color: #CBD5E1;
+    }
+
+    /* PATTERN 4: "WITHOUT VS WITH FORTIFAI" + RISING AREA CHART (VIDEO 0:19 - 0:26) */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .without-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 32px;
+    }
+
+    .without-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .without-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .with-card {
+      background: #FFFFFF;
+      border: 2px solid var(--blue-interactive);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 16px 36px rgba(46, 90, 138, 0.09);
+    }
+
+    .with-outcomes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 20px 0 24px;
+    }
+
+    .with-outcome-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    /* PATTERN 5: ERP INTEGRATION STACK HUB (VIDEO 0:27) */
+    .stack-hub-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .erp-tile {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: 10px;
+      padding: 14px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy-deep);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .erp-tile.center-hub {
+      background: var(--navy-deep);
+      color: #FFFFFF;
+      border-color: var(--blue-brand);
+      padding: 16px 26px;
+      box-shadow: 0 12px 28px rgba(13, 21, 32, 0.25);
+    }
+
+    /* PATTERN 6: DARK 4-MODULE "EXPLORE THE PLATFORM" STRIP (VIDEO 0:29) */
+    .dark-modules-band {
+      background: var(--navy-deep);
+      color: #FFFFFF;
+      padding: 72px 0;
+    }
+
+    .dark-modules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .dark-mod-card {
+      background: #131F30;
+      border: 1px solid rgba(102, 153, 204, 0.22);
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .dark-mod-card:hover {
+      border-color: var(--blue-brand);
+      transform: translateY(-3px);
+      background: #17263B;
+    }
+
+    .dark-mod-card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 12px 0 8px;
+      color: #FFFFFF;
+    }
+
+    .dark-mod-card p {
+      font-size: 13px;
+      color: var(--blue-steel);
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    /* PATTERN 7: CLEAN ACCORDION FAQ (VIDEO 0:32) */
+    .faq-split {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+      padding: 18px 0;
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy-deep);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .faq-a {
+      display: none;
+      padding-top: 10px;
+      font-size: 14px;
+      color: var(--text-slate);
+      line-height: 1.55;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* SUBPAGE HEADER BANNER */
+    .subpage-header {
+      background: linear-gradient(180deg, #F2F4F7 0%, #FFFFFF 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: 56px 0 44px;
+    }
+
     .bento-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -650,23 +826,10 @@
       border-radius: 8px;
       padding: 14px;
       margin-bottom: 18px;
-      min-height: 115px;
+      min-height: 110px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-
-    .bento-card h3 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--navy-deep);
-      margin-bottom: 6px;
-    }
-
-    .bento-card p {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.45;
     }
 
     /* ROLE SWITCHER */
@@ -754,32 +917,32 @@
       font-weight: 500;
     }
 
-    /* ABOUT US PAGE: FOUNDING TEAM + PHOTOS + ADVISORY BOARD */
-    .team-grid-4 {
+    /* ABOUT US PAGE: 3-FOUNDER GRID + ADVISORY BOARD (CHRIS KEY REMOVED) */
+    .founders-grid-3 {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
     .advisory-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
 
     .person-card {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 12px rgba(13, 21, 32, 0.03);
+      box-shadow: 0 4px 12px rgba(13, 21, 32, 0.04);
     }
 
     .person-photo-box {
-      height: 210px;
-      background: linear-gradient(145deg, #0D1520 0%, #1B3654 60%, #2E5A8A 100%);
+      height: 250px;
+      background: linear-gradient(145deg, #1E242B 0%, #0D1520 100%);
       position: relative;
       display: flex;
       align-items: center;
@@ -793,29 +956,30 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
+      filter: grayscale(100%);
       position: absolute;
       inset: 0;
       z-index: 2;
     }
 
     .avatar-monogram {
-      width: 86px;
-      height: 86px;
+      width: 92px;
+      height: 92px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.07);
       border: 2px solid rgba(102, 153, 204, 0.55);
       color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 600;
       letter-spacing: 1px;
       z-index: 1;
     }
 
     .person-body {
-      padding: 20px;
+      padding: 22px;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -832,17 +996,17 @@
     }
 
     .person-name {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 600;
       color: var(--navy-deep);
       margin-bottom: 8px;
     }
 
     .person-quote {
-      font-size: 13px;
+      font-size: 13.5px;
       color: var(--text-slate);
-      line-height: 1.5;
-      margin-bottom: 12px;
+      line-height: 1.55;
+      margin-bottom: 14px;
     }
 
     .person-creds {
@@ -1018,7 +1182,7 @@
     }
 
     @media (max-width: 960px) {
-      .sara-kpi-row, .sara-visual-grid, .bento-grid, .agent-cards-3, .team-grid-4, .advisory-grid-3, .book-layout {
+      .hero-split-grid, .step-showcase-grid, .compare-grid, .dark-modules-grid, .faq-split, .bento-grid, .agent-cards-3, .founders-grid-3, .advisory-grid-3, .book-layout {
         grid-template-columns: 1fr;
       }
       .nav-menu { display: none; }
@@ -1034,17 +1198,14 @@
     <a onclick="showPage('book')">Book a 30-Min Demo →</a>
   </div>
 
-  <!-- CRISP WHITE STICKY HEADER (SOLUTIONS TAB MERGED INTO PRODUCT FOR ZERO DUPLICATION) -->
+  <!-- CRISP WHITE STICKY HEADER -->
   <header class="site-header">
     <div class="container nav-bar">
-      <!-- CRISP PRECISION FORTIFAI LOGO (EXACT MATCH TO OFFICIAL BRAND LOCKUP) -->
+      <!-- PRECISION FORTIFAI LOGO -->
       <a onclick="showPage('home')" class="brand-logo" aria-label="Fortifai Home">
         <svg height="36" viewBox="0 0 218 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Angled Brand Blue Trapezoid Mark -->
           <polygon points="2,24 31,12 31,44 2,44" fill="#6699CC"/>
-          <!-- Crisp "fortifai" Wordmark + Continuous r-t-i-f-a Crossbar -->
           <text x="41" y="44" fill="#0D1520" font-family="'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="44" font-weight="600" letter-spacing="-1.6">fortifai</text>
-          <!-- Signature Continuous Horizontal Bar Across r-t-i-f-a -->
           <rect x="97" y="19.5" width="76" height="4.8" fill="#0D1520"/>
         </svg>
       </a>
@@ -1054,7 +1215,7 @@
           <button class="nav-trigger active-nav" id="nav-home" onclick="showPage('home')">Home</button>
         </li>
 
-        <!-- 1. UNIFIED PRODUCT MEGA-MENU (PLATFORM + AGENTS + WORKFLOWS) -->
+        <!-- 1. PRODUCT MEGA-MENU -->
         <li class="nav-item">
           <button class="nav-trigger" id="nav-product" onclick="showPage('product')">Product <span class="caret">▾</span></button>
           <div class="mega-dropdown">
@@ -1202,180 +1363,350 @@
   </header>
 
   <!-- =====================================================================
-       PAGE 1: HOME PAGE (Focused Hero + Live Control Tower UI + Value Pools)
+       PAGE 1: HOME PAGE (Hyphenate-Style Visual Product Showcase)
        ===================================================================== -->
   <div id="page-home" class="page-view active">
+
+    <!-- PATTERN 1: SPLIT HERO WITH OVERLAPPING MICRO-UI CARDS -->
     <section class="hero-blue-canvas">
-      <div class="container">
-        <div class="hero-content">
+      <div class="container hero-split-grid">
+        <div>
           <div class="category-pill mono">
             <span class="live-dot"></span>
             <span>AI FOR ENTERPRISE RISK · FORTIFAI SARA + D7</span>
           </div>
           <h1 class="hero-headline">
-            Every ERP transaction read, audited, and protected <span class="muted-tone">the moment it posts.</span>
+            From ERP posting to pre-payment block, <span class="muted-tone">zero sampling blind spots.</span>
           </h1>
           <p class="hero-subtext">
-            Sample audits inspect less than 5% of transactions months too late. Fortifai deploys autonomous AI agents inside your private VPC to stop cash leakage, guard working capital, and automate regulatory assurance across 100% of your ERP.
+            Fortifai connects to SAP, Oracle, NetSuite, and Concur inside your private VPC—monitoring 100% of transactions continuously to stop cash leakage and automate assurance.
           </p>
           <div class="hero-cta-row">
             <button onclick="showPage('book')" class="btn btn-hero-white">Book a Demo →</button>
-            <button onclick="showPage('product')" class="btn btn-hero-ghost mono">Explore the AI Agent Stack</button>
+            <button onclick="showPage('product')" class="btn btn-hero-ghost mono">See How It Works (01 — 06)</button>
+          </div>
+        </div>
+
+        <!-- Layered Micro-UI Card Stack (Extracted from Cockpit HTML) -->
+        <div class="hero-widget-stack">
+          <div class="widget-back-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span class="mono" style="font-size:11px; color:var(--text-muted); font-weight:500;">FORTIFAI SARA · LIVE ERP TELEMETRY</span>
+              <span class="status-pill pill-approved mono">✓ AS 1105 RECONCILED</span>
+            </div>
+            <div class="wb-metric-split">
+              <div>
+                <div class="mono" style="font-size:11px; color:var(--text-muted);">Transactions Monitored</div>
+                <div class="wb-big-val mono">14.2M <span style="font-size:13px; color:var(--sev-low); font-weight:500;">(100%)</span></div>
+              </div>
+              <div>
+                <div class="mono" style="font-size:11px; color:var(--text-muted);">Stoppable Leakage Surfaced</div>
+                <div class="wb-big-val mono" style="color:var(--blue-interactive);">$24.4M</div>
+              </div>
+            </div>
+            <div style="font-size:12px; color:var(--text-slate); display:flex; justify-content:space-between;">
+              <span>4-Rung Waterfall Deduplication</span>
+              <span class="mono" style="font-weight:600; color:var(--navy-deep);">0.0% Double-Counting</span>
+            </div>
+          </div>
+
+          <!-- Overlapping Front Approvals / Hold Queue Card -->
+          <div class="widget-front-floating">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+              <span style="font-size:13px; font-weight:600; color:var(--navy-deep);">Pre-F110 Treasury &amp; Control Queue</span>
+              <span class="mono" style="font-size:11px; color:var(--blue-interactive);">SAP S/4HANA Live</span>
+            </div>
+            <div class="wf-queue-row">
+              <div>
+                <div style="font-weight:600;">Apex Industrial · +18.4% Over Contract</div>
+                <div class="mono" style="font-size:11px; color:var(--text-muted);">LIFNR 00049182 · $1.85M Unpaid BSIK</div>
+              </div>
+              <span class="status-pill pill-hold mono">FB65 Staged</span>
+            </div>
+            <div class="wf-queue-row">
+              <div>
+                <div style="font-weight:600;">Vanguard Logistics · Cross-Entity Duplicate</div>
+                <div class="mono" style="font-size:11px; color:var(--text-muted);">INV-99401A vs INV-99401-A · $1.24M</div>
+              </div>
+              <span class="status-pill pill-hold mono">Payment Held</span>
+            </div>
+            <div class="wf-queue-row">
+              <div>
+                <div style="font-weight:600;">Routine GL Account Recs (146 Accounts)</div>
+                <div class="mono" style="font-size:11px; color:var(--text-muted);">Subledger-to-ACDOCA Δ = $0.00</div>
+              </div>
+              <span class="status-pill pill-approved mono">Auto-Cleared</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FLOATING PRODUCT STAGE -->
-    <div class="container product-stage-wrapper">
-      <div class="product-window">
-        <div class="window-topbar">
-          <div class="window-dots">
-            <span class="w-dot"></span><span class="w-dot"></span><span class="w-dot"></span>
-            <span class="mono" style="font-size:12px; margin-left:8px; color:var(--blue-brand);">FORTIFAI SARA · EXECUTIVE RISK CONTROL TOWER (VPC ENCLAVE)</span>
-          </div>
-          <div class="stage-switcher">
-            <button class="stage-btn active" id="btn-ui" onclick="toggleStage('ui')">⚡ Live Control Tower UI</button>
-            <button class="stage-btn" id="btn-vid" onclick="toggleStage('video')">🎥 4-Min Product Tour Video</button>
-          </div>
-        </div>
-
-        <div class="sara-ui-body" id="stage-ui-view">
-          <div class="sara-kpi-row">
-            <div class="sara-kpi-card">
-              <div class="kpi-top mono"><span>NET HARD EBITDA SURFACED</span><span>4-RUNG WATERFALL</span></div>
-              <div class="kpi-num mono">$24.4M</div>
-              <span class="kpi-tag tag-low mono">✓ Zero Double-Counting</span>
-            </div>
-            <div class="sara-kpi-card">
-              <div class="kpi-top mono"><span>PRE-PAYMENT HOLD QUEUE</span><span>SAP F110 GUARD</span></div>
-              <div class="kpi-num mono">$4.2M</div>
-              <span class="kpi-tag tag-crit mono">18 Invoices Intercepted</span>
-            </div>
-            <div class="sara-kpi-card">
-              <div class="kpi-top mono"><span>POPULATION COVERAGE</span><span>PCAOB AS 1105</span></div>
-              <div class="kpi-num mono">100.0%</div>
-              <span class="kpi-tag tag-med mono">632× vs. 5% Sample Audits</span>
-            </div>
-            <div class="sara-kpi-card">
-              <div class="kpi-top mono"><span>TRIAGE EFFORT REDUCTION</span><span>Xa EXPLAINABILITY</span></div>
-              <div class="kpi-num mono">54.2%</div>
-              <span class="kpi-tag tag-low mono">Auto-Drafted Workpapers</span>
-            </div>
-          </div>
-
-          <div class="sara-visual-grid">
-            <div class="ui-panel">
-              <div class="panel-header">
-                <span class="panel-title">4-Rung Economic Precedence Waterfall (Deduplicated Yield)</span>
-                <span class="prov-badge mono">CTRL-WATERFALL · SQL VERIFIED</span>
-              </div>
-              <div class="wf-row">
-                <div class="wf-label-line">
-                  <span><strong>Rung 1 · Pre-Disbursement Hold</strong> (Duplicates &amp; Unbilled GRNs)</span>
-                  <span class="mono" style="font-weight:600;">$8.6M</span>
-                </div>
-                <div class="wf-track"><div class="wf-fill" style="width:82%; background:#C62828;"></div></div>
-              </div>
-              <div class="wf-row">
-                <div class="wf-label-line">
-                  <span><strong>Rung 2 · Pass-Through Middleman Clip</strong> (0-Headcount Conduits)</span>
-                  <span class="mono" style="font-weight:600;">$6.4M</span>
-                </div>
-                <div class="wf-track"><div class="wf-fill" style="width:64%; background:#D97706;"></div></div>
-              </div>
-              <div class="wf-row">
-                <div class="wf-label-line">
-                  <span><strong>Rung 3 · Terms-Adjusted Price Variance</strong> (P_eff vs. Index/Contract)</span>
-                  <span class="mono" style="font-weight:600;">$5.9M</span>
-                </div>
-                <div class="wf-track"><div class="wf-fill" style="width:58%; background:#2E5A8A;"></div></div>
-              </div>
-              <div class="wf-row" style="margin-bottom:0;">
-                <div class="wf-label-line">
-                  <span><strong>Rung 4 · Working Capital &amp; DPO Guard</strong> (Premature Payment Runs)</span>
-                  <span class="mono" style="font-weight:600;">$3.5M</span>
-                </div>
-                <div class="wf-track"><div class="wf-fill" style="width:38%; background:#6699CC;"></div></div>
-              </div>
-            </div>
-
-            <div class="ui-panel">
-              <div class="panel-header">
-                <span class="panel-title">Live Autonomous Agent Feed</span>
-                <span class="prov-badge mono" style="color:#2E5A8A; border-color:#2E5A8A;">Xa AI Narrative</span>
-              </div>
-              <div class="signal-row">
-                <div>
-                  <div style="font-weight:600;">Procurement Cost-Saving Agent</div>
-                  <div style="font-size:11.5px; color:var(--text-muted);">LME index dropped 14%; vendor held PO rate flat</div>
-                </div>
-                <span class="kpi-tag tag-crit mono">FB65 Staged</span>
-              </div>
-              <div class="signal-row">
-                <div>
-                  <div style="font-weight:600;">Export Trade-Diversion Agent</div>
-                  <div style="font-size:11.5px; color:var(--text-muted);">Ship-To country flipped in CDHDR post-clearance</div>
-                </div>
-                <span class="kpi-tag tag-crit mono">Hold Shipment</span>
-              </div>
-              <div class="signal-row">
-                <div>
-                  <div style="font-weight:600;">Balance Sheet &amp; Close Agent</div>
-                  <div style="font-size:11.5px; color:var(--text-muted);">60/186 GL recs auto-cleared · 3 top-side JEs isolated</div>
-                </div>
-                <span class="kpi-tag tag-med mono">SOX 404 Ready</span>
-              </div>
-              <div class="signal-row">
-                <div>
-                  <div style="font-weight:600;">Bribery &amp; FCPA Monitoring Agent</div>
-                  <div style="font-size:11.5px; color:var(--text-muted);">PO-exempt consulting fee + Concur T&amp;E tender spike</div>
-                </div>
-                <span class="kpi-tag tag-low mono">Privileged Queue</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="stage-video-view" style="display:none; height:520px; background:#0D1520;">
-          <iframe id="product-video-iframe" src="" data-src="https://app.trupeer.ai/embed/4NGm1PFPt" style="width:100%; height:100%; border:none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <!-- PATTERN 2: BOLD FULL-WIDTH 2-TONE STATEMENT BANNER -->
+    <section class="statement-band">
+      <div class="container">
+        <div class="statement-quote">
+          Every purchase order, invoice, journal entry, and shipment verified the moment it posts—<span>inside your private VPC, with zero black-box math.</span>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- CONCISE HOME OUTCOMES & QUICK NAVIGATION CARDS -->
+    <!-- PATTERN 3: HYPHENATE-STYLE "01 — 06" INTERACTIVE MICRO-UI SHOWCASE -->
     <section class="section-white">
       <div class="container">
-        <span class="sec-eyebrow mono">FOUR BOARD-DEFENSIBLE OUTCOMES</span>
-        <h2 class="sec-heading">One ERP Integration. Immediate P&amp;L and Governance Impact.</h2>
-        <p class="sec-lead">Deploy inside your private VPC in 4 to 6 weeks with zero external data movement.</p>
+        <div class="step-showcase-header">
+          <div>
+            <span class="sec-eyebrow mono">AUTONOMOUS MULTI-AGENT PIPELINE</span>
+            <h2 class="sec-heading" style="margin-bottom:0;">What happens when a transaction hits your ERP.</h2>
+          </div>
+          <div class="mono" style="font-size:14px; color:var(--text-muted); font-weight:500;" id="step-counter-label">01 — 06</div>
+        </div>
 
-        <div class="bento-grid">
-          <div class="bento-card">
-            <div>
-              <span class="mono" style="font-size:11px; color:var(--blue-interactive);">01 · HARD EBITDA &amp; CASH</span>
-              <h3 style="margin-top:6px;">Stop Spend &amp; Payment Leakage</h3>
-              <p style="margin-bottom:16px;">Intercept duplicate bills, premature payment runs, off-contract price variance, and zero-substance middlemen before cash leaves the bank.</p>
-            </div>
-            <button onclick="openRolePage('cfo')" class="btn btn-outline-dark" style="width:100%;">Explore CFO &amp; CPO Agents →</button>
+        <div class="step-showcase-grid">
+          <!-- Left Tinted Square Stage with Zoomed-In Micro-UI Widget -->
+          <div class="micro-ui-stage" id="micro-ui-stage"></div>
+
+          <!-- Right 01-06 Interactive Step Selector -->
+          <div class="step-selector-list">
+            <button class="step-row-btn active" onclick="selectPipelineStep(0, this)">
+              <span class="step-num-badge mono">01</span>
+              <div>
+                <div class="step-row-title">Stage 0 Data Completeness Gate</div>
+                <div class="step-row-desc">Reconciles SAP/Oracle subledgers to the General Ledger (PCAOB AS 1105) before a single rule fires.</div>
+              </div>
+            </button>
+
+            <button class="step-row-btn" onclick="selectPipelineStep(1, this)">
+              <span class="step-num-badge mono">02</span>
+              <div>
+                <div class="step-row-title">Terms-Adjusted Price &amp; 3-Way Match</div>
+                <div class="step-row-desc">Normalizes payment terms, currency, and freight into Effective Price (P_eff) to catch silent overbilling.</div>
+              </div>
+            </button>
+
+            <button class="step-row-btn" onclick="selectPipelineStep(2, this)">
+              <span class="step-num-badge mono">03</span>
+              <div>
+                <div class="step-row-title">Fortifai D7 Counterparty Substance Check</div>
+                <div class="step-row-desc">Screens vendor UBO networks, sanctions, tax scope, and verified factory headcount in real time.</div>
+              </div>
+            </button>
+
+            <button class="step-row-btn" onclick="selectPipelineStep(3, this)">
+              <span class="step-num-badge mono">04</span>
+              <div>
+                <div class="step-row-title">4-Rung Waterfall Deduplication</div>
+                <div class="step-row-desc">Assigns every flagged dollar to a single economic owner so two agents never double-count the same recovery.</div>
+              </div>
+            </button>
+
+            <button class="step-row-btn" onclick="selectPipelineStep(4, this)">
+              <span class="step-num-badge mono">05</span>
+              <div>
+                <div class="step-row-title">Xa Narrative &amp; Exclusion Memory</div>
+                <div class="step-row-desc">Auto-drafts audit-ready root-cause narratives while suppressing known false positives (-54% noise).</div>
+              </div>
+            </button>
+
+            <button class="step-row-btn" onclick="selectPipelineStep(5, this)">
+              <span class="step-num-badge mono">06</span>
+              <div>
+                <div class="step-row-title">Pre-Disbursement Hold &amp; 1-Click Workpaper</div>
+                <div class="step-row-desc">Stages SAP F110 payment blocks, FB65 debit memos, and sealed PCAOB/DOJ evidence packs.</div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATTERN 4: "WITHOUT FORTIFAI VS WITH FORTIFAI" + RISING AREA CHART -->
+    <section class="section-alabaster">
+      <div class="container">
+        <span class="sec-eyebrow mono">REPLACE SAMPLE AUDITS WITH CONTINUOUS AI</span>
+        <h2 class="sec-heading">Same ERP. Zero sampling blind spots.</h2>
+        <p class="sec-lead">Traditional audits test 25 rows a quarter after the cash is gone. Fortifai tests 100% of lines before payment runs execute.</p>
+
+        <div class="compare-grid">
+          <!-- Left: Without Fortifai -->
+          <div class="without-card">
+            <div class="mono" style="font-size:12px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.7px;">Without Fortifai</div>
+            <h3 style="font-size:20px; font-weight:600; color:var(--navy-deep); margin-top:6px;">Reactive 5% Sampling &amp; Static Slide Decks</h3>
+            <ul class="without-list">
+              <li><span>✕</span> <span>Manual quarterly samples inspect less than 5% of ERP transactions—missing 95% of leakage.</span></li>
+              <li><span>✕</span> <span>Duplicate invoices and off-contract price creep discovered months after cash leaves the bank.</span></li>
+              <li><span>✕</span> <span>Multiple audit rules flag the same invoice, inflating un-deduplicated savings claims.</span></li>
+              <li><span>✕</span> <span>Internal ERP monitoring and third-party vendor due diligence sit in disconnected silos.</span></li>
+              <li><span>✕</span> <span>Analysts spend 80% of their time pulling CSVs and building manual pivot tables.</span></li>
+              <li><span>✕</span> <span>Rule engines flood teams with repetitive false positives every single month.</span></li>
+            </ul>
           </div>
 
-          <div class="bento-card">
+          <!-- Right: With Fortifai + Rising Area Chart -->
+          <div class="with-card">
             <div>
-              <span class="mono" style="font-size:11px; color:var(--blue-interactive);">02 · CONTINUOUS ASSURANCE</span>
-              <h3 style="margin-top:6px;">Automate SOX, Audit &amp; Close</h3>
-              <p style="margin-bottom:16px;">Replace 5% manual sample audits with 100% population control testing, auto-cleared GL reconciliations, and one-click Board packs.</p>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="mono" style="font-size:12px; color:var(--blue-interactive); font-weight:600; text-transform:uppercase;">With Fortifai SARA + D7</span>
+                <span class="status-pill pill-approved mono">632× Coverage</span>
+              </div>
+              <h3 style="font-size:20px; font-weight:600; color:var(--navy-deep); margin-top:6px;">100% Population Assurance &amp; Pre-Payment Recovery</h3>
+
+              <div class="with-outcomes-grid">
+                <div class="with-outcome-box">
+                  <div class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">01 · FULL POPULATION</div>
+                  <div style="font-size:13px; color:var(--text-ink); font-weight:600; margin-top:3px;">100% of P2P, O2C &amp; GL lines scored continuously</div>
+                </div>
+                <div class="with-outcome-box">
+                  <div class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">02 · PRE-PAYMENT HOLD</div>
+                  <div style="font-size:13px; color:var(--text-ink); font-weight:600; margin-top:3px;">Intercept overpayments prior to SAP F110 payout</div>
+                </div>
+                <div class="with-outcome-box">
+                  <div class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">03 · DEFENSIBLE MEMORY</div>
+                  <div style="font-size:13px; color:var(--text-ink); font-weight:600; margin-top:3px;">Self-learning Exclusion Registry cuts noise by 54%</div>
+                </div>
+                <div class="with-outcome-box">
+                  <div class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">04 · ZERO DATA EGRESS</div>
+                  <div style="font-size:13px; color:var(--text-ink); font-weight:600; margin-top:3px;">Runs 100% inside your private VPC or on-prem</div>
+                </div>
+              </div>
             </div>
-            <button onclick="openRolePage('cae')" class="btn btn-outline-dark" style="width:100%;">Explore Audit &amp; Close Agents →</button>
+
+            <!-- Rising Cumulative EBITDA & Cash Protected SVG Area Chart -->
+            <div style="background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:8px; padding:14px 16px;">
+              <div style="display:flex; justify-content:space-between; font-size:11.5px; margin-bottom:8px;" class="mono">
+                <span style="color:var(--text-muted);">CUMULATIVE DEDUPLICATED YIELD</span>
+                <span style="color:var(--sev-low); font-weight:600;">↑ $24.4M Verified Annualized Run-Rate</span>
+              </div>
+              <svg viewBox="0 0 460 110" width="100%" height="105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#2E5A8A" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#6699CC" stop-opacity="0.02"/>
+                  </linearGradient>
+                </defs>
+                <!-- Subtle Grid Lines -->
+                <line x1="0" y1="25" x2="460" y2="25" stroke="#E5E7EB" stroke-dasharray="3 3"/>
+                <line x1="0" y1="60" x2="460" y2="60" stroke="#E5E7EB" stroke-dasharray="3 3"/>
+                <line x1="0" y1="95" x2="460" y2="95" stroke="#E5E7EB"/>
+                <!-- Legacy 5% Sample Flat Baseline -->
+                <path d="M10 90 L450 86" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <!-- Fortifai Rising Area & Curve -->
+                <path d="M10 92 C90 84, 150 68, 230 52 C310 35, 380 20, 450 12 L450 95 L10 95 Z" fill="url(#areaGrad)"/>
+                <path d="M10 92 C90 84, 150 68, 230 52 C310 35, 380 20, 450 12" stroke="#2E5A8A" stroke-width="2.5"/>
+                <circle cx="450" cy="12" r="4.5" fill="#2E5A8A"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATTERN 5: BUILT TO FIT YOUR ERP STACK HUB -->
+    <section class="section-white" style="text-align:center;">
+      <div class="container">
+        <span class="sec-eyebrow mono">PLUG-AND-PLAY READ-ONLY CONNECTORS</span>
+        <h2 class="sec-heading">Built to fit the ERP stack you already run.</h2>
+        <p class="sec-lead" style="margin:0 auto;">Deploys inside your AWS, Azure, GCP VPC or on-premises perimeter in 4 to 6 weeks.</p>
+
+        <div class="stack-hub-row">
+          <div class="erp-tile mono">SAP S/4HANA</div>
+          <div class="erp-tile mono">SAP ECC</div>
+          <div class="erp-tile mono">Oracle Fusion ERP</div>
+          <div class="erp-tile center-hub mono">◢ FORTIFAI VPC SPINE</div>
+          <div class="erp-tile mono">Oracle NetSuite</div>
+          <div class="erp-tile mono">Microsoft Dynamics 365</div>
+          <div class="erp-tile mono">SAP Concur T&amp;E</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATTERN 6: DARK 4-CARD "EXPLORE THE PLATFORM" STRIP -->
+    <section class="dark-modules-band">
+      <div class="container">
+        <span class="sec-eyebrow mono" style="color:var(--blue-brand);">EXPLORE THE PLATFORM</span>
+        <h2 class="sec-heading" style="color:#FFFFFF; margin-bottom:0;">Four core workflows running on one shared context.</h2>
+
+        <div class="dark-modules-grid">
+          <div class="dark-mod-card" onclick="openRolePage('cpo')">
+            <div>
+              <span class="mono" style="font-size:11px; color:var(--blue-brand);">01 · PROCURE-TO-PAY</span>
+              <h3>Spend &amp; AP Recovery</h3>
+              <p>Catch price variance (P_eff), pass-through middlemen, and cross-entity duplicate bills before F110 runs execute.</p>
+            </div>
+            <span class="mono" style="font-size:12px; color:#FFFFFF;">Explore P2P Agents →</span>
           </div>
 
-          <div class="bento-card">
+          <div class="dark-mod-card" onclick="openRolePage('cfo')">
             <div>
-              <span class="mono" style="font-size:11px; color:var(--blue-interactive);">03 · REGULATORY &amp; 3RD-PARTY</span>
-              <h3 style="margin-top:6px;">Unmask FCPA, Trade &amp; Vendor Risk</h3>
-              <p style="margin-bottom:16px;">Fuse internal ERP transactions with Fortifai D7 360° counterparty intelligence to catch bribery conduits and export diversion.</p>
+              <span class="mono" style="font-size:11px; color:var(--blue-brand);">02 · RECORD-TO-REPORT</span>
+              <h3>Balance Sheet &amp; Close</h3>
+              <p>Auto-clear routine GL reconciliations and isolate top-side manual journal overrides before books close.</p>
             </div>
-            <button onclick="openRolePage('cco')" class="btn btn-outline-dark" style="width:100%;">Explore CCO &amp; Legal Agents →</button>
+            <span class="mono" style="font-size:12px; color:#FFFFFF;">Explore Close Agents →</span>
+          </div>
+
+          <div class="dark-mod-card" onclick="openRolePage('cro')">
+            <div>
+              <span class="mono" style="font-size:11px; color:var(--blue-brand);">03 · ORDER-TO-CASH</span>
+              <h3>Revenue &amp; Margin Guard</h3>
+              <p>Prevent quarter-end channel stuffing, unauthorized discount drift, and subsequent-quarter credit washes.</p>
+            </div>
+            <span class="mono" style="font-size:12px; color:#FFFFFF;">Explore O2C Agents →</span>
+          </div>
+
+          <div class="dark-mod-card" onclick="openRolePage('cco')">
+            <div>
+              <span class="mono" style="font-size:11px; color:var(--blue-brand);">04 · COMPLIANCE &amp; D7</span>
+              <h3>FCPA, Trade &amp; 3rd-Party</h3>
+              <p>Unmask bribery conduits, post-clearance export diversion, and zero-headcount shell vendors.</p>
+            </div>
+            <span class="mono" style="font-size:12px; color:#FFFFFF;">Explore Compliance Agents →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATTERN 7: CLEAN ACCORDION FAQ -->
+    <section class="section-white">
+      <div class="container faq-split">
+        <div>
+          <span class="sec-eyebrow mono">ARCHITECTURE &amp; TRUST</span>
+          <h2 class="sec-heading">Frequently asked questions.</h2>
+          <p style="font-size:14px; color:var(--text-muted); line-height:1.5; margin-bottom:20px;">Have a specific security or ERP schema question?</p>
+          <button onclick="showPage('book')" class="btn btn-outline-dark">Book a Technical Call →</button>
+        </div>
+
+        <div>
+          <div class="faq-item open">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+              <span>Does our ERP data ever leave our private cloud or train external LLMs?</span>
+              <span class="mono">+</span>
+            </button>
+            <div class="faq-a">Never. Fortifai deploys 100% inside your private VPC (AWS, Azure, GCP) or on-premises environment under SOC 2 Type II and ISO 27001 controls. Zero bytes of data egress your perimeter, and 0% of client data is ever used to train external models.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+              <span>How does Fortifai prevent false-positive alert fatigue?</span>
+              <span class="mono">+</span>
+            </button>
+            <div class="faq-a">Every agent writes to a self-learning Exclusion Registry. When an analyst dismisses a benign pattern, Fortifai records the rationale, approver, and a quantitative drift tripwire—suppressing repeat noise by 50%+ while maintaining a complete PCAOB/SOX audit trail.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+              <span>How do you guarantee two agents don't double-count the same dollar of savings?</span>
+              <span class="mono">+</span>
+            </button>
+            <div class="faq-a">Fortifai enforces a deterministic 4-Rung Economic Precedence Waterfall at the transaction line-item level (DOC_ID + LINE_ID), separating Hard P&amp;L EBITDA, Working Capital Cash Release, and Prevented Regulatory Exposure with zero overlap.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+              <span>How long does a typical deployment take?</span>
+              <span class="mono">+</span>
+            </button>
+            <div class="faq-a">Clients can start with a 4-week Rapid Historical Diagnostic using a read-only ERP extract, or deploy continuous in-VPC monitoring in 4 to 6 weeks with pre-built connectors for SAP S/4HANA, SAP ECC, Oracle, NetSuite, and Concur.</div>
           </div>
         </div>
       </div>
@@ -1395,7 +1726,6 @@
       </div>
     </div>
 
-    <!-- SECTION A: 6 CORE HORIZONTAL AGENTS -->
     <section class="section-white">
       <div class="container">
         <span class="sec-eyebrow mono">01 · CORE HORIZONTAL AGENT STACK</span>
@@ -1472,48 +1802,9 @@
       </div>
     </section>
 
-    <!-- SECTION B: END-TO-END ERP WORKFLOW COVERAGE -->
     <section class="section-alabaster">
       <div class="container">
-        <span class="sec-eyebrow mono">02 · END-TO-END ERP PROCESS COVERAGE</span>
-        <h2 class="sec-heading">Continuous Assurance Across Every Core Workflow.</h2>
-        <p class="sec-lead">One read-only connection to SAP S/4HANA, ECC, Oracle, NetSuite, and Concur powers all three workflows.</p>
-
-        <div class="bento-grid">
-          <div class="bento-card">
-            <div>
-              <span class="mono" style="font-size:11px; color:var(--blue-interactive);">PROCURE-TO-PAY (P2P)</span>
-              <h3 style="margin:8px 0;">Spend, AP &amp; Vendor Integrity</h3>
-              <p>Terms-adjusted Effective Price (P_eff) benchmarking, pass-through middleman detection, 3-way match verification, and pre-F110 duplicate payment blocks.</p>
-            </div>
-            <div class="outcome-chip mono" style="margin-top:16px;">✓ 3.5%–5.0% Addressable Spend Surfaced</div>
-          </div>
-
-          <div class="bento-card">
-            <div>
-              <span class="mono" style="font-size:11px; color:var(--blue-interactive);">RECORD-TO-REPORT (R2R)</span>
-              <h3 style="margin:8px 0;">Balance Sheet &amp; Close Assurance</h3>
-              <p>PCAOB AS 1105 subledger-to-GL completeness verification, automated routine account reconciliations, and high-risk top-side manual journal entry isolation.</p>
-            </div>
-            <div class="outcome-chip mono" style="margin-top:16px;">✓ 40%+ Faster Period-End Close</div>
-          </div>
-
-          <div class="bento-card">
-            <div>
-              <span class="mono" style="font-size:11px; color:var(--blue-interactive);">ORDER-TO-CASH (O2C) &amp; TRADE</span>
-              <h3 style="margin:8px 0;">Revenue Cut-Off &amp; Export Control</h3>
-              <p>Quarter-end channel stuffing detection, unauthorized discount guards, post-clearance export trade-diversion tracking, and S&amp;OP baseline sanitization.</p>
-            </div>
-            <div class="outcome-chip mono" style="margin-top:16px;">✓ ASC 606 &amp; BIS/OFAC Defensibility</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION C: FLEXIBLE DEPLOYMENT MODELS -->
-    <section class="section-white">
-      <div class="container">
-        <span class="sec-eyebrow mono">03 · HOW CLIENTS DEPLOY</span>
+        <span class="sec-eyebrow mono">02 · FLEXIBLE DEPLOYMENT MODELS</span>
         <h2 class="sec-heading">Platform Does the Work. Experts Add the Judgment.</h2>
         <p class="sec-lead">Start with a 4-week historical diagnostic or deploy a permanent in-house capability inside your VPC.</p>
 
@@ -1581,7 +1872,7 @@
   </div>
 
   <!-- =====================================================================
-       PAGE 4: ABOUT US PAGE (Founding Team + Photos + Advisory Board)
+       PAGE 4: ABOUT US PAGE (3 Founders + David Maria + 3 Advisors; Chris Removed)
        ===================================================================== -->
   <div id="page-about" class="page-view">
     <div class="subpage-header">
@@ -1597,17 +1888,17 @@
       </div>
     </div>
 
-    <!-- FOUNDING TEAM & LEADERSHIP -->
+    <!-- FOUNDING & EXECUTIVE TEAM (3-COLUMN FOUNDERS + AMERICAS HEAD) -->
     <section class="section-white">
       <div class="container">
         <span class="sec-eyebrow mono">FOUNDING &amp; EXECUTIVE TEAM</span>
         <h2 class="sec-heading" style="margin-bottom:28px;">Leadership Team</h2>
 
-        <div class="team-grid-4" style="margin-bottom:24px;">
+        <div class="founders-grid-3" style="margin-bottom:24px;">
           <!-- Varun Mowar -->
           <div class="person-card">
             <div class="person-photo-box">
-              <img src="assets/varun-mowar.jpg" alt="Varun Mowar" onerror="this.style.display='none'" />
+              <img src="assets/varun-mowar.png" alt="Varun Mowar" onerror="this.src='assets/varun-mowar.jpg'; this.onerror=function(){this.style.display='none'};" />
               <div class="avatar-monogram mono">VM</div>
             </div>
             <div class="person-body">
@@ -1623,7 +1914,7 @@
           <!-- Manish Patil -->
           <div class="person-card">
             <div class="person-photo-box">
-              <img src="assets/manish-patil.jpg" alt="Manish Patil" onerror="this.style.display='none'" />
+              <img src="assets/manish-patil.png" alt="Manish Patil" onerror="this.src='assets/manish-patil.jpg'; this.onerror=function(){this.style.display='none'};" />
               <div class="avatar-monogram mono">MP</div>
             </div>
             <div class="person-body">
@@ -1639,7 +1930,7 @@
           <!-- Adityavijay Rathore -->
           <div class="person-card">
             <div class="person-photo-box">
-              <img src="assets/adityavijay-rathore.jpg" alt="Adityavijay Rathore" onerror="this.style.display='none'" />
+              <img src="assets/adityavijay-rathore.png" alt="Adityavijay Rathore" onerror="this.src='assets/adityavijay-rathore.jpg'; this.onerror=function(){this.style.display='none'};" />
               <div class="avatar-monogram mono">AR</div>
             </div>
             <div class="person-body">
@@ -1651,28 +1942,12 @@
               <div class="person-creds mono">20+ Years Enterprise Data &amp; AI Products</div>
             </div>
           </div>
-
-          <!-- Chris Key -->
-          <div class="person-card">
-            <div class="person-photo-box">
-              <img src="assets/chris-key.jpg" alt="Chris Key" onerror="this.style.display='none'" />
-              <div class="avatar-monogram mono">CK</div>
-            </div>
-            <div class="person-body">
-              <div>
-                <div class="person-role mono">Co-Founder &amp; Managing Director</div>
-                <div class="person-name">Chris Key</div>
-                <p class="person-quote">"Enterprise GTM operator who champions transformative technology, drives disruptive innovation, partners on marquee deals, and accelerates revenue growth."</p>
-              </div>
-              <div class="person-creds mono">Global Enterprise GTM &amp; Partnerships</div>
-            </div>
-          </div>
         </div>
 
         <!-- Americas Leadership Highlight -->
         <div class="person-card" style="flex-direction:row; align-items:center; flex-wrap:wrap;">
-          <div class="person-photo-box" style="width:220px; height:160px; border-bottom:none; border-right:2px solid var(--blue-brand); flex-shrink:0;">
-            <img src="assets/david-maria.jpg" alt="David Maria" onerror="this.style.display='none'" />
+          <div class="person-photo-box" style="width:240px; height:165px; border-bottom:none; border-right:2px solid var(--blue-brand); flex-shrink:0;">
+            <img src="assets/david-maria.png" alt="David Maria" onerror="this.src='assets/david-maria.jpg'; this.onerror=function(){this.style.display='none'};" />
             <div class="avatar-monogram mono" style="width:68px; height:68px; font-size:20px;">DM</div>
           </div>
           <div class="person-body" style="flex:1; min-width:280px;">
@@ -1694,8 +1969,8 @@
         <div class="advisory-grid-3">
           <!-- Arunava Mitra -->
           <div class="person-card">
-            <div class="person-photo-box" style="height:185px;">
-              <img src="assets/arunava-mitra.jpg" alt="Arunava Mitra" onerror="this.style.display='none'" />
+            <div class="person-photo-box" style="height:220px;">
+              <img src="assets/arunava-mitra.png" alt="Arunava Mitra" onerror="this.src='assets/arunava-mitra.jpg'; this.onerror=function(){this.style.display='none'};" />
               <div class="avatar-monogram mono">AM</div>
             </div>
             <div class="person-body">
@@ -1710,8 +1985,8 @@
 
           <!-- Kaiwan Bharucha -->
           <div class="person-card">
-            <div class="person-photo-box" style="height:185px;">
-              <img src="assets/kaiwan-bharucha.jpg" alt="Kaiwan Bharucha" onerror="this.style.display='none'" />
+            <div class="person-photo-box" style="height:220px;">
+              <img src="assets/kaiwan-bharucha.png" alt="Kaiwan Bharucha" onerror="this.src='assets/kaiwan-bharucha.jpg'; this.onerror=function(){this.style.display='none'};" />
               <div class="avatar-monogram mono">KB</div>
             </div>
             <div class="person-body">
@@ -1726,8 +2001,8 @@
 
           <!-- Chandra Yeleshwarapu -->
           <div class="person-card">
-            <div class="person-photo-box" style="height:185px;">
-              <img src="assets/chandra-yeleshwarapu.jpg" alt="Chandra Yeleshwarapu" onerror="this.style.display='none'" />
+            <div class="person-photo-box" style="height:220px;">
+              <img src="assets/chandra-yeleshwarapu.png" alt="Chandra Yeleshwarapu" onerror="this.src='assets/chandra-yeleshwarapu.jpg'; this.onerror=function(){this.style.display='none'};" />
               <div class="avatar-monogram mono">CY</div>
             </div>
             <div class="person-body">
@@ -1750,7 +2025,6 @@
   <div id="page-book" class="page-view">
     <div class="container">
       <div class="book-layout">
-        <!-- Left Tinted Panel -->
         <div class="book-left-panel">
           <div>
             <span class="demo-pill-tag mono">30 Minute Executive Demo</span>
@@ -1772,17 +2046,15 @@
           </div>
         </div>
 
-        <!-- Right Interactive Calendar & Qualification Column -->
         <div class="book-right-panel">
           <div class="booking-mode-tabs">
             <button class="b-mode-btn active" id="tab-cal-mode" onclick="switchBookingTab('calendar')">1. Pick a Time on Microsoft Bookings</button>
             <button class="b-mode-btn" id="tab-form-mode" onclick="switchBookingTab('form')">2. Share Priorities First</button>
           </div>
 
-          <!-- Mode 1 (Default): Direct Microsoft Bookings Calendar -->
           <div id="booking-cal-pane">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-              <span class="mono" style="font-size:12px; color:var(--blue-interactive);" id="cal-greeting-banner">Select your preferred 30-minute time slot directly on our Microsoft Bookings calendar:</span>
+              <span class="mono" style="font-size:12px; color:var(--blue-interactive);">Select your preferred 30-minute time slot directly below:</span>
               <a href="https://bookings.cloud.microsoft/bookwithme/user/9d42e199ba2849b09460c0f0b246122e@fortifai.io/meetingtype/csvZYBwRkkuw11HGTwN8rg2?anonymous&ismsaljsauthenabled" target="_blank" rel="noopener" class="btn btn-primary-blue mono" style="padding:7px 14px; font-size:12px;">Open Microsoft Bookings in New Tab ↗</a>
             </div>
             <div class="ms-bookings-frame-wrap">
@@ -1795,7 +2067,6 @@
             </div>
           </div>
 
-          <!-- Mode 2: Qualification Form that Redirects to Microsoft Bookings -->
           <div id="booking-form-pane" style="display:none;">
             <form onsubmit="submitDemoLead(event)">
               <div class="demo-form-grid-2">
@@ -1860,7 +2131,7 @@
     </div>
   </div>
 
-  <!-- FOOTER (CLEAN — NO PORTALS OR SOLUTIONS DUPLICATION) -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; margin-bottom:36px;">
@@ -1906,6 +2177,164 @@
   <script>
     const MS_BOOKINGS_URL = "https://bookings.cloud.microsoft/bookwithme/user/9d42e199ba2849b09460c0f0b246122e@fortifai.io/meetingtype/csvZYBwRkkuw11HGTwN8rg2?anonymous&ismsaljsauthenabled";
     const FORMSPREE_WEBHOOK = "https://formspree.io/f/myeeodjv";
+
+    // HYPHENATE-STYLE 01 — 06 ZOOMED-IN MICRO-UI WIDGETS (EXTRACTED FROM COCKPIT HTML)
+    const PIPELINE_STEPS = [
+      {
+        num: "01 — 06",
+        html: `
+          <div class="micro-widget-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">STAGE 0 · PCAOB AS 1105 GATE</span>
+              <span class="status-pill pill-approved mono">✓ Δ = $0.00</span>
+            </div>
+            <div style="font-size:16px; font-weight:600; color:var(--navy-deep); margin-bottom:14px;">Subledger-to-GL Completeness Verified</div>
+            <div style="background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:8px; padding:12px; margin-bottom:10px;" class="mono">
+              <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:6px;">
+                <span>SAP ACDOCA (Universal Journal)</span><span style="font-weight:600;">$779,420,110.00</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:6px;">
+                <span>SAP BSIK + BSAK (AP Subledger)</span><span style="font-weight:600;">$779,420,110.00</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--sev-low); padding-top:6px; border-top:1px dashed var(--border-card);">
+                <span>Unreconciled Extraction Variance</span><span>$0.00 (100% Pass)</span>
+              </div>
+            </div>
+            <div class="mono" style="font-size:11px; color:var(--text-muted);">SHA-256 IPE Hash Locked Prior to Rule Execution</div>
+          </div>
+        `
+      },
+      {
+        num: "02 — 06",
+        html: `
+          <div class="micro-widget-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">EFFECTIVE PRICE (P_eff) &amp; 3-WAY MATCH</span>
+              <span class="status-pill pill-hold mono">+18.4% CREEP</span>
+            </div>
+            <div style="font-size:15.5px; font-weight:600; color:var(--navy-deep); margin-bottom:14px;">Apex Industrial Components (LIFNR 00049182)</div>
+            <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; margin-bottom:14px;">
+              <div style="background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:8px; padding:12px; text-align:center;">
+                <div class="mono" style="font-size:10.5px; color:var(--text-muted);">CONTRACT ME33K</div>
+                <div class="mono" style="font-size:20px; font-weight:600; color:var(--navy-deep); margin-top:4px;">$125.00</div>
+                <div class="mono" style="font-size:10px; color:var(--text-muted);">Terms: Net 60</div>
+              </div>
+              <div class="mono" style="font-size:16px; color:var(--sev-crit); font-weight:600;">⟷</div>
+              <div style="background:var(--sev-crit-bg); border:1px solid #FECACA; border-radius:8px; padding:12px; text-align:center;">
+                <div class="mono" style="font-size:10.5px; color:var(--sev-crit);">INVOICE RBKP</div>
+                <div class="mono" style="font-size:20px; font-weight:600; color:var(--sev-crit); margin-top:4px;">$148.00</div>
+                <div class="mono" style="font-size:10px; color:var(--sev-crit);">Terms: Net 15</div>
+              </div>
+            </div>
+            <div class="mono" style="font-size:11.5px; color:var(--text-slate); background:var(--bg-alabaster); padding:8px 10px; border-radius:6px;">
+              Config Alert: SAP Table T169G Tolerance Key 'PP' set to UNLIMITED
+            </div>
+          </div>
+        `
+      },
+      {
+        num: "03 — 06",
+        html: `
+          <div class="micro-widget-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">FORTIFAI D7 · 360° VENDOR SUBSTANCE</span>
+              <span class="status-pill pill-hold mono">SHELL ALERT</span>
+            </div>
+            <div style="font-size:15.5px; font-weight:600; color:var(--navy-deep); margin-bottom:12px;">Stratos Global Supply LLP · $8.4M YTD Spend</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:12px;" class="mono">
+              <div style="background:var(--sev-crit-bg); padding:10px; border-radius:6px;">
+                <div style="font-size:10px; color:var(--sev-crit);">VERIFIED HEADCOUNT</div>
+                <div style="font-size:18px; font-weight:600; color:var(--sev-crit);">0 Employees</div>
+              </div>
+              <div style="background:var(--sev-high-bg); padding:10px; border-radius:6px;">
+                <div style="font-size:10px; color:var(--sev-high);">PAID-UP CAPITAL</div>
+                <div style="font-size:18px; font-weight:600; color:var(--sev-high);">$1,200</div>
+              </div>
+            </div>
+            <div class="mono" style="font-size:11.5px; color:var(--text-slate); background:var(--bg-subtle); border:1px solid var(--border-light); padding:9px 10px; border-radius:6px;">
+              HSN Tax Scope Mismatch: Registered for "Event Management" — Billing "Heavy Industrial Turbines"
+            </div>
+          </div>
+        `
+      },
+      {
+        num: "04 — 06",
+        html: `
+          <div class="micro-widget-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">4-RUNG ECONOMIC WATERFALL</span>
+              <span class="status-pill pill-approved mono">DEDUPLICATED</span>
+            </div>
+            <div style="font-size:15.5px; font-weight:600; color:var(--navy-deep); margin-bottom:14px;">$24.4M Net Yield · Zero Overlap</div>
+            <div style="margin-bottom:10px;">
+              <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;"><span>Rung 1 · Pre-Payment Hold</span><span class="mono" style="font-weight:600;">$8.6M</span></div>
+              <div style="height:8px; background:var(--bg-alabaster); border-radius:4px;"><div style="width:82%; height:100%; background:#C62828; border-radius:4px;"></div></div>
+            </div>
+            <div style="margin-bottom:10px;">
+              <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;"><span>Rung 2 · Pass-Through Middleman Clip</span><span class="mono" style="font-weight:600;">$6.4M</span></div>
+              <div style="height:8px; background:var(--bg-alabaster); border-radius:4px;"><div style="width:65%; height:100%; background:#D97706; border-radius:4px;"></div></div>
+            </div>
+            <div style="margin-bottom:10px;">
+              <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;"><span>Rung 3 · Price Variance (P_eff)</span><span class="mono" style="font-weight:600;">$5.9M</span></div>
+              <div style="height:8px; background:var(--bg-alabaster); border-radius:4px;"><div style="width:58%; height:100%; background:#2E5A8A; border-radius:4px;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:4px;"><span>Rung 4 · Working Capital DPO Guard</span><span class="mono" style="font-weight:600;">$3.5M</span></div>
+              <div style="height:8px; background:var(--bg-alabaster); border-radius:4px;"><div style="width:38%; height:100%; background:#6699CC; border-radius:4px;"></div></div>
+            </div>
+          </div>
+        `
+      },
+      {
+        num: "05 — 06",
+        html: `
+          <div class="micro-widget-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <span class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">Xa ROOT-CAUSE TIMELINE</span>
+              <span class="status-pill pill-approved mono">-54% NOISE</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:10px; font-size:12.5px;">
+              <div style="display:flex; gap:10px; align-items:center;">
+                <span class="status-pill pill-approved mono">✓</span>
+                <span><strong>PO 4500019284</strong> created at $125/unit (ME21N)</span>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <span class="status-pill pill-review mono">!</span>
+                <span><strong>Config Transport DEVK904112</strong> disabled price tolerance</span>
+              </div>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <span class="status-pill pill-hold mono">✕</span>
+                <span><strong>Invoice 5105609112</strong> posted at $148/unit ($3.42M excess)</span>
+              </div>
+              <div style="background:var(--bg-alabaster); padding:9px 10px; border-radius:6px; border-left:3px solid var(--blue-interactive);" class="mono">
+                Exclusion Registry: 0 benign rules matched · Routed to AP Recovery
+              </div>
+            </div>
+          </div>
+        `
+      },
+      {
+        num: "06 — 06",
+        html: `
+          <div class="micro-widget-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span class="mono" style="font-size:11px; color:var(--blue-interactive); font-weight:600;">LAST-MILE EXECUTION &amp; WORKPAPER</span>
+              <span class="status-pill pill-approved mono">READY</span>
+            </div>
+            <div style="font-size:15.5px; font-weight:600; color:var(--navy-deep); margin-bottom:12px;">Pre-F110 Intercept &amp; SAP FB65 Set-Off</div>
+            <div style="background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:8px; padding:12px; margin-bottom:14px;" class="mono">
+              <div style="font-size:11px; color:var(--text-muted);">OPEN UNPAID PAYABLES (SAP BSIK)</div>
+              <div style="font-size:20px; font-weight:600; color:var(--sev-low); margin:4px 0;">$1,850,400.00 Held</div>
+              <div style="font-size:11px; color:var(--text-slate);">Auto-Drafted Voucher: SAP FB65 Debit Memo #DM-9041</div>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <span class="status-pill pill-approved mono" style="flex:1; text-align:center; padding:8px;">✓ F110 Payment Blocked</span>
+              <span class="status-pill mono" style="flex:1; text-align:center; padding:8px; background:var(--sev-med-bg); color:var(--blue-interactive);">✓ R6 Audit Pack Sealed</span>
+            </div>
+          </div>
+        `
+      }
+    ];
 
     const ROLE_DATA = {
       cfo: {
@@ -2035,6 +2464,14 @@
       }
     };
 
+    function selectPipelineStep(idx, btn) {
+      document.querySelectorAll('.step-row-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const step = PIPELINE_STEPS[idx];
+      document.getElementById('step-counter-label').textContent = step.num;
+      document.getElementById('micro-ui-stage').innerHTML = step.html;
+    }
+
     function showPage(pageId) {
       document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
       const target = document.getElementById('page-' + pageId);
@@ -2066,7 +2503,7 @@
             <div style="font-size:20px; font-weight:600; color:var(--navy-deep); margin-bottom:4px;">${data.title}</div>
             <div style="font-size:14px; color:var(--text-slate); max-width:680px;">${data.subtitle}</div>
           </div>
-          <span class="kpi-tag tag-med mono" style="font-size:12.5px; padding:6px 12px;">${data.metric}</span>
+          <span class="status-pill mono" style="background:var(--sev-med-bg); color:var(--blue-interactive); font-size:12px; padding:6px 12px;">${data.metric}</span>
         </div>
         <div class="agent-cards-3">
           ${data.agents.map(ag => `
@@ -2129,29 +2566,8 @@
       switchBookingTab('calendar');
     }
 
-    function toggleStage(mode) {
-      const uiView = document.getElementById('stage-ui-view');
-      const vidView = document.getElementById('stage-video-view');
-      const btnUi = document.getElementById('btn-ui');
-      const btnVid = document.getElementById('btn-vid');
-      const iframe = document.getElementById('product-video-iframe');
-
-      if (mode === 'video') {
-        uiView.style.display = 'none';
-        vidView.style.display = 'block';
-        btnUi.classList.remove('active');
-        btnVid.classList.add('active');
-        if (!iframe.getAttribute('src')) {
-          iframe.setAttribute('src', iframe.getAttribute('data-src'));
-        }
-      } else {
-        vidView.style.display = 'none';
-        uiView.style.display = 'block';
-        btnVid.classList.remove('active');
-        btnUi.classList.add('active');
-      }
-    }
-
+    // Initialize default views
+    selectPipelineStep(0, document.querySelector('.step-row-btn'));
     switchRole('cfo');
   </script>
 </body>
