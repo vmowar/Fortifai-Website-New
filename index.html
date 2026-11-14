@@ -17,6 +17,7 @@
       --steel-300: #99AFBC;
       --white: #FFFFFF;
       --alabaster: #F6F7F9;
+      --warm-bg: #FAF9F6;
       --hairline: #E5E7EB;
       --border-dark: #1E2D40;
       --text-main: #0D1520;
@@ -56,7 +57,7 @@
       padding: 0 36px;
     }
 
-    /* ================= FLOATING PILL / CLEAN HEADER (HYPHENATE / RILLET STYLE) ================= */
+    /* ================= CLEAN STICKY HEADER ================= */
     .site-header {
       position: sticky;
       top: 0;
@@ -259,13 +260,13 @@
       margin-top: 2px;
     }
 
-    /* ================= MICRO-UI SOFTWARE FRAMES (ONLY SOFTWARE GOES IN FRAMES) ================= */
+    /* ================= MICRO-UI SOFTWARE FRAMES ================= */
     .ui-window {
       background: var(--white);
       color: var(--text-main);
       border-radius: 10px;
       border: 1px solid var(--hairline);
-      box-shadow: 0 20px 50px rgba(13, 21, 32, 0.14);
+      box-shadow: 0 20px 50px rgba(13, 21, 32, 0.12);
       padding: 20px;
     }
     .ui-window-dark {
@@ -311,7 +312,7 @@
     }
     .ui-row:last-child { border-bottom: none; }
 
-    /* ================= OPEN-CANVAS SECTIONS (NO TEXT IN BOXES) ================= */
+    /* ================= OPEN-CANVAS SECTIONS ================= */
     .section-open {
       padding: 104px 0;
       background: var(--white);
@@ -341,7 +342,6 @@
       margin-bottom: 56px;
     }
 
-    /* Statement Banner */
     .statement-banner {
       background: var(--alabaster);
       border-bottom: 1px solid var(--hairline);
@@ -357,7 +357,7 @@
     }
     .statement-banner h2 span { color: var(--blue-700); }
 
-    /* Rillet / Hyphenate Open Hairline Grid (Text directly on screen, separated by thin lines) */
+    /* Hairline Grid (No Chunky Boxes) */
     .open-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -373,9 +373,7 @@
       border-top: 1px solid var(--hairline);
       padding-top: 20px;
     }
-    .section-dark .open-item {
-      border-top: 1px solid #243B56;
-    }
+    .section-dark .open-item { border-top: 1px solid #243B56; }
     .open-item-num {
       font-family: 'DM Mono', monospace;
       font-size: 11.5px;
@@ -384,20 +382,12 @@
       display: block;
     }
     .section-dark .open-item-num { color: var(--blue-400); }
-    .open-item h3 {
-      font-size: 17px;
-      margin-bottom: 6px;
-      color: var(--text-main);
-    }
+    .open-item h3 { font-size: 17px; margin-bottom: 6px; color: var(--text-main); }
     .section-dark .open-item h3 { color: var(--white); }
-    .open-item p {
-      font-size: 13.5px;
-      color: var(--text-sub);
-      line-height: 1.55;
-    }
+    .open-item p { font-size: 13.5px; color: var(--text-sub); line-height: 1.55; }
     .section-dark .open-item p { color: #CBD5E1; }
 
-    /* Hyphenate Split Feature Row (Open Text Left + Micro-UI Widget Right) */
+    /* Split Feature Showcases */
     .feature-split-row {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -407,17 +397,8 @@
       border-top: 1px solid var(--hairline);
     }
     .feature-split-row:first-of-type { border-top: none; padding-top: 0; }
-    .feature-split-row h3 {
-      font-size: 24px;
-      letter-spacing: -0.4px;
-      margin-bottom: 10px;
-    }
-    .feature-split-row p {
-      font-size: 14.5px;
-      color: var(--text-sub);
-      margin-bottom: 20px;
-      max-width: 440px;
-    }
+    .feature-split-row h3 { font-size: 24px; letter-spacing: -0.4px; margin-bottom: 10px; }
+    .feature-split-row p { font-size: 14.5px; color: var(--text-sub); margin-bottom: 20px; max-width: 440px; }
     .feature-Agents-list {
       list-style: none;
       display: flex;
@@ -430,22 +411,16 @@
       padding-left: 14px;
       border-left: 2px solid var(--blue-400);
     }
-    .feature-Agents-list li span {
-      color: var(--text-sub);
-      font-weight: 400;
-    }
+    .feature-Agents-list li span { color: var(--text-sub); font-weight: 400; }
 
-    /* 01-06 Pipeline Switcher (Open Left List + UI Window Right) */
+    /* Pipeline Switcher */
     .pipeline-grid {
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
       gap: 56px;
       align-items: center;
     }
-    .step-list {
-      display: flex;
-      flex-direction: column;
-    }
+    .step-list { display: flex; flex-direction: column; }
     .step-btn {
       text-align: left;
       background: transparent;
@@ -460,19 +435,13 @@
       transition: color 0.15s;
     }
     .step-btn:first-child { border-top: 1px solid var(--hairline); }
-    .step-btn:hover, .step-btn.active {
-      color: var(--text-main);
-    }
-    .step-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
+    .step-btn:hover, .step-btn.active { color: var(--text-main); }
+    .step-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); }
     .step-btn.active .step-num { color: var(--blue-700); font-weight: 500; }
     .step-title { font-size: 15px; font-weight: 500; }
     .step-btn.active .step-title { font-weight: 600; }
 
-    /* Open Comparison Split (No Boxes) */
+    /* Open Comparison */
     .compare-open-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -490,7 +459,7 @@
       color: var(--text-sub);
     }
 
-    /* Open ERP Strip */
+    /* ERP Strip */
     .erp-open-row {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -501,7 +470,7 @@
     .erp-name { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
     .erp-tables { font-family: 'DM Mono', monospace; font-size: 11.5px; color: var(--text-muted); }
 
-    /* Open FAQ (Hairline Divider Rows, No Boxes) */
+    /* FAQ */
     .faq-list { max-width: 760px; border-top: 1px solid var(--hairline); }
     .faq-item { border-bottom: 1px solid var(--hairline); }
     .faq-q {
@@ -512,7 +481,7 @@
     .faq-a { display: none; padding: 0 0 20px; font-size: 14px; color: var(--text-sub); }
     .faq-item.open .faq-a { display: block; }
 
-    /* Open Role Switcher */
+    /* Role Switcher */
     .role-tabs-bar {
       display: flex;
       gap: 28px;
@@ -542,27 +511,12 @@
       align-items: center;
     }
 
-    /* Open About Us Portraits (Clean Frameless Editorial Layout) */
-    .team-open-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-    .team-open-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
-    }
+    /* About Us */
+    .team-open-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .team-open-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
     .portrait-wrap {
-      width: 100%;
-      height: 260px;
-      background: var(--navy-950);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      margin-bottom: 14px;
+      width: 100%; height: 260px; background: var(--navy-950); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 14px;
     }
     .portrait-wrap img {
       width: 100%; height: 100%; object-fit: cover; object-position: top center;
@@ -573,10 +527,177 @@
     .leader-name { font-size: 17px; margin-bottom: 6px; }
     .leader-bio { font-size: 13px; color: var(--text-sub); line-height: 1.55; }
 
+    /* ================= SPRINTO-STYLE SECURITY TRUST CENTER (#page-security) ================= */
+    .trust-section {
+      padding: 56px 0 112px;
+      background: var(--alabaster);
+      min-height: 84vh;
+    }
+    .trust-hero-bar {
+      background: var(--white);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 32px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 24px;
+    }
+    .trust-title-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .trust-verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--sev-ok-bg);
+      color: var(--sev-ok);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .trust-subnav {
+      display: flex;
+      gap: 24px;
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: 28px;
+    }
+    .trust-tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 10px 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      margin-bottom: -1px;
+    }
+    .trust-tab-btn.active {
+      color: var(--blue-700);
+      border-bottom-color: var(--blue-700);
+      font-weight: 600;
+    }
+    .trust-main-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .trust-panel {
+      background: var(--white);
+      border: 1px solid var(--hairline);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .trust-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .compliance-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .compliance-item:last-child { border-bottom: none; }
+    .comp-badge-circle {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--navy-950);
+      color: var(--blue-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+    .controls-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .control-cat-box {
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 16px;
+      background: #FAFBFD;
+    }
+    .control-cat-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .control-list {
+      list-style: none;
+      font-size: 12.5px;
+      color: var(--text-sub);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .resources-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .resource-doc-card {
+      border: 1px solid var(--hairline);
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      background: var(--white);
+      transition: border-color 0.15s;
+    }
+    .resource-doc-card:hover { border-color: var(--blue-700); }
+
+    /* Security Request Access Modal */
+    .sec-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 21, 32, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+    .sec-modal-backdrop.open { display: flex; }
+    .sec-modal-card {
+      background: var(--white);
+      border-radius: 12px;
+      max-width: 440px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    }
+
     /* ================= HYPHENATE-STYLE LEGAL PAGE (#page-legal) ================= */
     .legal-section {
       padding: 64px 0 112px;
-      background: #FAF9F6;
+      background: var(--warm-bg);
       min-height: 82vh;
     }
     .legal-pill {
@@ -650,11 +771,8 @@
       margin-bottom: 16px;
     }
 
-    /* ================= HYPHENATE-STYLE BOOKING PAGE (#page-book) ================= */
-    .book-section {
-      padding: 64px 0 104px;
-      background: var(--white);
-    }
+    /* ================= BOOKING PAGE (#page-book) ================= */
+    .book-section { padding: 64px 0 104px; background: var(--white); }
     .book-split-grid {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
@@ -676,118 +794,124 @@
       border-radius: 20px;
       margin-bottom: 20px;
     }
-    .book-left-title {
-      font-size: 36px;
-      line-height: 1.14;
-      letter-spacing: -0.7px;
-      margin-bottom: 14px;
-    }
-    .book-left-sub {
-      font-size: 14.5px;
-      color: var(--text-sub);
-      line-height: 1.55;
-      margin-bottom: 36px;
-    }
-    .book-quote-open {
-      border-top: 1px solid var(--hairline);
-      padding-top: 20px;
-    }
-    .form-row-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+    .book-left-title { font-size: 36px; line-height: 1.14; letter-spacing: -0.7px; margin-bottom: 14px; }
+    .book-left-sub { font-size: 14.5px; color: var(--text-sub); line-height: 1.55; margin-bottom: 36px; }
+    .book-quote-open { border-top: 1px solid var(--hairline); padding-top: 20px; }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .f-group { margin-bottom: 18px; }
     .f-label {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-sub);
-      margin-bottom: 6px;
+      display: block; font-family: 'DM Mono', monospace; font-size: 11px;
+      text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-sub); margin-bottom: 6px;
     }
     .f-input {
-      width: 100%;
-      padding: 11px 14px;
-      background: var(--alabaster);
-      border: 1px solid var(--hairline);
-      border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13.5px;
-      color: var(--text-main);
+      width: 100%; padding: 11px 14px; background: var(--alabaster);
+      border: 1px solid var(--hairline); border-radius: 6px;
+      font-family: 'DM Sans', sans-serif; font-size: 13.5px; color: var(--text-main);
     }
-    .f-input:focus {
-      outline: none;
-      border-color: var(--blue-700);
-      background: var(--white);
-    }
-    .outcome-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 6px;
-    }
+    .f-input:focus { outline: none; border-color: var(--blue-700); background: var(--white); }
+    .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
     .outcome-item {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--hairline);
-      font-size: 13px;
-      cursor: pointer;
+      display: flex; align-items: center; gap: 9px; padding: 10px 12px;
+      border-bottom: 1px solid var(--hairline); font-size: 13px; cursor: pointer;
     }
     .submit-demo-btn {
-      width: 100%;
-      background: var(--navy-950);
-      color: var(--white);
-      border: none;
-      padding: 13px 20px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 12px;
+      width: 100%; background: var(--navy-950); color: var(--white); border: none;
+      padding: 13px 20px; border-radius: 6px; font-size: 14px; font-weight: 600;
+      cursor: pointer; margin-top: 12px;
     }
     .submit-demo-btn:hover { background: var(--blue-700); }
 
-    /* Footer */
+    /* ================= HYPHENATE-STYLE FOOTER WITH SOCIAL PLUG-INS & LEGAL BAR ================= */
     .site-footer {
       background: var(--navy-950);
       color: var(--steel-300);
-      padding: 64px 0 40px;
-      font-size: 13px;
+      padding: 72px 0 36px;
+      font-size: 13.5px;
     }
-    .footer-grid {
+    .footer-top-grid {
       display: grid;
       grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 32px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--border-dark);
+      gap: 36px;
+      margin-bottom: 40px;
     }
     .footer-col h4 {
       color: var(--white);
-      font-size: 12px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 14px;
     }
     .footer-col a {
       display: block;
-      color: var(--steel-300);
+      color: #CBD5E1;
       text-decoration: none;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       cursor: pointer;
+      transition: color 0.15s;
     }
     .footer-col a:hover { color: var(--white); }
 
+    /* Social Plug-In Row (Right-Aligned Square Buttons like image_4a81dc.png) */
+    .footer-social-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .social-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .social-icon-btn:hover {
+      background: var(--blue-700);
+      border-color: var(--blue-400);
+    }
+
+    /* Bottom Legal Bar (Exact Hyphenate Match) */
+    .footer-bottom-bar {
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: #94A3B8;
+    }
+    .footer-legal-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-legal-links a {
+      color: #CBD5E1;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-legal-links a:hover { color: var(--white); }
+
     @media (max-width: 960px) {
       .hero-grid, .pipeline-grid, .compare-open-grid, .role-open-split, .book-split-grid,
-      .open-grid-3, .open-grid-4, .feature-split-row, .team-open-4, .team-open-3, .legal-layout, .form-row-2 {
+      .open-grid-3, .open-grid-4, .feature-split-row, .team-open-4, .team-open-3,
+      .legal-layout, .trust-main-grid, .controls-2x2, .resources-grid-3, .form-row-2, .footer-top-grid {
         grid-template-columns: 1fr;
       }
       .erp-open-row { grid-template-columns: repeat(2, 1fr); }
       .mega-menu { display: none; }
+      .trust-hero-bar { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -889,6 +1013,10 @@
         </div>
 
         <div class="nav-item-wrap">
+          <button class="nav-btn" id="nav-security" onclick="showPage('security')">Security</button>
+        </div>
+
+        <div class="nav-item-wrap">
           <button class="nav-btn" id="nav-about" onclick="showPage('about')">About Us</button>
         </div>
       </nav>
@@ -966,7 +1094,6 @@
       </div>
     </section>
 
-    <!-- Open-Canvas Pipeline Switcher -->
     <section class="section-open">
       <div class="container">
         <h2 class="sec-title">What happens when a transaction hits your ERP</h2>
@@ -1005,10 +1132,9 @@
       </div>
     </section>
 
-    <!-- Open Comparison (Text Directly on Canvas, No Box Borders) -->
     <section class="section-tint">
       <div class="container">
-        <h2 class="sec-title">Without Fortifai vs. With Fortifai</h2>
+        <h2 class="sec-title">Same ERP. Zero sampling blind spots.</h2>
         <p class="sec-sub">Move from retrospective sampling to continuous pre-payment protection.</p>
 
         <div class="compare-open-grid">
@@ -1043,7 +1169,6 @@
       </div>
     </section>
 
-    <!-- Open ERP Stack Strip -->
     <section class="section-open">
       <div class="container">
         <h2 class="sec-title">Built to fit your ERP stack</h2>
@@ -1060,7 +1185,6 @@
       </div>
     </section>
 
-    <!-- Open Dark Strip (Hairline Top Rules, Zero Chunky Boxes) -->
     <section class="section-dark">
       <div class="container">
         <h2 class="sec-title" style="color:var(--white); margin-bottom:48px;">One platform spine. Four executive outcomes.</h2>
@@ -1089,7 +1213,6 @@
       </div>
     </section>
 
-    <!-- Open Hairline FAQ -->
     <section class="section-open">
       <div class="container">
         <h2 class="sec-title" style="margin-bottom:32px;">Frequently asked questions</h2>
@@ -1118,7 +1241,7 @@
   </main>
 
   <!-- =====================================================================
-       2. PRODUCT PAGE (#page-product) — OPEN TEXT + MICRO-UI SHOWCASES
+       2. PRODUCT PAGE (#page-product)
   ====================================================================== -->
   <main id="page-product" class="page-view">
     <section class="hero-section" style="padding: 72px 0;">
@@ -1128,7 +1251,6 @@
       </div>
     </section>
 
-    <!-- Open Hairline Grid for Core Stack (Zero Boxes) -->
     <section class="section-open">
       <div class="container">
         <h2 class="sec-title">Core Horizontal Stack</h2>
@@ -1169,12 +1291,10 @@
       </div>
     </section>
 
-    <!-- Hyphenate Split Showcases: Open Copy Left + Live Micro-UI Widget Right -->
     <section class="section-tint">
       <div class="container">
         <h2 class="sec-title" style="margin-bottom:16px;">Functional Enterprise Risk Agents</h2>
 
-        <!-- Domain 1: Spend & Working Capital -->
         <div class="feature-split-row" id="sec-spend">
           <div>
             <h3>Spend &amp; Working Capital</h3>
@@ -1196,7 +1316,6 @@
           </div>
         </div>
 
-        <!-- Domain 2: Close, Audit & Revenue -->
         <div class="feature-split-row" id="sec-close">
           <div>
             <h3>Close, Audit &amp; Revenue Assurance</h3>
@@ -1218,7 +1337,6 @@
           </div>
         </div>
 
-        <!-- Domain 3: Compliance & 3rd-Party -->
         <div class="feature-split-row" id="sec-compliance">
           <div>
             <h3>Compliance, Trade &amp; Investigations</h3>
@@ -1242,7 +1360,6 @@
       </div>
     </section>
 
-    <!-- Open 3 Deployment Models -->
     <section class="section-open">
       <div class="container">
         <h2 class="sec-title">Three Deployment Models</h2>
@@ -1270,7 +1387,7 @@
   </main>
 
   <!-- =====================================================================
-       3. BY ROLE PAGE (#page-role) — OPEN EDITORIAL + MICRO-UI WIDGET
+       3. BY ROLE PAGE (#page-role)
   ====================================================================== -->
   <main id="page-role" class="page-view">
     <section class="hero-section" style="padding: 72px 0;">
@@ -1296,7 +1413,7 @@
   </main>
 
   <!-- =====================================================================
-       4. ABOUT US PAGE (#page-about) — OPEN FRAMELESS PORTRAITS
+       4. ABOUT US PAGE (#page-about)
   ====================================================================== -->
   <main id="page-about" class="page-view">
     <section class="hero-section" style="padding: 72px 0;">
@@ -1391,7 +1508,248 @@
   </main>
 
   <!-- =====================================================================
-       5. BOOK A DEMO PAGE (#page-book) — HYPHENATE SPLIT
+       5. SECURITY & TRUST CENTER PAGE (#page-security) — SPRINTO STYLE
+  ====================================================================== -->
+  <main id="page-security" class="page-view">
+    <section class="trust-section">
+      <div class="container">
+        <!-- Top Overview Header Card -->
+        <div class="trust-hero-bar">
+          <div>
+            <div class="trust-title-row">
+              <h1 style="font-size:26px; letter-spacing:-0.5px;">Fortifai Security &amp; Trust Center</h1>
+              <span class="trust-verified-badge">✓ Verified Zero-Egress Architecture</span>
+            </div>
+            <p style="font-size:14px; color:var(--text-sub); max-width:660px;">
+              At Fortifai, security and data sovereignty are foundational. Fortifai SARA and D7 deploy directly inside your enterprise Virtual Private Cloud (VPC) or on-premise perimeter—ensuring zero outbound data egress and zero foundation-model training on customer ledgers.
+            </p>
+            <div style="margin-top:12px; font-size:12.5px; color:var(--text-muted);">
+              Security &amp; Compliance inquiries: <strong style="color:var(--text-main);">security@fortifai.io</strong>
+            </div>
+          </div>
+
+          <button class="nav-cta" onclick="openSecurityModal('Complete Security & SOC 2 Documentation Pack')" style="flex-shrink:0; padding:11px 20px;">
+            🔒 Request Access
+          </button>
+        </div>
+
+        <!-- Sprinto-Style Sub-Tabs -->
+        <div class="trust-subnav">
+          <button class="trust-tab-btn active" onclick="scrollTrustSection('trust-compliances', this)">Overview</button>
+          <button class="trust-tab-btn" onclick="scrollTrustSection('trust-compliances', this)">Compliances</button>
+          <button class="trust-tab-btn" onclick="scrollTrustSection('trust-controls', this)">Controls</button>
+          <button class="trust-tab-btn" onclick="scrollTrustSection('trust-resources', this)">Resources</button>
+        </div>
+
+        <!-- Main 2-Column Grid: Compliances Left + Controls Right -->
+        <div class="trust-main-grid" id="trust-compliances">
+          <!-- Left: Compliances -->
+          <div class="trust-panel">
+            <div class="trust-panel-header">
+              <span style="font-size:15px; font-weight:600;">Compliances &amp; Standards</span>
+              <span class="chip-ok">ACTIVE</span>
+            </div>
+
+            <div class="compliance-item">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div class="comp-badge-circle">SOC2</div>
+                <div>
+                  <div style="font-size:13.5px; font-weight:600;">SOC 2 Type II</div>
+                  <div style="font-size:12px; color:var(--text-muted);">Security, Availability &amp; Confidentiality</div>
+                </div>
+              </div>
+              <span class="chip-ok">✓ Compliant</span>
+            </div>
+
+            <div class="compliance-item">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div class="comp-badge-circle">27001</div>
+                <div>
+                  <div style="font-size:13.5px; font-weight:600;">ISO / IEC 27001</div>
+                  <div style="font-size:12px; color:var(--text-muted);">Information Security Management</div>
+                </div>
+              </div>
+              <span class="chip-ok">✓ Aligned</span>
+            </div>
+
+            <div class="compliance-item">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div class="comp-badge-circle">PCAOB</div>
+                <div>
+                  <div style="font-size:13.5px; font-weight:600;">PCAOB AS 1105 &amp; COSO 2013</div>
+                  <div style="font-size:12px; color:var(--text-muted);">Stage 0 Completeness &amp; ICFR Lineage</div>
+                </div>
+              </div>
+              <span class="chip-ok">✓ Native</span>
+            </div>
+
+            <div class="compliance-item">
+              <div style="display:flex; align-items:center; gap:12px;">
+                <div class="comp-badge-circle">GDPR</div>
+                <div>
+                  <div style="font-size:13.5px; font-weight:600;">GDPR &amp; CCPA</div>
+                  <div style="font-size:12px; color:var(--text-muted);">Data Privacy &amp; In-VPC Residency</div>
+                </div>
+              </div>
+              <span class="chip-ok">✓ Compliant</span>
+            </div>
+          </div>
+
+          <!-- Right: Controls Posture (2x2 Grid) -->
+          <div class="trust-panel" id="trust-controls">
+            <div class="trust-panel-header">
+              <div>
+                <span style="font-size:15px; font-weight:600;">Continuous Security Controls</span>
+                <span style="font-size:12px; color:var(--text-muted); margin-left:8px;">44 Enterprise Controls Enforced</span>
+              </div>
+              <span class="chip-ok">100% PASSING</span>
+            </div>
+
+            <div class="controls-2x2">
+              <div class="control-cat-box">
+                <div class="control-cat-title">
+                  <span>Infrastructure &amp; Zero-Egress VPC</span>
+                  <span class="chip-ok">12 / 12</span>
+                </div>
+                <ul class="control-list">
+                  <li>✓ Customer-hosted AWS, Azure, GCP, or On-Premise VPC</li>
+                  <li>✓ Strict 0.0.0.0/0 outbound egress deny rules</li>
+                  <li>✓ Zero external LLM training on ERP data</li>
+                </ul>
+              </div>
+
+              <div class="control-cat-box">
+                <div class="control-cat-title">
+                  <span>Product &amp; Access Security</span>
+                  <span class="chip-ok">11 / 11</span>
+                </div>
+                <ul class="control-list">
+                  <li>✓ SAML 2.0 / OIDC SSO &amp; MFA enforcement</li>
+                  <li>✓ Role-Based Segregation of Duties (SoD)</li>
+                  <li>✓ Maker-Checker privileged legal review routing</li>
+                </ul>
+              </div>
+
+              <div class="control-cat-box">
+                <div class="control-cat-title">
+                  <span>Cryptographic &amp; Data Integrity</span>
+                  <span class="chip-ok">10 / 10</span>
+                </div>
+                <ul class="control-list">
+                  <li>✓ AES-256 encryption at rest &amp; TLS 1.3 in transit</li>
+                  <li>✓ FIPS 140-3 HMAC-SHA256 sealed forensic dossiers</li>
+                  <li>✓ Read-only ERP database service accounts</li>
+                </ul>
+              </div>
+
+              <div class="control-cat-box">
+                <div class="control-cat-title">
+                  <span>Audit Logging &amp; Incident Response</span>
+                  <span class="chip-ok">11 / 11</span>
+                </div>
+                <ul class="control-list">
+                  <li>✓ Immutable append-only investigator audit trail</li>
+                  <li>✓ Continuous vulnerability &amp; container scanning</li>
+                  <li>✓ 24x7 automated anomaly &amp; health telemetry</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Gated Resources Section (Sprinto Style with Lock Icons) -->
+        <div class="trust-panel" id="trust-resources">
+          <div class="trust-panel-header">
+            <div>
+              <span style="font-size:15px; font-weight:600;">Resources &amp; Security Documentation</span>
+              <span style="font-size:12px; color:var(--text-muted); margin-left:8px;">Click any document to request gated access</span>
+            </div>
+          </div>
+
+          <div class="resources-grid-3">
+            <div class="resource-doc-card" onclick="openSecurityModal('SOC 2 Type II Attestation Report')">
+              <div>
+                <div style="font-size:13.5px; font-weight:600;">SOC 2 Type II Report</div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Attestation Report · PDF</div>
+              </div>
+              <span title="Gated Document">🔒</span>
+            </div>
+
+            <div class="resource-doc-card" onclick="openSecurityModal('Zero-Egress VPC Architecture Whitepaper')">
+              <div>
+                <div style="font-size:13.5px; font-weight:600;">Zero-Egress VPC Architecture</div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Technical Whitepaper · PDF</div>
+              </div>
+              <span title="Gated Document">🔒</span>
+            </div>
+
+            <div class="resource-doc-card" onclick="openSecurityModal('Annual Penetration Test Executive Summary')">
+              <div>
+                <div style="font-size:13.5px; font-weight:600;">Penetration Test Summary</div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Independent Security Assessment · PDF</div>
+              </div>
+              <span title="Gated Document">🔒</span>
+            </div>
+
+            <div class="resource-doc-card" onclick="openSecurityModal('Information Security & Encryption Policy')">
+              <div>
+                <div style="font-size:13.5px; font-weight:600;">Information Security Policy</div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Sprinto Policy Pack · PDF</div>
+              </div>
+              <span title="Gated Document">🔒</span>
+            </div>
+
+            <div class="resource-doc-card" onclick="openSecurityModal('Acceptable Usage & Access Control Policy')">
+              <div>
+                <div style="font-size:13.5px; font-weight:600;">Acceptable Usage Policy</div>
+                <div style="font-size:11.5px; color:var(--text-muted);">Sprinto Policy Pack · PDF</div>
+              </div>
+              <span title="Gated Document">🔒</span>
+            </div>
+
+            <div class="resource-doc-card" onclick="openLegalTab('dpa')">
+              <div>
+                <div style="font-size:13.5px; font-weight:600;">Data Processing Addendum</div>
+                <div style="font-size:11.5px; color:var(--blue-700);">Public Legal Document →</div>
+              </div>
+              <span>↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Security Document Request Modal -->
+  <div class="sec-modal-backdrop" id="sec-modal">
+    <div class="sec-modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="font-size:18px;">Request Security Access</h3>
+        <button onclick="closeSecurityModal()" style="background:none; border:none; font-size:18px; cursor:pointer; color:var(--text-muted);">✕</button>
+      </div>
+      <p style="font-size:13px; color:var(--text-sub); margin-bottom:16px;">
+        Enter your corporate email to receive NDA-gated access to: <strong id="sec-doc-name" style="color:var(--text-main);">Security Pack</strong>
+      </p>
+      <form onsubmit="submitSecurityRequest(event)">
+        <div class="f-group">
+          <label class="f-label">Full Name *</label>
+          <input type="text" name="name" class="f-input" placeholder="Jane Smith" required />
+        </div>
+        <div class="f-group">
+          <label class="f-label">Work Email *</label>
+          <input type="email" name="email" class="f-input" placeholder="jane.smith@company.com" required />
+        </div>
+        <div class="f-group">
+          <label class="f-label">Company *</label>
+          <input type="text" name="company" class="f-input" placeholder="Enterprise Inc." required />
+        </div>
+        <button type="submit" class="submit-demo-btn" id="sec-submit-btn">Send Access Request →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       6. BOOK A DEMO PAGE (#page-book)
   ====================================================================== -->
   <main id="page-book" class="page-view">
     <section class="book-section">
@@ -1473,7 +1831,7 @@
   </main>
 
   <!-- =====================================================================
-       6. LEGAL PAGE (#page-legal) — MATCHES HYPHENATE PRIVACY POLICY SCREENSHOT
+       7. LEGAL HUB PAGE (#page-legal) — MATCHES HYPHENATE SCREENSHOT
   ====================================================================== -->
   <main id="page-legal" class="page-view">
     <section class="legal-section">
@@ -1488,6 +1846,7 @@
             <button class="legal-nav-link" data-legal-btn="cookie" onclick="switchLegalDoc('cookie')">Cookie Policy</button>
             <button class="legal-nav-link" data-legal-btn="dpa" onclick="switchLegalDoc('dpa')">Data Processing Addendum</button>
             <button class="legal-nav-link" data-legal-btn="msa" onclick="switchLegalDoc('msa')">Master Services Agreement</button>
+            <button class="legal-nav-link" data-legal-btn="choices" onclick="switchLegalDoc('choices')">Your Privacy Choices</button>
           </aside>
 
           <div class="legal-doc-surface" id="legal-doc-body"></div>
@@ -1496,45 +1855,94 @@
     </section>
   </main>
 
-  <!-- ================= SITE FOOTER ================= -->
+  <!-- ================= HYPHENATE-STYLE FOOTER (SOCIAL ICONS + LEGAL BOTTOM BAR) ================= -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-top-grid">
         <div>
-          <svg width="142" height="30" viewBox="0 0 210 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px;">
+          <svg width="148" height="32" viewBox="0 0 210 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:14px;">
             <polygon points="2,17 30,8 30,37 2,37" fill="#6699CC" />
             <text x="40" y="36" font-family="'DM Sans', sans-serif" font-weight="600" font-size="34" letter-spacing="-1.2" fill="#FFFFFF">fortifai</text>
             <rect x="86" y="18.5" width="84" height="3.4" fill="#FFFFFF" />
           </svg>
-          <p style="max-width:290px;">AI for Enterprise Risk. Continuous ERP assurance inside your private VPC.</p>
+          <p style="max-width:290px; color:#94A3B8; line-height:1.55; margin-bottom:14px;">
+            AI for Enterprise Risk. Continuous ERP assurance inside your private VPC.
+          </p>
+          <div style="font-size:12px; color:#64748B;">
+            205 W 37th Street, New York, NY 10018<br/>
+            Gurugram, NCR, India
+          </div>
         </div>
+
         <div class="footer-col">
-          <h4>Product</h4>
-          <a onclick="jumpToProductSection('sec-spend')">Spend &amp; Working Capital</a>
-          <a onclick="jumpToProductSection('sec-close')">Close, Audit &amp; Revenue</a>
-          <a onclick="jumpToProductSection('sec-compliance')">Compliance &amp; 3rd-Party</a>
-          <a onclick="showPage('product')">Fortifai SARA &amp; D7</a>
+          <h4>Platform Overview</h4>
+          <a onclick="jumpToProductSection('sec-spend')">Procure-to-Pay &amp; Spend</a>
+          <a onclick="jumpToProductSection('sec-spend')">AP &amp; Working Capital</a>
+          <a onclick="jumpToProductSection('sec-close')">GL Close &amp; SOX Assurance</a>
+          <a onclick="jumpToProductSection('sec-close')">Order-to-Cash &amp; Cut-Off</a>
+          <a onclick="jumpToProductSection('sec-compliance')">FCPA, Trade &amp; D7 Graph</a>
         </div>
+
         <div class="footer-col">
           <h4>By Role</h4>
-          <a onclick="openRoleTab('CFO')">CFO · Finance</a>
-          <a onclick="openRoleTab('CPO')">CPO · Procurement</a>
-          <a onclick="openRoleTab('CCO')">CCO &amp; GC · Compliance</a>
-          <a onclick="openRoleTab('CAE')">CAE · Internal Audit</a>
-          <a onclick="openRoleTab('CRO')">CRO · Revenue</a>
+          <a onclick="openRoleTab('CFO')">For CFOs &amp; Controllers</a>
+          <a onclick="openRoleTab('CPO')">For CPOs &amp; Procurement</a>
+          <a onclick="openRoleTab('CCO')">For CCOs &amp; General Counsel</a>
+          <a onclick="openRoleTab('CAE')">For Chief Audit Executives</a>
+          <a onclick="openRoleTab('CRO')">For Chief Revenue Officers</a>
         </div>
+
         <div class="footer-col">
-          <h4>Company &amp; Legal</h4>
-          <a onclick="showPage('about')">About Us</a>
+          <h4>Company</h4>
           <a onclick="showPage('book')">Book a Call</a>
-          <a onclick="openLegalTab('privacy')">Privacy Policy</a>
-          <a onclick="openLegalTab('dpa')">Data Processing Addendum</a>
-          <a onclick="openLegalTab('msa')">Master Services Agreement</a>
+          <a onclick="showPage('product')">Architecture</a>
+          <a onclick="showPage('about')">About</a>
+          <a onclick="showPage('security')">Security</a>
         </div>
       </div>
-      <div style="padding-top:24px; display:flex; justify-content:space-between; font-size:12px;">
+
+      <!-- Social Plug-In Row (LinkedIn, YouTube, X) matching image_4a81dc.png -->
+      <div class="footer-social-row">
+        <!-- LinkedIn -->
+        <a class="social-icon-btn" href="https://www.linkedin.com/company/fortifai" target="_blank" rel="noopener" aria-label="Fortifai on LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+        </a>
+        <!-- YouTube -->
+        <a class="social-icon-btn" href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Fortifai on YouTube">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+          </svg>
+        </a>
+        <!-- X (Twitter) -->
+        <a class="social-icon-btn" href="https://x.com" target="_blank" rel="noopener" aria-label="Fortifai on X">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Bottom Legal Bar matching image_4a81dc.png -->
+      <div class="footer-bottom-bar">
         <span>© 2026 Fortifai Inc. All rights reserved.</span>
-        <span style="cursor:pointer;" onclick="openLegalTab('privacy')">Privacy · Terms · Zero Data Egress</span>
+
+        <div class="footer-legal-links">
+          <a onclick="openLegalTab('choices')">
+            <!-- CCPA Privacy Options Pill Icon -->
+            <svg width="26" height="13" viewBox="0 0 30 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="29" height="13" rx="6.5" fill="#FFFFFF" stroke="#2563EB"/>
+              <path d="M16 1H23C26.3137 1 29 3.68629 29 7C29 10.3137 26.3137 13 23 13H16V1Z" fill="#2563EB"/>
+              <path d="M5.5 7L7.5 9L11.5 5" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20.5 5L24.5 9M24.5 5L20.5 9" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Your Privacy Choices</span>
+          </a>
+          <a onclick="openLegalTab('privacy')">Privacy Policy</a>
+          <a onclick="openLegalTab('cookie')">Cookies</a>
+          <a onclick="openLegalTab('dpa')">DPA</a>
+          <a onclick="openLegalTab('msa')">MSA</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -1572,6 +1980,50 @@
     function openLegalTab(docKey) {
       showPage('legal');
       switchLegalDoc(docKey);
+    }
+
+    function scrollTrustSection(secId, btnEl) {
+      document.querySelectorAll('.trust-tab-btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      const el = document.getElementById(secId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function openSecurityModal(docTitle) {
+      document.getElementById('sec-doc-name').textContent = docTitle;
+      document.getElementById('sec-modal').classList.add('open');
+    }
+
+    function closeSecurityModal() {
+      document.getElementById('sec-modal').classList.remove('open');
+    }
+
+    function submitSecurityRequest(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('sec-submit-btn');
+      const docName = document.getElementById('sec-doc-name').textContent;
+      btn.textContent = "Submitting Request...";
+
+      fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          event: "SECURITY_TRUST_CENTER_REQUEST",
+          requestedDocument: docName,
+          name: form.name.value.trim(),
+          email: form.email.value.trim(),
+          company: form.company.value.trim(),
+          timestamp: new Date().toISOString()
+        })
+      }).finally(() => {
+        btn.textContent = "✓ Request Logged — Security Team Notified";
+        setTimeout(() => {
+          closeSecurityModal();
+          btn.textContent = "Send Access Request →";
+          form.reset();
+        }, 1400);
+      });
     }
 
     function submitAndOpenBookings(e) {
@@ -1750,10 +2202,10 @@
           <p>At Fortifai, we automate continuous ERP transaction assurance, cash protection, close integrity, and third-party compliance with built-in audit trails—delivering deterministic outputs CFOs, General Counsel, and Chief Audit Executives trust inside their own private cloud environment.</p>
           <h2>Applicability of this Privacy Policy</h2>
           <p>This Privacy Policy applies to personal information that we collect in connection with our website (www.fortifai.io) and marketing communications (the "Services"). This Privacy Policy does not apply to customer ERP financial ledgers processed inside a customer-hosted Virtual Private Cloud ("VPC") or on-premise deployment, which are governed exclusively by our Master Services Agreement and Data Processing Addendum with that enterprise customer.</p>
-          <h2>Zero Data Egress &amp; Enterprise VPC deployments</h2>
+          <h2>Zero Data Egress &amp; Enterprise VPC Deployments</h2>
           <p>When deployed in a customer's private VPC (AWS, Azure, GCP) or on-premise environment, Fortifai SARA and Fortifai D7 operate with zero outbound data egress. Customer ERP tables are never transmitted to external third-party foundation models or used to train multi-tenant AI models.</p>
           <h2>Information We Collect on Our Website</h2>
-          <p>When you request an executive demo or contact us via www.fortifai.io, we collect your name, work email address, phone number, job title, company name, and workflow priorities solely to schedule and tailor your walkthrough.</p>
+          <p>When you request an executive demo or security documentation via www.fortifai.io, we collect your name, work email address, phone number, job title, company name, and workflow priorities solely to schedule and tailor your walkthrough.</p>
           <h2>Contact Us</h2>
           <p>If you have any questions about this Privacy Policy or our data protection practices, please contact our Privacy &amp; Legal team at <strong>privacy@fortifai.io</strong>.</p>
         `
@@ -1789,6 +2241,17 @@
           <p>Customer retains 100% ownership, title, and control over all Customer ERP data, anomaly outputs, and forensic dossiers. Fortifai retains ownership of the underlying deterministic rule taxonomies, 3-Arm detection methodologies, 4-Rung Precedence Waterfall, and platform software.</p>
           <h2>2. Epistemic Clarity ("Signals, Not Verdicts")</h2>
           <p>Fortifai outputs are objective mathematical, accounting, and behavioural risk indicators designed to assist Customer's finance, audit, procurement, and legal professionals. Fortifai does not render formal legal verdicts or statutory audit opinions.</p>
+        `
+      },
+      choices: {
+        title: "Your Privacy Choices",
+        date: "Effective date: October 8, 2026. Last updated: October 8, 2026.",
+        body: `
+          <p>Under the California Consumer Privacy Act (CCPA), GDPR, and similar global privacy frameworks, you have the right to opt out of the sale or sharing of personal information and to request access to or deletion of your personal data.</p>
+          <h2>Zero Sale of Personal Information</h2>
+          <p>Fortifai Inc. does not sell or rent personal information or enterprise customer data to third parties or data brokers under any circumstances.</p>
+          <h2>Exercising Your Privacy Rights</h2>
+          <p>To submit a data access, correction, or deletion request, please email <strong>privacy@fortifai.io</strong> with your work email address, and our Privacy Officer will respond within the statutory timeframe.</p>
         `
       }
     };
