@@ -61,22 +61,18 @@
       padding: 0 24px;
     }
 
-    /* MULTI-PAGE VIEW ROUTER */
     .page-view {
       display: none;
       flex: 1;
       animation: fadeInPage 0.2s ease-out;
     }
-    .page-view.active {
-      display: block;
-    }
+    .page-view.active { display: block; }
 
     @keyframes fadeInPage {
       from { opacity: 0; transform: translateY(4px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* TOP ANNOUNCEMENT BAR */
     .top-ribbon {
       background: var(--navy-deep);
       color: #FFFFFF;
@@ -102,7 +98,6 @@
     }
     .top-ribbon a:hover { text-decoration: underline; }
 
-    /* CRISP WHITE STICKY HEADER */
     header.site-header {
       position: sticky;
       top: 0;
@@ -170,7 +165,6 @@
       color: var(--blue-interactive);
     }
 
-    /* FLOATING MEGA-MENU DROPDOWN */
     .mega-dropdown {
       position: absolute;
       top: 70px;
@@ -330,7 +324,6 @@
       border-color: #FFFFFF;
     }
 
-    /* PATTERN 1: HYPHENATE-STYLE SPLIT HERO WITH OVERLAPPING LAYERED UI CARDS */
     .hero-blue-canvas {
       background: linear-gradient(135deg, #0D1520 0%, #152C47 52%, #2E5A8A 100%);
       color: #FFFFFF;
@@ -404,7 +397,6 @@
       flex-wrap: wrap;
     }
 
-    /* LAYERED HERO MICRO-UI WIDGET STACK (MATCHES HYPHENATE VIDEO 0:05) */
     .hero-widget-stack {
       position: relative;
       padding: 12px 0 36px 20px;
@@ -469,7 +461,6 @@
     .pill-hold { background: var(--sev-crit-bg); color: var(--sev-crit); }
     .pill-review { background: var(--sev-high-bg); color: var(--sev-high); }
 
-    /* PATTERN 2: HYPHENATE-STYLE FULL-WIDTH STATEMENT BANNER (VIDEO 0:09) */
     .statement-band {
       background: var(--navy-deep);
       color: #FFFFFF;
@@ -484,11 +475,8 @@
       letter-spacing: -1px;
       max-width: 980px;
     }
-    .statement-quote span {
-      color: rgba(153, 175, 188, 0.55);
-    }
+    .statement-quote span { color: rgba(153, 175, 188, 0.55); }
 
-    /* PATTERN 3: "01 — 06" STEP-BY-STEP MICRO-UI SHOWCASE (VIDEO 0:12 - 0:18) */
     .section-white {
       background: #FFFFFF;
       padding: 76px 0;
@@ -543,7 +531,6 @@
       align-items: stretch;
     }
 
-    /* Left Square Tinted Micro-UI Stage */
     .micro-ui-stage {
       background: linear-gradient(145deg, #EBF3FA 0%, #F2F4F7 100%);
       border: 1px solid #D8E6F3;
@@ -566,7 +553,6 @@
       animation: fadeInPage 0.2s ease-out;
     }
 
-    /* Right 01-06 Selector List */
     .step-selector-list {
       display: flex;
       flex-direction: column;
@@ -612,22 +598,10 @@
       color: #FFFFFF;
     }
 
-    .step-row-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 3px;
-    }
+    .step-row-title { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+    .step-row-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+    .step-row-btn.active .step-row-desc { color: #CBD5E1; }
 
-    .step-row-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-    .step-row-btn.active .step-row-desc {
-      color: #CBD5E1;
-    }
-
-    /* PATTERN 4: "WITHOUT VS WITH FORTIFAI" + RISING AREA CHART (VIDEO 0:19 - 0:26) */
     .compare-grid {
       display: grid;
       grid-template-columns: 1fr 1.15fr;
@@ -684,7 +658,6 @@
       padding: 12px 14px;
     }
 
-    /* PATTERN 5: ERP INTEGRATION STACK HUB (VIDEO 0:27) */
     .stack-hub-row {
       display: flex;
       align-items: center;
@@ -716,7 +689,6 @@
       box-shadow: 0 12px 28px rgba(13, 21, 32, 0.25);
     }
 
-    /* PATTERN 6: DARK 4-MODULE "EXPLORE THE PLATFORM" STRIP (VIDEO 0:29) */
     .dark-modules-band {
       background: var(--navy-deep);
       color: #FFFFFF;
@@ -747,21 +719,9 @@
       background: #17263B;
     }
 
-    .dark-mod-card h3 {
-      font-size: 17px;
-      font-weight: 600;
-      margin: 12px 0 8px;
-      color: #FFFFFF;
-    }
+    .dark-mod-card h3 { font-size: 17px; font-weight: 600; margin: 12px 0 8px; color: #FFFFFF; }
+    .dark-mod-card p { font-size: 13px; color: var(--blue-steel); line-height: 1.45; margin-bottom: 18px; }
 
-    .dark-mod-card p {
-      font-size: 13px;
-      color: var(--blue-steel);
-      line-height: 1.45;
-      margin-bottom: 18px;
-    }
-
-    /* PATTERN 7: CLEAN ACCORDION FAQ (VIDEO 0:32) */
     .faq-split {
       display: grid;
       grid-template-columns: 340px 1fr;
@@ -769,10 +729,7 @@
       align-items: start;
     }
 
-    .faq-item {
-      border-bottom: 1px solid var(--border-light);
-      padding: 18px 0;
-    }
+    .faq-item { border-bottom: 1px solid var(--border-light); padding: 18px 0; }
     .faq-q {
       width: 100%;
       background: none;
@@ -796,7 +753,6 @@
     }
     .faq-item.open .faq-a { display: block; }
 
-    /* SUBPAGE HEADER BANNER */
     .subpage-header {
       background: linear-gradient(180deg, #F2F4F7 0%, #FFFFFF 100%);
       border-bottom: 1px solid var(--border-light);
@@ -832,7 +788,6 @@
       justify-content: center;
     }
 
-    /* ROLE SWITCHER */
     .role-pill-bar {
       display: flex;
       gap: 8px;
@@ -893,19 +848,8 @@
       justify-content: space-between;
     }
 
-    .func-agent-card h4 {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--navy-deep);
-      margin: 8px 0 6px;
-    }
-
-    .func-agent-card p {
-      font-size: 13px;
-      color: var(--text-slate);
-      line-height: 1.45;
-      margin-bottom: 14px;
-    }
+    .func-agent-card h4 { font-size: 16px; font-weight: 600; color: var(--navy-deep); margin: 8px 0 6px; }
+    .func-agent-card p { font-size: 13px; color: var(--text-slate); line-height: 1.45; margin-bottom: 14px; }
 
     .outcome-chip {
       font-size: 11.5px;
@@ -917,7 +861,6 @@
       font-weight: 500;
     }
 
-    /* ABOUT US PAGE: 3-FOUNDER GRID + ADVISORY BOARD (CHRIS KEY REMOVED) */
     .founders-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -995,28 +938,10 @@
       font-weight: 500;
     }
 
-    .person-name {
-      font-size: 19px;
-      font-weight: 600;
-      color: var(--navy-deep);
-      margin-bottom: 8px;
-    }
+    .person-name { font-size: 19px; font-weight: 600; color: var(--navy-deep); margin-bottom: 8px; }
+    .person-quote { font-size: 13.5px; color: var(--text-slate); line-height: 1.55; margin-bottom: 14px; }
+    .person-creds { font-size: 11.5px; color: var(--text-muted); padding-top: 10px; border-top: 1px solid var(--border-light); }
 
-    .person-quote {
-      font-size: 13.5px;
-      color: var(--text-slate);
-      line-height: 1.55;
-      margin-bottom: 14px;
-    }
-
-    .person-creds {
-      font-size: 11.5px;
-      color: var(--text-muted);
-      padding-top: 10px;
-      border-top: 1px solid var(--border-light);
-    }
-
-    /* BOOK A DEMO PAGE */
     .book-layout {
       display: grid;
       grid-template-columns: 420px 1fr;
@@ -1048,21 +973,8 @@
       margin-bottom: 18px;
     }
 
-    .book-left-panel h1 {
-      font-size: 34px;
-      font-weight: 600;
-      color: var(--navy-deep);
-      line-height: 1.12;
-      letter-spacing: -0.9px;
-      margin-bottom: 14px;
-    }
-
-    .book-left-panel p.sub {
-      font-size: 14.5px;
-      color: var(--text-slate);
-      line-height: 1.55;
-      margin-bottom: 28px;
-    }
+    .book-left-panel h1 { font-size: 34px; font-weight: 600; color: var(--navy-deep); line-height: 1.12; letter-spacing: -0.9px; margin-bottom: 14px; }
+    .book-left-panel p.sub { font-size: 14.5px; color: var(--text-slate); line-height: 1.55; margin-bottom: 28px; }
 
     .quote-proof-card {
       background: #FFFFFF;
@@ -1098,15 +1010,8 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.06);
     }
 
-    .demo-form-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
+    .demo-form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
     .demo-field { margin-bottom: 18px; }
-
     .demo-field label {
       display: block;
       font-family: 'DM Mono', monospace;
@@ -1131,29 +1036,9 @@
       color: var(--text-ink);
     }
 
-    .outcomes-checklist {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-      margin-bottom: 24px;
-    }
-
-    .outcome-check-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--text-slate);
-      cursor: pointer;
-      padding: 4px 0;
-    }
-
-    .outcome-check-item input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--blue-interactive);
-    }
+    .outcomes-checklist { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; margin-bottom: 24px; }
+    .outcome-check-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-slate); cursor: pointer; padding: 4px 0; }
+    .outcome-check-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--blue-interactive); }
 
     .ms-bookings-frame-wrap {
       border: 1px solid var(--border-light);
@@ -1162,7 +1047,6 @@
       background: var(--bg-subtle);
     }
 
-    /* FOOTER */
     footer.site-footer {
       background: var(--navy-deep);
       color: var(--blue-steel);
@@ -1201,7 +1085,6 @@
   <!-- CRISP WHITE STICKY HEADER -->
   <header class="site-header">
     <div class="container nav-bar">
-      <!-- PRECISION FORTIFAI LOGO -->
       <a onclick="showPage('home')" class="brand-logo" aria-label="Fortifai Home">
         <svg height="36" viewBox="0 0 218 52" fill="none" xmlns="http://www.w3.org/2000/svg">
           <polygon points="2,24 31,12 31,44 2,44" fill="#6699CC"/>
@@ -1215,7 +1098,6 @@
           <button class="nav-trigger active-nav" id="nav-home" onclick="showPage('home')">Home</button>
         </li>
 
-        <!-- 1. PRODUCT MEGA-MENU -->
         <li class="nav-item">
           <button class="nav-trigger" id="nav-product" onclick="showPage('product')">Product <span class="caret">▾</span></button>
           <div class="mega-dropdown">
@@ -1305,7 +1187,6 @@
           </div>
         </li>
 
-        <!-- 2. BY ROLE PAGE + MEGA-MENU -->
         <li class="nav-item">
           <button class="nav-trigger" id="nav-role" onclick="showPage('role')">By Role <span class="caret">▾</span></button>
           <div class="mega-dropdown compact">
@@ -1350,7 +1231,6 @@
           </div>
         </li>
 
-        <!-- 3. ABOUT US PAGE -->
         <li class="nav-item">
           <button class="nav-trigger" id="nav-about" onclick="showPage('about')">About Us</button>
         </li>
@@ -1362,12 +1242,8 @@
     </div>
   </header>
 
-  <!-- =====================================================================
-       PAGE 1: HOME PAGE (Hyphenate-Style Visual Product Showcase)
-       ===================================================================== -->
+  <!-- PAGE 1: HOME PAGE -->
   <div id="page-home" class="page-view active">
-
-    <!-- PATTERN 1: SPLIT HERO WITH OVERLAPPING MICRO-UI CARDS -->
     <section class="hero-blue-canvas">
       <div class="container hero-split-grid">
         <div>
@@ -1387,7 +1263,6 @@
           </div>
         </div>
 
-        <!-- Layered Micro-UI Card Stack (Extracted from Cockpit HTML) -->
         <div class="hero-widget-stack">
           <div class="widget-back-card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
@@ -1410,7 +1285,6 @@
             </div>
           </div>
 
-          <!-- Overlapping Front Approvals / Hold Queue Card -->
           <div class="widget-front-floating">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
               <span style="font-size:13px; font-weight:600; color:var(--navy-deep);">Pre-F110 Treasury &amp; Control Queue</span>
@@ -1442,7 +1316,6 @@
       </div>
     </section>
 
-    <!-- PATTERN 2: BOLD FULL-WIDTH 2-TONE STATEMENT BANNER -->
     <section class="statement-band">
       <div class="container">
         <div class="statement-quote">
@@ -1451,7 +1324,6 @@
       </div>
     </section>
 
-    <!-- PATTERN 3: HYPHENATE-STYLE "01 — 06" INTERACTIVE MICRO-UI SHOWCASE -->
     <section class="section-white">
       <div class="container">
         <div class="step-showcase-header">
@@ -1463,10 +1335,8 @@
         </div>
 
         <div class="step-showcase-grid">
-          <!-- Left Tinted Square Stage with Zoomed-In Micro-UI Widget -->
           <div class="micro-ui-stage" id="micro-ui-stage"></div>
 
-          <!-- Right 01-06 Interactive Step Selector -->
           <div class="step-selector-list">
             <button class="step-row-btn active" onclick="selectPipelineStep(0, this)">
               <span class="step-num-badge mono">01</span>
@@ -1520,7 +1390,6 @@
       </div>
     </section>
 
-    <!-- PATTERN 4: "WITHOUT FORTIFAI VS WITH FORTIFAI" + RISING AREA CHART -->
     <section class="section-alabaster">
       <div class="container">
         <span class="sec-eyebrow mono">REPLACE SAMPLE AUDITS WITH CONTINUOUS AI</span>
@@ -1528,7 +1397,6 @@
         <p class="sec-lead">Traditional audits test 25 rows a quarter after the cash is gone. Fortifai tests 100% of lines before payment runs execute.</p>
 
         <div class="compare-grid">
-          <!-- Left: Without Fortifai -->
           <div class="without-card">
             <div class="mono" style="font-size:12px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.7px;">Without Fortifai</div>
             <h3 style="font-size:20px; font-weight:600; color:var(--navy-deep); margin-top:6px;">Reactive 5% Sampling &amp; Static Slide Decks</h3>
@@ -1542,7 +1410,6 @@
             </ul>
           </div>
 
-          <!-- Right: With Fortifai + Rising Area Chart -->
           <div class="with-card">
             <div>
               <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -1571,7 +1438,6 @@
               </div>
             </div>
 
-            <!-- Rising Cumulative EBITDA & Cash Protected SVG Area Chart -->
             <div style="background:var(--bg-subtle); border:1px solid var(--border-light); border-radius:8px; padding:14px 16px;">
               <div style="display:flex; justify-content:space-between; font-size:11.5px; margin-bottom:8px;" class="mono">
                 <span style="color:var(--text-muted);">CUMULATIVE DEDUPLICATED YIELD</span>
@@ -1584,13 +1450,10 @@
                     <stop offset="100%" stop-color="#6699CC" stop-opacity="0.02"/>
                   </linearGradient>
                 </defs>
-                <!-- Subtle Grid Lines -->
                 <line x1="0" y1="25" x2="460" y2="25" stroke="#E5E7EB" stroke-dasharray="3 3"/>
                 <line x1="0" y1="60" x2="460" y2="60" stroke="#E5E7EB" stroke-dasharray="3 3"/>
                 <line x1="0" y1="95" x2="460" y2="95" stroke="#E5E7EB"/>
-                <!-- Legacy 5% Sample Flat Baseline -->
                 <path d="M10 90 L450 86" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="4 4"/>
-                <!-- Fortifai Rising Area & Curve -->
                 <path d="M10 92 C90 84, 150 68, 230 52 C310 35, 380 20, 450 12 L450 95 L10 95 Z" fill="url(#areaGrad)"/>
                 <path d="M10 92 C90 84, 150 68, 230 52 C310 35, 380 20, 450 12" stroke="#2E5A8A" stroke-width="2.5"/>
                 <circle cx="450" cy="12" r="4.5" fill="#2E5A8A"/>
@@ -1601,7 +1464,6 @@
       </div>
     </section>
 
-    <!-- PATTERN 5: BUILT TO FIT YOUR ERP STACK HUB -->
     <section class="section-white" style="text-align:center;">
       <div class="container">
         <span class="sec-eyebrow mono">PLUG-AND-PLAY READ-ONLY CONNECTORS</span>
@@ -1620,7 +1482,6 @@
       </div>
     </section>
 
-    <!-- PATTERN 6: DARK 4-CARD "EXPLORE THE PLATFORM" STRIP -->
     <section class="dark-modules-band">
       <div class="container">
         <span class="sec-eyebrow mono" style="color:var(--blue-brand);">EXPLORE THE PLATFORM</span>
@@ -1666,7 +1527,6 @@
       </div>
     </section>
 
-    <!-- PATTERN 7: CLEAN ACCORDION FAQ -->
     <section class="section-white">
       <div class="container faq-split">
         <div>
@@ -1713,9 +1573,7 @@
     </section>
   </div>
 
-  <!-- =====================================================================
-       PAGE 2: UNIFIED PRODUCT PAGE (Agent Stack + Workflows + Deployment)
-       ===================================================================== -->
+  <!-- PAGE 2: PRODUCT PAGE -->
   <div id="page-product" class="page-view">
     <div class="subpage-header">
       <div class="container">
@@ -1840,9 +1698,7 @@
     </section>
   </div>
 
-  <!-- =====================================================================
-       PAGE 3: BY ROLE PAGE (CFO, CPO, CCO/GC, CAE, CRO)
-       ===================================================================== -->
+  <!-- PAGE 3: BY ROLE PAGE -->
   <div id="page-role" class="page-view">
     <div class="subpage-header">
       <div class="container">
@@ -1871,9 +1727,7 @@
     </section>
   </div>
 
-  <!-- =====================================================================
-       PAGE 4: ABOUT US PAGE (3 Founders + David Maria + 3 Advisors; Chris Removed)
-       ===================================================================== -->
+  <!-- PAGE 4: ABOUT US PAGE (WIRED TO EXACT GITHUB FILENAMES) -->
   <div id="page-about" class="page-view">
     <div class="subpage-header">
       <div class="container">
@@ -1888,7 +1742,6 @@
       </div>
     </div>
 
-    <!-- FOUNDING & EXECUTIVE TEAM (3-COLUMN FOUNDERS + AMERICAS HEAD) -->
     <section class="section-white">
       <div class="container">
         <span class="sec-eyebrow mono">FOUNDING &amp; EXECUTIVE TEAM</span>
@@ -1898,7 +1751,7 @@
           <!-- Varun Mowar -->
           <div class="person-card">
             <div class="person-photo-box">
-              <img src="assets/varun-mowar.png" alt="Varun Mowar" onerror="this.src='assets/varun-mowar.jpg'; this.onerror=function(){this.style.display='none'};" />
+              <img src="VM BW2.jpg" alt="Varun Mowar" onerror="this.style.display='none'" />
               <div class="avatar-monogram mono">VM</div>
             </div>
             <div class="person-body">
@@ -1914,7 +1767,7 @@
           <!-- Manish Patil -->
           <div class="person-card">
             <div class="person-photo-box">
-              <img src="assets/manish-patil.png" alt="Manish Patil" onerror="this.src='assets/manish-patil.jpg'; this.onerror=function(){this.style.display='none'};" />
+              <img src="MP BW.jpg" alt="Manish Patil" onerror="this.style.display='none'" />
               <div class="avatar-monogram mono">MP</div>
             </div>
             <div class="person-body">
@@ -1930,7 +1783,7 @@
           <!-- Adityavijay Rathore -->
           <div class="person-card">
             <div class="person-photo-box">
-              <img src="assets/adityavijay-rathore.png" alt="Adityavijay Rathore" onerror="this.src='assets/adityavijay-rathore.jpg'; this.onerror=function(){this.style.display='none'};" />
+              <img src="AVR BW.jpg" alt="Adityavijay Rathore" onerror="this.style.display='none'" />
               <div class="avatar-monogram mono">AR</div>
             </div>
             <div class="person-body">
@@ -1947,7 +1800,6 @@
         <!-- Americas Leadership Highlight -->
         <div class="person-card" style="flex-direction:row; align-items:center; flex-wrap:wrap;">
           <div class="person-photo-box" style="width:240px; height:165px; border-bottom:none; border-right:2px solid var(--blue-brand); flex-shrink:0;">
-            <img src="assets/david-maria.png" alt="David Maria" onerror="this.src='assets/david-maria.jpg'; this.onerror=function(){this.style.display='none'};" />
             <div class="avatar-monogram mono" style="width:68px; height:68px; font-size:20px;">DM</div>
           </div>
           <div class="person-body" style="flex:1; min-width:280px;">
@@ -1970,7 +1822,7 @@
           <!-- Arunava Mitra -->
           <div class="person-card">
             <div class="person-photo-box" style="height:220px;">
-              <img src="assets/arunava-mitra.png" alt="Arunava Mitra" onerror="this.src='assets/arunava-mitra.jpg'; this.onerror=function(){this.style.display='none'};" />
+              <img src="Arun Pic.png" alt="Arunava Mitra" onerror="this.style.display='none'" />
               <div class="avatar-monogram mono">AM</div>
             </div>
             <div class="person-body">
@@ -1986,7 +1838,7 @@
           <!-- Kaiwan Bharucha -->
           <div class="person-card">
             <div class="person-photo-box" style="height:220px;">
-              <img src="assets/kaiwan-bharucha.png" alt="Kaiwan Bharucha" onerror="this.src='assets/kaiwan-bharucha.jpg'; this.onerror=function(){this.style.display='none'};" />
+              <img src="Kaiwan.avif" alt="Kaiwan Bharucha" onerror="this.style.display='none'" />
               <div class="avatar-monogram mono">KB</div>
             </div>
             <div class="person-body">
@@ -2002,7 +1854,7 @@
           <!-- Chandra Yeleshwarapu -->
           <div class="person-card">
             <div class="person-photo-box" style="height:220px;">
-              <img src="assets/chandra-yeleshwarapu.png" alt="Chandra Yeleshwarapu" onerror="this.src='assets/chandra-yeleshwarapu.jpg'; this.onerror=function(){this.style.display='none'};" />
+              <img src="Chandra.avif" alt="Chandra Yeleshwarapu" onerror="this.style.display='none'" />
               <div class="avatar-monogram mono">CY</div>
             </div>
             <div class="person-body">
@@ -2019,9 +1871,7 @@
     </section>
   </div>
 
-  <!-- =====================================================================
-       PAGE 5: BOOK A DEMO PAGE (Microsoft Bookings)
-       ===================================================================== -->
+  <!-- PAGE 5: BOOK A DEMO PAGE -->
   <div id="page-book" class="page-view">
     <div class="container">
       <div class="book-layout">
@@ -2178,7 +2028,17 @@
     const MS_BOOKINGS_URL = "https://bookings.cloud.microsoft/bookwithme/user/9d42e199ba2849b09460c0f0b246122e@fortifai.io/meetingtype/csvZYBwRkkuw11HGTwN8rg2?anonymous&ismsaljsauthenabled";
     const FORMSPREE_WEBHOOK = "https://formspree.io/f/myeeodjv";
 
-    // HYPHENATE-STYLE 01 — 06 ZOOMED-IN MICRO-UI WIDGETS (EXTRACTED FROM COCKPIT HTML)
+    function tryNextImg(img) {
+      const list = (img.getAttribute('data-fallbacks') || '').split(',').filter(Boolean);
+      if (list.length > 0) {
+        const next = list.shift();
+        img.setAttribute('data-fallbacks', list.join(','));
+        img.src = next;
+      } else {
+        img.style.display = 'none';
+      }
+    }
+
     const PIPELINE_STEPS = [
       {
         num: "01 — 06",
@@ -2566,7 +2426,6 @@
       switchBookingTab('calendar');
     }
 
-    // Initialize default views
     selectPipelineStep(0, document.querySelector('.step-row-btn'));
     switchRole('cfo');
   </script>
