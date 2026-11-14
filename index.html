@@ -65,7 +65,7 @@
     .page-view {
       display: none;
       flex: 1;
-      animation: fadeInPage 0.2s ease-out;
+      animation: fadeInPage 0.18s ease-out;
     }
     .page-view.active {
       display: block;
@@ -102,7 +102,7 @@
     }
     .top-ribbon a:hover { text-decoration: underline; }
 
-    /* CRISP WHITE STICKY HEADER + MEGA MENU */
+    /* CRISP WHITE STICKY HEADER */
     header.site-header {
       position: sticky;
       top: 0;
@@ -116,21 +116,23 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: 74px;
       position: relative;
     }
 
+    /* PRECISION FORTIFAI LOGO LOCKUP (MATCHES OFFICIAL BRAND MARK) */
     .brand-logo {
       display: inline-flex;
       align-items: center;
       text-decoration: none;
       cursor: pointer;
+      user-select: none;
     }
 
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       list-style: none;
     }
 
@@ -172,7 +174,7 @@
     /* FLOATING MEGA-MENU DROPDOWN */
     .mega-dropdown {
       position: absolute;
-      top: 68px;
+      top: 70px;
       left: 50%;
       transform: translateX(-50%) translateY(8px);
       width: 860px;
@@ -410,7 +412,7 @@
       flex-wrap: wrap;
     }
 
-    /* SUBPAGE HEADER BANNER (CLEAN LIGHT ARCHITECTURAL HEADER) */
+    /* SUBPAGE HEADER BANNER */
     .subpage-header {
       background: linear-gradient(180deg, #F2F4F7 0%, #FFFFFF 100%);
       border-bottom: 1px solid var(--border-light);
@@ -648,7 +650,7 @@
       border-radius: 8px;
       padding: 14px;
       margin-bottom: 18px;
-      min-height: 135px;
+      min-height: 115px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1032,26 +1034,18 @@
     <a onclick="showPage('book')">Book a 30-Min Demo →</a>
   </div>
 
-  <!-- CRISP WHITE STICKY HEADER (NO AGENT COCKPIT / NO PORTAL LINKS) -->
+  <!-- CRISP WHITE STICKY HEADER (SOLUTIONS TAB MERGED INTO PRODUCT FOR ZERO DUPLICATION) -->
   <header class="site-header">
     <div class="container nav-bar">
-      <!-- Official Fortifai Logo -->
+      <!-- CRISP PRECISION FORTIFAI LOGO (EXACT MATCH TO OFFICIAL BRAND LOCKUP) -->
       <a onclick="showPage('home')" class="brand-logo" aria-label="Fortifai Home">
-        <svg height="34" viewBox="0 0 235 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="2,27 32,14 32,48 2,48" fill="#6699CC"/>
-          <g fill="#0D1520">
-            <path d="M51 48V24H45V18H51V14C51 7.5 55 4 62 4C64.8 4 67 4.5 68 5V10.5C66.8 10 65 9.8 63.2 9.8C59.5 9.8 58 11.5 58 14.8V18H66V24H58V48H51Z"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M84 17.5C93.2 17.5 100 24 100 33C100 42 93.2 48.5 84 48.5C74.8 48.5 68 42 68 33C68 24 74.8 17.5 84 17.5ZM84 42.5C89.5 42.5 93 38.5 93 33C93 27.5 89.5 23.5 84 23.5C78.5 23.5 75 27.5 75 33C75 38.5 78.5 42.5 84 42.5Z"/>
-            <path d="M106 48V18H113V23C114.8 19.5 118.2 18 122.5 18V24H106V48Z"/>
-            <path d="M131 11L138 7.5V40C138 42.2 139.3 43 141.8 43H145V48H140.5C134.2 48 131 45.2 131 39.5V11Z"/>
-            <polygon points="151,12.5 158,9 158,15.5 151,15.5"/>
-            <rect x="151" y="18" width="7" height="30"/>
-            <path d="M167 48V14C167 7.5 171 4 178 4C180.5 4 182.5 4.4 183.5 4.8V10.3C182.2 9.9 180.5 9.7 179 9.7C175.5 9.7 174 11.4 174 14.7V48H167Z"/>
-            <rect x="112" y="18" width="84" height="6"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M201 17.5C210 17.5 215.5 22.2 215.5 30.5V48H208.8V43.8C206.5 46.8 202.8 48.5 198 48.5C190.8 48.5 186 44.5 186 39C186 33 191.2 29.8 200.5 29.8H208.5V29C208.5 25 205.8 23 200.8 23C196.8 23 194 24.5 192.8 26.8L187 23.8C189.2 19.8 194.2 17.5 201 17.5ZM199.5 43.2C204.8 43.2 208.5 39.8 208.5 35.5V34.5H201C195.5 34.5 192.8 36.2 192.8 39C192.8 41.6 195.4 43.2 199.5 43.2Z"/>
-            <polygon points="222,12.5 229,9 229,15.5 222,15.5"/>
-            <rect x="222" y="18" width="7" height="30"/>
-          </g>
+        <svg height="36" viewBox="0 0 218 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Angled Brand Blue Trapezoid Mark -->
+          <polygon points="2,24 31,12 31,44 2,44" fill="#6699CC"/>
+          <!-- Crisp "fortifai" Wordmark + Continuous r-t-i-f-a Crossbar -->
+          <text x="41" y="44" fill="#0D1520" font-family="'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="44" font-weight="600" letter-spacing="-1.6">fortifai</text>
+          <!-- Signature Continuous Horizontal Bar Across r-t-i-f-a -->
+          <rect x="97" y="19.5" width="76" height="4.8" fill="#0D1520"/>
         </svg>
       </a>
 
@@ -1060,16 +1054,16 @@
           <button class="nav-trigger active-nav" id="nav-home" onclick="showPage('home')">Home</button>
         </li>
 
-        <!-- 1. PRODUCT PAGE + MEGA-MENU -->
+        <!-- 1. UNIFIED PRODUCT MEGA-MENU (PLATFORM + AGENTS + WORKFLOWS) -->
         <li class="nav-item">
           <button class="nav-trigger" id="nav-product" onclick="showPage('product')">Product <span class="caret">▾</span></button>
           <div class="mega-dropdown">
             <a onclick="showPage('product')" class="mega-top-banner">
               <div>
-                <div style="font-size:14px; font-weight:600; color:var(--navy-deep);">Fortifai SARA — Executive Risk Control Tower &amp; Agent Stack</div>
-                <div style="font-size:12.5px; color:var(--text-muted);">One shared ERP spine powering autonomous risk, margin, and assurance agents inside your VPC.</div>
+                <div style="font-size:14px; font-weight:600; color:var(--navy-deep);">Fortifai SARA — Executive Risk Control Tower &amp; Multi-Agent Architecture</div>
+                <div style="font-size:12.5px; color:var(--text-muted);">One shared ERP spine powering autonomous risk, margin, and assurance agents inside your private VPC.</div>
               </div>
-              <span class="mono" style="font-size:12px; color:var(--blue-interactive);">View Product Architecture →</span>
+              <span class="mono" style="font-size:12px; color:var(--blue-interactive);">Explore Platform →</span>
             </a>
             <div class="mega-grid-3">
               <div>
@@ -1195,64 +1189,7 @@
           </div>
         </li>
 
-        <!-- 3. SOLUTIONS PAGE + MEGA-MENU -->
-        <li class="nav-item">
-          <button class="nav-trigger" id="nav-solutions" onclick="showPage('solutions')">Solutions <span class="caret">▾</span></button>
-          <div class="mega-dropdown compact">
-            <div class="mega-grid-2">
-              <div>
-                <div class="mega-col-title mono">By ERP Workflow</div>
-                <a onclick="showPage('solutions')" class="mega-link">
-                  <div class="mega-icon mono">P2P</div>
-                  <div>
-                    <div class="mega-link-title">Procure-to-Pay Assurance</div>
-                    <div class="mega-link-desc">PO, GRN, weighbridge &amp; invoice price verification</div>
-                  </div>
-                </a>
-                <a onclick="showPage('solutions')" class="mega-link">
-                  <div class="mega-icon mono">R2R</div>
-                  <div>
-                    <div class="mega-link-title">Record-to-Report &amp; Close</div>
-                    <div class="mega-link-desc">Continuous GL reconciliation &amp; top-side JE testing</div>
-                  </div>
-                </a>
-                <a onclick="showPage('solutions')" class="mega-link">
-                  <div class="mega-icon mono">O2C</div>
-                  <div>
-                    <div class="mega-link-title">Order-to-Cash &amp; Trade</div>
-                    <div class="mega-link-desc">Revenue cut-off, credit blocks &amp; post-gate export checks</div>
-                  </div>
-                </a>
-              </div>
-              <div>
-                <div class="mega-col-title mono">Engagement &amp; Deployment</div>
-                <a onclick="showPage('solutions')" class="mega-link">
-                  <div class="mega-icon mono">01</div>
-                  <div>
-                    <div class="mega-link-title">Rapid Historical Diagnostic</div>
-                    <div class="mega-link-desc">4-week ERP leakage &amp; control assessment</div>
-                  </div>
-                </a>
-                <a onclick="showPage('solutions')" class="mega-link">
-                  <div class="mega-icon mono">02</div>
-                  <div>
-                    <div class="mega-link-title">Zero-Egress Private VPC</div>
-                    <div class="mega-link-desc">Runs 100% in your cloud or on-prem perimeter</div>
-                  </div>
-                </a>
-                <a onclick="showPage('solutions')" class="mega-link">
-                  <div class="mega-icon mono">03</div>
-                  <div>
-                    <div class="mega-link-title">Build-Operate-Transfer (BOT)</div>
-                    <div class="mega-link-desc">Co-sourced with our SMEs or transferred in-house</div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <!-- 4. ABOUT US PAGE -->
+        <!-- 3. ABOUT US PAGE -->
         <li class="nav-item">
           <button class="nav-trigger" id="nav-about" onclick="showPage('about')">About Us</button>
         </li>
@@ -1446,7 +1383,7 @@
   </div>
 
   <!-- =====================================================================
-       PAGE 2: PRODUCT PAGE (The AI Agent Stack, SARA, Xa, QuantumQuery, D7)
+       PAGE 2: UNIFIED PRODUCT PAGE (Agent Stack + Workflows + Deployment)
        ===================================================================== -->
   <div id="page-product" class="page-view">
     <div class="subpage-header">
@@ -1458,9 +1395,10 @@
       </div>
     </div>
 
+    <!-- SECTION A: 6 CORE HORIZONTAL AGENTS -->
     <section class="section-white">
       <div class="container">
-        <span class="sec-eyebrow mono">CORE HORIZONTAL AGENT STACK</span>
+        <span class="sec-eyebrow mono">01 · CORE HORIZONTAL AGENT STACK</span>
         <h2 class="sec-heading">From ERP Connection to Board-Ready Dossier—Autonomously.</h2>
         <p class="sec-lead">Every domain module runs on six coordinated horizontal agents sharing one read-only ERP spine.</p>
 
@@ -1533,56 +1471,15 @@
         </div>
       </div>
     </section>
-  </div>
 
-  <!-- =====================================================================
-       PAGE 3: BY ROLE PAGE (CFO, CPO, CCO/GC, CAE, CRO)
-       ===================================================================== -->
-  <div id="page-role" class="page-view">
-    <div class="subpage-header">
-      <div class="container">
-        <span class="sec-eyebrow mono">SOLUTIONS BY EXECUTIVE MANDATE</span>
-        <h1 class="sec-heading" style="font-size:clamp(32px,4vw,46px);">One ERP Spine. Five Executive Buyers.</h1>
-        <p class="sec-lead" style="margin-bottom:0;">Select your leadership role below to inspect the autonomous AI agents, ERP controls, and P&amp;L outcomes built for your team.</p>
-      </div>
-    </div>
-
+    <!-- SECTION B: END-TO-END ERP WORKFLOW COVERAGE -->
     <section class="section-alabaster">
       <div class="container">
-        <div class="role-pill-bar">
-          <button class="role-pill active" id="tab-cfo" onclick="switchRole('cfo')">For CFOs &amp; Controllers</button>
-          <button class="role-pill" id="tab-cpo" onclick="switchRole('cpo')">For Chief Procurement Officers</button>
-          <button class="role-pill" id="tab-cco" onclick="switchRole('cco')">For CCOs &amp; General Counsel</button>
-          <button class="role-pill" id="tab-cae" onclick="switchRole('cae')">For Chief Audit Executives</button>
-          <button class="role-pill" id="tab-cro" onclick="switchRole('cro')">For Chief Revenue Officers</button>
-        </div>
+        <span class="sec-eyebrow mono">02 · END-TO-END ERP PROCESS COVERAGE</span>
+        <h2 class="sec-heading">Continuous Assurance Across Every Core Workflow.</h2>
+        <p class="sec-lead">One read-only connection to SAP S/4HANA, ECC, Oracle, NetSuite, and Concur powers all three workflows.</p>
 
-        <div class="role-dashboard-card" id="role-content-box"></div>
-
-        <div style="margin-top:32px; text-align:center;">
-          <button onclick="showPage('book')" class="btn btn-primary-blue">Book a Role-Specific Demo →</button>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- =====================================================================
-       PAGE 4: SOLUTIONS PAGE (Workflows + Consulting-to-Platform Delivery)
-       ===================================================================== -->
-  <div id="page-solutions" class="page-view">
-    <div class="subpage-header">
-      <div class="container">
-        <span class="sec-eyebrow mono">WORKFLOWS &amp; DEPLOYMENT MODELS</span>
-        <h1 class="sec-heading" style="font-size:clamp(32px,4vw,46px);">What Used to Take a Consulting Army Now Takes a Platform.</h1>
-        <p class="sec-lead" style="margin-bottom:0;">Enterprises spend millions annually on manual ERP data pulls, pivot tables, and static slide decks. Fortifai automates 90% of that work inside your VPC.</p>
-      </div>
-    </div>
-
-    <section class="section-white">
-      <div class="container">
-        <span class="sec-eyebrow mono">END-TO-END ERP WORKFLOW COVERAGE</span>
-        <h2 class="sec-heading">Continuous Assurance Across Every Core Process.</h2>
-        <div class="bento-grid" style="margin-top:28px;">
+        <div class="bento-grid">
           <div class="bento-card">
             <div>
               <span class="mono" style="font-size:11px; color:var(--blue-interactive);">PROCURE-TO-PAY (P2P)</span>
@@ -1613,11 +1510,12 @@
       </div>
     </section>
 
-    <section class="section-alabaster">
+    <!-- SECTION C: FLEXIBLE DEPLOYMENT MODELS -->
+    <section class="section-white">
       <div class="container">
-        <span class="sec-eyebrow mono">FLEXIBLE DELIVERY MODELS</span>
+        <span class="sec-eyebrow mono">03 · HOW CLIENTS DEPLOY</span>
         <h2 class="sec-heading">Platform Does the Work. Experts Add the Judgment.</h2>
-        <p class="sec-lead">Start with a rapid historical diagnostic or deploy a permanent in-house capability.</p>
+        <p class="sec-lead">Start with a 4-week historical diagnostic or deploy a permanent in-house capability inside your VPC.</p>
 
         <div class="bento-grid">
           <div class="bento-card">
@@ -1652,7 +1550,38 @@
   </div>
 
   <!-- =====================================================================
-       PAGE 5: ABOUT US PAGE (Restored Founding Team + Photos + Advisory Board)
+       PAGE 3: BY ROLE PAGE (CFO, CPO, CCO/GC, CAE, CRO)
+       ===================================================================== -->
+  <div id="page-role" class="page-view">
+    <div class="subpage-header">
+      <div class="container">
+        <span class="sec-eyebrow mono">BY EXECUTIVE MANDATE</span>
+        <h1 class="sec-heading" style="font-size:clamp(32px,4vw,46px);">One ERP Spine. Five Executive Buyers.</h1>
+        <p class="sec-lead" style="margin-bottom:0;">Select your leadership role below to inspect the autonomous AI agents, ERP controls, and P&amp;L outcomes built for your team.</p>
+      </div>
+    </div>
+
+    <section class="section-alabaster">
+      <div class="container">
+        <div class="role-pill-bar">
+          <button class="role-pill active" id="tab-cfo" onclick="switchRole('cfo')">For CFOs &amp; Controllers</button>
+          <button class="role-pill" id="tab-cpo" onclick="switchRole('cpo')">For Chief Procurement Officers</button>
+          <button class="role-pill" id="tab-cco" onclick="switchRole('cco')">For CCOs &amp; General Counsel</button>
+          <button class="role-pill" id="tab-cae" onclick="switchRole('cae')">For Chief Audit Executives</button>
+          <button class="role-pill" id="tab-cro" onclick="switchRole('cro')">For Chief Revenue Officers</button>
+        </div>
+
+        <div class="role-dashboard-card" id="role-content-box"></div>
+
+        <div style="margin-top:32px; text-align:center;">
+          <button onclick="showPage('book')" class="btn btn-primary-blue">Book a Role-Specific Demo →</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- =====================================================================
+       PAGE 4: ABOUT US PAGE (Founding Team + Photos + Advisory Board)
        ===================================================================== -->
   <div id="page-about" class="page-view">
     <div class="subpage-header">
@@ -1756,7 +1685,7 @@
       </div>
     </section>
 
-    <!-- ADVISORY BOARD (RESTORED FROM OLD SITE) -->
+    <!-- ADVISORY BOARD -->
     <section class="section-alabaster">
       <div class="container">
         <span class="sec-eyebrow mono">STRATEGIC GUIDANCE</span>
@@ -1816,7 +1745,7 @@
   </div>
 
   <!-- =====================================================================
-       PAGE 6: BOOK A DEMO PAGE (Microsoft Bookings — Zero Superhuman Mailto)
+       PAGE 5: BOOK A DEMO PAGE (Microsoft Bookings)
        ===================================================================== -->
   <div id="page-book" class="page-view">
     <div class="container">
@@ -1866,7 +1795,7 @@
             </div>
           </div>
 
-          <!-- Mode 2: Optional Qualification Form that Redirects to Microsoft Bookings -->
+          <!-- Mode 2: Qualification Form that Redirects to Microsoft Bookings -->
           <div id="booking-form-pane" style="display:none;">
             <form onsubmit="submitDemoLead(event)">
               <div class="demo-form-grid-2">
@@ -1931,27 +1860,16 @@
     </div>
   </div>
 
-  <!-- FOOTER (PORTALS / COCKPIT LINKS COMPLETELY REMOVED) -->
+  <!-- FOOTER (CLEAN — NO PORTALS OR SOLUTIONS DUPLICATION) -->
   <footer class="site-footer">
     <div class="container">
       <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px; margin-bottom:36px;">
         <div>
           <div style="margin-bottom:12px; cursor:pointer;" onclick="showPage('home')">
-            <svg height="30" viewBox="0 0 235 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="2,27 32,14 32,48 2,48" fill="#6699CC"/>
-              <g fill="#FFFFFF">
-                <path d="M51 48V24H45V18H51V14C51 7.5 55 4 62 4C64.8 4 67 4.5 68 5V10.5C66.8 10 65 9.8 63.2 9.8C59.5 9.8 58 11.5 58 14.8V18H66V24H58V48H51Z"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M84 17.5C93.2 17.5 100 24 100 33C100 42 93.2 48.5 84 48.5C74.8 48.5 68 42 68 33C68 24 74.8 17.5 84 17.5ZM84 42.5C89.5 42.5 93 38.5 93 33C93 27.5 89.5 23.5 84 23.5C78.5 23.5 75 27.5 75 33C75 38.5 78.5 42.5 84 42.5Z"/>
-                <path d="M106 48V18H113V23C114.8 19.5 118.2 18 122.5 18V24H106V48Z"/>
-                <path d="M131 11L138 7.5V40C138 42.2 139.3 43 141.8 43H145V48H140.5C134.2 48 131 45.2 131 39.5V11Z"/>
-                <polygon points="151,12.5 158,9 158,15.5 151,15.5"/>
-                <rect x="151" y="18" width="7" height="30"/>
-                <path d="M167 48V14C167 7.5 171 4 178 4C180.5 4 182.5 4.4 183.5 4.8V10.3C182.2 9.9 180.5 9.7 179 9.7C175.5 9.7 174 11.4 174 14.7V48H167Z"/>
-                <rect x="112" y="18" width="84" height="6"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M201 17.5C210 17.5 215.5 22.2 215.5 30.5V48H208.8V43.8C206.5 46.8 202.8 48.5 198 48.5C190.8 48.5 186 44.5 186 39C186 33 191.2 29.8 200.5 29.8H208.5V29C208.5 25 205.8 23 200.8 23C196.8 23 194 24.5 192.8 26.8L187 23.8C189.2 19.8 194.2 17.5 201 17.5ZM199.5 43.2C204.8 43.2 208.5 39.8 208.5 35.5V34.5H201C195.5 34.5 192.8 36.2 192.8 39C192.8 41.6 195.4 43.2 199.5 43.2Z"/>
-                <polygon points="222,12.5 229,9 229,15.5 222,15.5"/>
-                <rect x="222" y="18" width="7" height="30"/>
-              </g>
+            <svg height="32" viewBox="0 0 218 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="2,24 31,12 31,44 2,44" fill="#6699CC"/>
+              <text x="41" y="44" fill="#FFFFFF" font-family="'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="44" font-weight="600" letter-spacing="-1.6">fortifai</text>
+              <rect x="97" y="19.5" width="76" height="4.8" fill="#FFFFFF"/>
             </svg>
           </div>
           <p style="max-width:340px; line-height:1.5;">AI for Enterprise Risk. Autonomous ERP monitoring and third-party intelligence inside your private cloud.</p>
@@ -1965,7 +1883,6 @@
               <a onclick="showPage('home')" style="color:var(--blue-steel); cursor:pointer;">Home</a>
               <a onclick="showPage('product')" style="color:var(--blue-steel); cursor:pointer;">Product</a>
               <a onclick="showPage('role')" style="color:var(--blue-steel); cursor:pointer;">By Role</a>
-              <a onclick="showPage('solutions')" style="color:var(--blue-steel); cursor:pointer;">Solutions</a>
               <a onclick="showPage('about')" style="color:var(--blue-steel); cursor:pointer;">About Us</a>
             </div>
           </div>
