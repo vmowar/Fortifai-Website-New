@@ -1,2276 +1,1534 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fortifai — AI for Enterprise Risk</title>
-  <meta name="description" content="Continuous ERP transaction monitoring, pre-payment cash protection, and third-party risk intelligence inside your private VPC." />
+<html lang="en"><head><script data-bard-client-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6IjExNjRiNzdiNDMzZDdhMDAyMWI4NjE4YjhjYTU3ZTMyZGI5MWUxMTMiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwNzYzMzAzNDQyMDkwMjYzODg2NCIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiJjX2VmZTAwYjg1NjA0Y2I4NTlfaW5kZXguaHRtbC0zNDEifSwiZXhwIjoxNzk0ODA3NjM3LCJpYXQiOjE3OTQ4MDQwMzcsImFsZyI6IlJTMjU2In0.YSvAPG3JMXw6BBtz8JkovBCSDsEsidtNgaH8h4sEfcySGhjPWhzHh_OueWlYbB44lg6T1NYzOoQTKAW2CLGJ2V70tnjEBRWaQZCItKPIJlJUiAOA_GFqv9TnxGhwX-YXO3214Iqwum8WU49ODJqcrjLT8y246AIZiP-RooSo-ACPMYUhRsvELphyLVBdbjuEnAHP06cN894y8BI3uCp-QPSUMDtkFg2ZCxrOnz8UPYwG7NVSjYIqZwY8371DjQUYedWl0mtSbzp-jDEIe8fRqQCD5WNOJAxfAIw2lgMoK6ySHay8ZFZP2lldlevasLE5ZsLv5dXgFHOwYv02xvHhrQ","c_efe00b85604cb859_index.html-341")</script><script data-bard-client-injected="true">
+  document.addEventListener('input', (event) => {
+    if (event.target && (event.target.isContentEditable || event.target.hasAttribute('contenteditable'))) {
+      const clonedDoc = document.cloneNode(true);
+      const injectedScripts = clonedDoc.querySelectorAll('[data-bard-client-injected="true"]');
+      injectedScripts.forEach(el => el.remove());
+      window.parent.postMessage({
+        type: 'inlineEdit',
+        html: '<!DOCTYPE html>\n' + clonedDoc.documentElement.outerHTML
+      }, '*');
+    }
+  });
+</script><script data-bard-client-injected="true">(function(){'use strict';window.addEventListener("message",a=>{a.data&&a.data.type==="SUPPLEMENTAL_DATA_UPDATE"&&window.dispatchEvent(new CustomEvent("supplementaldataupdate",{detail:a.data.data}))});}).call(this);
+</script><script data-bard-client-injected="true">(function() {
+  const SCROLL_KEYS = new Set([
+    'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
+    ' ', 'Spacebar', 'PageUp', 'PageDown', 'Home', 'End',
+  ]);
+  const HORIZONTAL_KEYS = new Set(['ArrowLeft', 'ArrowRight']);
+
+  function isTextEntryTarget(target) {
+    if (!target) return false;
+    const tagName = target.tagName;
+    return tagName === 'INPUT' || tagName === 'TEXTAREA' ||
+        tagName === 'SELECT' || target.isContentEditable === true;
+  }
+
+  // An element absorbs the key only if it both overflows on the axis being
+  // scrolled and is configured to scroll on that axis. The cheap dimension
+  // test runs first because getComputedStyle forces a style recalc, and this
+  // runs on every keypress. Each axis is read from its own longhand: the
+  // 'overflow' shorthand serializes as two values when the axes differ, which
+  // is the common 'overflow-x: hidden; overflow-y: auto' pane.
+  function canScroll(node, horizontal) {
+    const overflows = horizontal ? node.scrollWidth > node.clientWidth
+                                 : node.scrollHeight > node.clientHeight;
+    if (!overflows) return false;
+    const style = window.getComputedStyle(node);
+    const overflow = horizontal ? style.overflowX : style.overflowY;
+    return overflow === 'auto' || overflow === 'scroll';
+  }
+
+  // Walks up from the event target so nested scrollers keep their behavior.
+  // <body> is included because pages that pin the root height make it the
+  // scroll container.
+  function hasScrollableAncestor(target, horizontal) {
+    let node = target;
+    while (node && node !== document.documentElement) {
+      if (canScroll(node, horizontal)) return true;
+      node = node.parentElement;
+    }
+    return false;
+  }
+
+  function rootCanScroll(horizontal) {
+    const scroller = document.scrollingElement || document.documentElement;
+    if (!scroller) return false;
+    // Tolerate a pixel of rounding so subpixel layouts do not look scrollable.
+    return horizontal ? scroller.scrollWidth > window.innerWidth + 1
+                      : scroller.scrollHeight > window.innerHeight + 1;
+  }
+
+  window.addEventListener('keydown', function(event) {
+    if (!SCROLL_KEYS.has(event.key)) return;
+    if (event.defaultPrevented) return;
+    // Alt and Meta turn arrows into browser history navigation, and Ctrl is
+    // reserved for shortcuts, so none of them are scroll intent.
+    if (event.altKey || event.metaKey || event.ctrlKey) return;
+
+    const target = event.target;
+    if (isTextEntryTarget(target)) return;
+
+    // Anything that can still absorb the scroll gets to keep it.
+    const horizontal = HORIZONTAL_KEYS.has(event.key);
+    if (rootCanScroll(horizontal)) return;
+    if (hasScrollableAncestor(target, horizontal)) return;
+
+    event.preventDefault();
+  }, {capture: true, passive: false});
+})();</script><script data-bard-client-injected="true">(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script data-bard-client-injected="true">
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}" data-bard-client-injected="true">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.j=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.h=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.i="";var l=0,t=null,r=null,q=[],F=new TextEncoder,G=new TextDecoder;
+c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*16|0;return(f===
+"x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;(g=t)==null||g.postMessage(a)}};
+Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script data-bard-client-injected="true">((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedImageTransformModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image","imageTransformModelName":"gemini-3-pro-image","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image","gemini-3.1-flash-image-preview"],"deprecatedImageTransformModelNames":["gemini-3-pro-image-preview-11-2025"]})</script><script data-bard-client-injected="true">(function() {
+  function normalizeSlug(str) {
+    try {
+      return str
+        .trim()
+        .toLowerCase()
+        .replace(/[^p{L}p{N}s_-]/gu, '')
+        .replace(/s+/g, '-');
+    } catch (e) {
+      return str
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9s_-]/g, '')
+        .replace(/s+/g, '-');
+    }
+  }
+
+  function findTargetElement(hash) {
+    if (!hash || hash === '#') {
+      return null;
+    }
+    const rawId = hash.startsWith('#') ? hash.slice(1) : hash;
+    let decodedId = rawId;
+    try {
+      decodedId = decodeURIComponent(rawId);
+    } catch (e) {
+      // Ignore URI malformed errors.
+    }
+
+    // 1. Direct ID match (raw and decoded).
+    let target = document.getElementById(rawId) || document.getElementById(decodedId);
+    if (target) {
+      return target;
+    }
+
+    // 2. Name attribute match (<a name="...">).
+    try {
+      if (typeof CSS !== 'undefined' && CSS.escape) {
+        target =
+          document.querySelector('[name="' + CSS.escape(rawId) + '"]') ||
+          document.querySelector('[name="' + CSS.escape(decodedId) + '"]');
+      } else {
+        const namedElements = document.getElementsByName(rawId);
+        if (namedElements && namedElements.length > 0) {
+          return namedElements[0];
+        }
+      }
+    } catch (e) {
+      // Ignore querySelector syntax errors.
+    }
+    if (target) {
+      return target;
+    }
+
+    // 3. Match heading text by slug (for Markdown TOCs where headings lack explicit IDs).
+    const targetSlug = normalizeSlug(decodedId);
+    if (targetSlug) {
+      for (const heading of document.querySelectorAll('h1, h2, h3, h4, h5, h6')) {
+        if (normalizeSlug(heading.textContent || '') === targetSlug) {
+          return heading;
+        }
+      }
+    }
+
+    return null;
+  }
+
+  document.addEventListener('click', function(event) {
+    const target = event.target;
+    const anchor = target && typeof target.closest === 'function' ? target.closest('a') : null;
+    if (!anchor) {
+      return;
+    }
+
+    const href = anchor.getAttribute('href');
+    if (
+      !href ||
+      href.trim().toLowerCase().startsWith('javascript:') ||
+      anchor.hasAttribute('download')
+    ) {
+      return;
+    }
+
+    // Check if the link is an in-page hash / anchor link.
+    if (href.startsWith('#')) {
+      event.preventDefault();
+      const targetElement = findTargetElement(href);
+      if (targetElement) {
+        targetElement.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+      return;
+    }
+
+    // Check if the URL has the same origin/pathname but with a hash.
+    try {
+      const url = new URL(anchor.href, window.location.href);
+      if (
+        url.hash &&
+        url.origin === window.location.origin &&
+        url.pathname === window.location.pathname
+      ) {
+        event.preventDefault();
+        const targetElement = findTargetElement(url.hash);
+        if (targetElement) {
+          targetElement.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+        return;
+      }
+    } catch (e) {
+      // Fall through if URL parsing fails.
+    }
+
+    // For all external or full navigation links, prevent iframe-level navigation
+    // (which breaks in AGSA WebView or sandboxed iframes) and ensure they open
+    // safely in a new tab/window.
+    if (anchor.target !== '_blank') {
+      event.preventDefault();
+      window.open(anchor.href, '_blank', 'noopener,noreferrer');
+    }
+  }, {capture: true});
+})();</script><script data-bard-client-injected="true">(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script data-bard-client-injected="true">(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortifai — Platform Upgrade in Progress</title>
+  <!-- Google Fonts: DM Sans (400, 500, 600 ONLY - zero 700 bold) & DM Mono (400, 500) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN for responsive layout utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Three.js r128 for WebGL 3D Sand Clock & Ticking Chronometer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+
   <style>
     :root {
-      --navy-950: #0D1520;
-      --navy-900: #152C47;
-      --blue-700: #2E5A8A;
-      --blue-400: #6699CC;
-      --steel-300: #99AFBC;
+      /* Fortifai Design System v2.0 — Enterprise Forensic Edition */
+      --obsidian: #0D1520;
+      --navy: #131F30;
+      --deep-blue: #2E5A8A;
+      --brand-blue: #6699CC;
+      --steel-blue: #99AFBC;
+      --slate-muted: #64748B;
       --white: #FFFFFF;
-      --alabaster: #F6F7F9;
-      --warm-bg: #FAF9F6;
-      --hairline: #E5E7EB;
-      --border-dark: #1E2D40;
-      --text-main: #0D1520;
-      --text-sub: #475569;
-      --text-muted: #64748B;
-      --sev-crit: #C62828;
-      --sev-crit-bg: #FDECEC;
-      --sev-ok: #1E7E34;
-      --sev-ok-bg: #E8F5E9;
+
+      /* Locked 5-Tier Typographic Scale */
+      --t-display: clamp(22px, 3vw, 34px);
+      --t-h2: clamp(18px, 2.2vw, 24px);
+      --t-h3: 16px;
+      --t-body: 14px;
+      --t-meta: 11px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--obsidian);
+      color: var(--white);
       font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       font-weight: 400;
-      font-size: 14px;
-      color: var(--text-main);
-      background: var(--white);
-      line-height: 1.55;
       font-variant-numeric: tabular-nums;
-      -webkit-font-smoothing: antialiased;
+      user-select: none;
     }
 
-    h1, h2, h3, h4, h5, h6, strong, b, button {
-      font-weight: 600;
-    }
-
-    .mono {
-      font-family: 'DM Mono', monospace;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 36px;
-    }
-
-    /* ================= CLEAN STICKY HEADER ================= */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--hairline);
-      height: 70px;
-      display: flex;
-      align-items: center;
-    }
-    .nav-inner {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand-logo {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .nav-item-wrap {
-      position: relative;
-      padding: 16px 0;
-    }
-    .nav-btn {
-      background: transparent;
-      border: none;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-sub);
-      padding: 7px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: color 0.15s ease;
-    }
-    .nav-btn:hover, .nav-btn.active {
-      color: var(--text-main);
-    }
-    .nav-cta {
-      background: var(--navy-950);
-      color: var(--white);
-      border: none;
-      padding: 9px 18px;
-      border-radius: 6px;
-      font-size: 13.5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.15s ease;
-    }
-    .nav-cta:hover {
-      background: var(--blue-700);
-    }
-
-    /* Mega-Menu */
-    .mega-menu {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%) translateY(6px);
-      background: var(--white);
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      box-shadow: 0 24px 48px rgba(13, 21, 32, 0.08);
-      padding: 24px 28px;
-      width: 700px;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.15s ease;
-      z-index: 1100;
-    }
-    .mega-menu.role-menu { width: 380px; }
-    .nav-item-wrap:hover .mega-menu {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateX(-50%) translateY(0);
-    }
-    .mega-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .mega-col-title {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
-    }
-    .mega-link {
-      display: block;
-      padding: 7px 0;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .mega-link:hover .mega-link-title { color: var(--blue-700); }
-    .mega-link-title {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text-main);
-      transition: color 0.12s;
-    }
-    .mega-link-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 1px;
-    }
-
-    /* ================= PAGE VIEW SWITCHER ================= */
-    .page-view { display: none; }
-    .page-view.active {
-      display: block;
-      animation: fadeIn 0.18s ease-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(3px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ================= HERO SECTION ================= */
-    .hero-section {
-      background: linear-gradient(135deg, #0D1520 0%, #152C47 60%, #2E5A8A 100%);
-      color: var(--white);
-      padding: 96px 0;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .hero-title {
-      font-size: 44px;
-      line-height: 1.12;
-      letter-spacing: -0.9px;
-      margin-bottom: 18px;
-      color: var(--white);
-    }
-    .hero-title span { color: var(--blue-400); }
-    .hero-sub {
-      font-size: 15.5px;
-      color: #CBD5E1;
-      line-height: 1.6;
-      margin-bottom: 28px;
-      max-width: 470px;
-    }
-    .hero-cta-row {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 44px;
-    }
-    .btn-primary-hero {
-      background: var(--blue-400);
-      color: var(--navy-950);
-      border: none;
-      padding: 11px 22px;
-      border-radius: 6px;
-      font-size: 13.5px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .btn-ghost-hero {
-      background: rgba(255, 255, 255, 0.07);
-      color: var(--white);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 11px 20px;
-      border-radius: 6px;
-      font-size: 13.5px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .hero-kpi-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.14);
-    }
-    .kpi-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 20px;
-      font-weight: 500;
-      color: var(--white);
-    }
-    .kpi-lbl {
-      font-size: 11.5px;
-      color: var(--steel-300);
-      margin-top: 2px;
-    }
-
-    /* ================= MICRO-UI SOFTWARE FRAMES ================= */
-    .ui-window {
-      background: var(--white);
-      color: var(--text-main);
-      border-radius: 10px;
-      border: 1px solid var(--hairline);
-      box-shadow: 0 20px 50px rgba(13, 21, 32, 0.12);
-      padding: 20px;
-    }
-    .ui-window-dark {
-      background: var(--navy-950);
-      color: var(--white);
-      border: 1px solid rgba(102, 153, 204, 0.38);
-      border-radius: 10px;
-      padding: 18px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-    }
-    .ui-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--hairline);
-      margin-bottom: 12px;
-      font-size: 13px;
-      font-weight: 600;
-    }
-    .chip-ok {
-      font-family: 'DM Mono', monospace;
-      font-size: 10.5px;
-      background: var(--sev-ok-bg);
-      color: var(--sev-ok);
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-    .chip-crit {
-      font-family: 'DM Mono', monospace;
-      font-size: 10.5px;
-      background: var(--sev-crit-bg);
-      color: var(--sev-crit);
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-    .ui-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      border-bottom: 1px solid #F1F5F9;
-      font-size: 12.5px;
-    }
-    .ui-row:last-child { border-bottom: none; }
-
-    /* ================= OPEN-CANVAS SECTIONS ================= */
-    .section-open {
-      padding: 104px 0;
-      background: var(--white);
-      border-bottom: 1px solid var(--hairline);
-    }
-    .section-tint {
-      padding: 104px 0;
-      background: var(--alabaster);
-      border-bottom: 1px solid var(--hairline);
-    }
-    .section-dark {
-      padding: 104px 0;
-      background: var(--navy-950);
-      color: var(--white);
-    }
-    .sec-title {
-      font-size: 32px;
-      line-height: 1.18;
-      letter-spacing: -0.6px;
-      margin-bottom: 10px;
-      color: var(--text-main);
-    }
-    .sec-sub {
-      font-size: 15px;
-      color: var(--text-sub);
-      max-width: 540px;
-      margin-bottom: 56px;
-    }
-
-    .statement-banner {
-      background: var(--alabaster);
-      border-bottom: 1px solid var(--hairline);
-      padding: 64px 0;
-      text-align: center;
-    }
-    .statement-banner h2 {
-      font-size: 28px;
-      max-width: 780px;
-      margin: 0 auto;
-      line-height: 1.35;
-      letter-spacing: -0.5px;
-    }
-    .statement-banner h2 span { color: var(--blue-700); }
-
-    /* Hairline Grid (No Chunky Boxes) */
-    .open-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 48px;
-      row-gap: 48px;
-    }
-    .open-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      column-gap: 36px;
-    }
-    .open-item {
-      border-top: 1px solid var(--hairline);
-      padding-top: 20px;
-    }
-    .section-dark .open-item { border-top: 1px solid #243B56; }
-    .open-item-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 11.5px;
-      color: var(--blue-700);
-      margin-bottom: 8px;
-      display: block;
-    }
-    .section-dark .open-item-num { color: var(--blue-400); }
-    .open-item h3 { font-size: 17px; margin-bottom: 6px; color: var(--text-main); }
-    .section-dark .open-item h3 { color: var(--white); }
-    .open-item p { font-size: 13.5px; color: var(--text-sub); line-height: 1.55; }
-    .section-dark .open-item p { color: #CBD5E1; }
-
-    /* Split Feature Showcases */
-    .feature-split-row {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 64px;
-      align-items: center;
-      padding: 64px 0;
-      border-top: 1px solid var(--hairline);
-    }
-    .feature-split-row:first-of-type { border-top: none; padding-top: 0; }
-    .feature-split-row h3 { font-size: 24px; letter-spacing: -0.4px; margin-bottom: 10px; }
-    .feature-split-row p { font-size: 14.5px; color: var(--text-sub); margin-bottom: 20px; max-width: 440px; }
-    .feature-Agents-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .feature-Agents-list li {
-      font-size: 13.5px;
-      color: var(--text-main);
-      padding-left: 14px;
-      border-left: 2px solid var(--blue-400);
-    }
-    .feature-Agents-list li span { color: var(--text-sub); font-weight: 400; }
-
-    /* Pipeline Switcher */
-    .pipeline-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .step-list { display: flex; flex-direction: column; }
-    .step-btn {
-      text-align: left;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--hairline);
-      padding: 16px 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      color: var(--text-muted);
-      transition: color 0.15s;
-    }
-    .step-btn:first-child { border-top: 1px solid var(--hairline); }
-    .step-btn:hover, .step-btn.active { color: var(--text-main); }
-    .step-num { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-muted); }
-    .step-btn.active .step-num { color: var(--blue-700); font-weight: 500; }
-    .step-title { font-size: 15px; font-weight: 500; }
-    .step-btn.active .step-title { font-weight: 600; }
-
-    /* Open Comparison */
-    .compare-open-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      border-top: 1px solid var(--hairline);
-      padding-top: 36px;
-    }
-    .compare-list {
-      list-style: none;
-      margin: 16px 0 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 14px;
-      color: var(--text-sub);
-    }
-
-    /* ERP Strip */
-    .erp-open-row {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 24px;
-      border-top: 1px solid var(--hairline);
-      padding-top: 28px;
-    }
-    .erp-name { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-    .erp-tables { font-family: 'DM Mono', monospace; font-size: 11.5px; color: var(--text-muted); }
-
-    /* FAQ */
-    .faq-list { max-width: 760px; border-top: 1px solid var(--hairline); }
-    .faq-item { border-bottom: 1px solid var(--hairline); }
-    .faq-q {
-      width: 100%; text-align: left; background: transparent; border: none;
-      padding: 20px 0; font-size: 15px; font-weight: 600; color: var(--text-main);
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-    }
-    .faq-a { display: none; padding: 0 0 20px; font-size: 14px; color: var(--text-sub); }
-    .faq-item.open .faq-a { display: block; }
-
-    /* Role Switcher */
-    .role-tabs-bar {
-      display: flex;
-      gap: 28px;
-      border-bottom: 1px solid var(--hairline);
-      margin-bottom: 48px;
-    }
-    .role-tab-btn {
-      background: transparent;
-      border: none;
-      border-bottom: 2px solid transparent;
-      color: var(--text-muted);
-      padding: 12px 2px;
-      font-size: 14.5px;
-      font-weight: 500;
-      cursor: pointer;
-      margin-bottom: -1px;
-    }
-    .role-tab-btn.active {
-      color: var(--text-main);
-      border-bottom-color: var(--blue-700);
-      font-weight: 600;
-    }
-    .role-open-split {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 64px;
-      align-items: center;
-    }
-
-    /* About Us */
-    .team-open-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-    .team-open-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; }
-    .portrait-wrap {
-      width: 100%; height: 260px; background: var(--navy-950); border-radius: 8px;
-      display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 14px;
-    }
-    .portrait-wrap img {
-      width: 100%; height: 100%; object-fit: cover; object-position: top center;
-      filter: grayscale(100%) contrast(1.05);
-    }
-    .portrait-fallback { font-family: 'DM Mono', monospace; font-size: 24px; color: var(--blue-400); }
-    .leader-role { font-size: 12px; color: var(--blue-700); font-weight: 500; margin-bottom: 2px; }
-    .leader-name { font-size: 17px; margin-bottom: 6px; }
-    .leader-bio { font-size: 13px; color: var(--text-sub); line-height: 1.55; }
-
-    /* ================= SPRINTO-STYLE SECURITY TRUST CENTER (#page-security) ================= */
-    .trust-section {
-      padding: 56px 0 112px;
-      background: var(--alabaster);
-      min-height: 84vh;
-    }
-    .trust-hero-bar {
-      background: var(--white);
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      padding: 32px 36px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 32px;
-      margin-bottom: 24px;
-    }
-    .trust-title-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .trust-verified-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: var(--sev-ok-bg);
-      color: var(--sev-ok);
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
-    .trust-subnav {
-      display: flex;
-      gap: 24px;
-      border-bottom: 1px solid var(--hairline);
-      margin-bottom: 28px;
-    }
-    .trust-tab-btn {
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      padding: 10px 2px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13.5px;
-      font-weight: 500;
-      color: var(--text-muted);
-      cursor: pointer;
-      margin-bottom: -1px;
-    }
-    .trust-tab-btn.active {
-      color: var(--blue-700);
-      border-bottom-color: var(--blue-700);
-      font-weight: 600;
-    }
-    .trust-main-grid {
-      display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 24px;
-      align-items: start;
-      margin-bottom: 28px;
-    }
-    .trust-panel {
-      background: var(--white);
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      padding: 24px;
-    }
-    .trust-panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--hairline);
-    }
-    .compliance-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid #F1F5F9;
-    }
-    .compliance-item:last-child { border-bottom: none; }
-    .comp-badge-circle {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--navy-950);
-      color: var(--blue-400);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 500;
-      flex-shrink: 0;
-    }
-    .controls-2x2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .control-cat-box {
-      border: 1px solid var(--hairline);
-      border-radius: 8px;
-      padding: 16px;
-      background: #FAFBFD;
-    }
-    .control-cat-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .control-list {
-      list-style: none;
-      font-size: 12.5px;
-      color: var(--text-sub);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 10px;
-    }
-    .resources-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .resource-doc-card {
-      border: 1px solid var(--hairline);
-      border-radius: 8px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      background: var(--white);
-      transition: border-color 0.15s;
-    }
-    .resource-doc-card:hover { border-color: var(--blue-700); }
-
-    /* Security Request Access Modal */
-    .sec-modal-backdrop {
+    /* RelayAI / Fortifai Deep Obsidian-Navy Spotlight Canvas */
+    .fortifai-canvas-bg {
       position: fixed;
       inset: 0;
-      background: rgba(13, 21, 32, 0.55);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-      padding: 20px;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(102, 153, 204, 0.14) 0%, rgba(46, 90, 138, 0.24) 28%, rgba(19, 31, 48, 0.92) 62%, #0D1520 100%);
+      z-index: 0;
     }
-    .sec-modal-backdrop.open { display: flex; }
-    .sec-modal-card {
-      background: var(--white);
-      border-radius: 12px;
-      max-width: 440px;
+
+    /* Subtle architectural forensic grid overlay */
+    .fortifai-grid-overlay {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(102, 153, 204, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(102, 153, 204, 0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.9) 15%, transparent 75%);
+      -webkit-mask-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.9) 15%, transparent 75%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Official Fortifai Trapezoid Mark */
+    .trapezoid-mark {
+      width: 14px;
+      height: 16px;
+      background: var(--brand-blue);
+      clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+      display: inline-block;
+      box-shadow: 0 0 16px rgba(102, 153, 204, 0.45);
+    }
+
+    /* Primary One-Line Headline (--t-display, weight 500 ceiling) */
+    .upgrade-headline {
+      font-size: var(--t-display);
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      text-shadow: 0 8px 32px rgba(0, 0, 0, 0.65);
+    }
+
+    /* Monospace Telemetry & Countdown (--t-meta) */
+    .mono-telemetry {
+      font-family: 'DM Mono', monospace;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.05em;
+    }
+
+    /* Frosted Glass Pills */
+    .glass-pill {
+      background: rgba(13, 21, 32, 0.72);
+      border: 1px solid rgba(102, 153, 204, 0.22);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .glass-btn {
+      background: rgba(21, 34, 52, 0.65);
+      border: 1px solid rgba(102, 153, 204, 0.24);
+      color: var(--steel-blue);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .glass-btn:hover {
+      border-color: var(--brand-blue);
+      color: var(--white);
+      background: rgba(46, 90, 138, 0.38);
+    }
+
+    .glass-btn.active {
+      background: var(--deep-blue);
+      border-color: var(--brand-blue);
+      color: var(--white);
+      font-weight: 600;
+      box-shadow: 0 0 18px rgba(102, 153, 204, 0.28);
+    }
+
+    /* 3D Viewport Container */
+    #canvas-wrapper {
+      position: relative;
       width: 100%;
-      padding: 28px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+      height: 360px;
+      max-width: 560px;
+      cursor: grab;
+      z-index: 10;
+    }
+    #canvas-wrapper:active {
+      cursor: grabbing;
     }
 
-    /* ================= HYPHENATE-STYLE LEGAL PAGE (#page-legal) ================= */
-    .legal-section {
-      padding: 64px 0 112px;
-      background: var(--warm-bg);
-      min-height: 82vh;
-    }
-    .legal-pill {
-      display: inline-block;
-      background: #EFECE6;
-      color: var(--text-sub);
-      font-size: 12px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 14px;
-      margin-bottom: 14px;
-    }
-    .legal-main-title {
-      font-size: 46px;
-      letter-spacing: -1px;
-      color: var(--blue-700);
-      margin-bottom: 8px;
-      line-height: 1.1;
-    }
-    .legal-date {
-      font-size: 13px;
-      color: var(--text-sub);
-      margin-bottom: 44px;
-    }
-    .legal-layout {
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .legal-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      position: sticky;
-      top: 96px;
-    }
-    .legal-nav-link {
-      background: none;
-      border: none;
-      text-align: left;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13.5px;
-      color: var(--text-sub);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      cursor: pointer;
-      padding: 2px 0;
-    }
-    .legal-nav-link.active {
-      color: var(--blue-700);
-      font-weight: 600;
-    }
-    .legal-doc-surface {
-      background: var(--white);
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      padding: 44px 48px;
-    }
-    .legal-doc-surface h2 {
-      font-size: 24px;
-      margin: 28px 0 12px;
-      color: var(--text-main);
-      letter-spacing: -0.3px;
-    }
-    .legal-doc-surface h2:first-child { margin-top: 0; }
-    .legal-doc-surface p {
-      font-size: 14px;
-      color: var(--text-sub);
-      line-height: 1.65;
-      margin-bottom: 16px;
-    }
-
-    /* ================= BOOKING PAGE (#page-book) ================= */
-    .book-section { padding: 64px 0 104px; background: var(--white); }
-    .book-split-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 56px;
-      align-items: start;
-    }
-    .book-left-panel {
-      background: var(--alabaster);
-      border-radius: 14px;
-      padding: 44px 40px;
-    }
-    .demo-soft-pill {
-      display: inline-block;
-      background: rgba(46, 90, 138, 0.1);
-      color: var(--blue-700);
-      font-size: 12.5px;
-      font-weight: 500;
-      padding: 5px 14px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-    .book-left-title { font-size: 36px; line-height: 1.14; letter-spacing: -0.7px; margin-bottom: 14px; }
-    .book-left-sub { font-size: 14.5px; color: var(--text-sub); line-height: 1.55; margin-bottom: 36px; }
-    .book-quote-open { border-top: 1px solid var(--hairline); padding-top: 20px; }
-    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .f-group { margin-bottom: 18px; }
-    .f-label {
-      display: block; font-family: 'DM Mono', monospace; font-size: 11px;
-      text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-sub); margin-bottom: 6px;
-    }
-    .f-input {
-      width: 100%; padding: 11px 14px; background: var(--alabaster);
-      border: 1px solid var(--hairline); border-radius: 6px;
-      font-family: 'DM Sans', sans-serif; font-size: 13.5px; color: var(--text-main);
-    }
-    .f-input:focus { outline: none; border-color: var(--blue-700); background: var(--white); }
-    .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
-    .outcome-item {
-      display: flex; align-items: center; gap: 9px; padding: 10px 12px;
-      border-bottom: 1px solid var(--hairline); font-size: 13px; cursor: pointer;
-    }
-    .submit-demo-btn {
-      width: 100%; background: var(--navy-950); color: var(--white); border: none;
-      padding: 13px 20px; border-radius: 6px; font-size: 14px; font-weight: 600;
-      cursor: pointer; margin-top: 12px;
-    }
-    .submit-demo-btn:hover { background: var(--blue-700); }
-
-    /* ================= HYPHENATE-STYLE FOOTER WITH SOCIAL PLUG-INS & LEGAL BAR ================= */
-    .site-footer {
-      background: var(--navy-950);
-      color: var(--steel-300);
-      padding: 72px 0 36px;
-      font-size: 13.5px;
-    }
-    .footer-top-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 36px;
-      margin-bottom: 40px;
-    }
-    .footer-col h4 {
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-    .footer-col a {
-      display: block;
-      color: #CBD5E1;
-      text-decoration: none;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: color 0.15s;
-    }
-    .footer-col a:hover { color: var(--white); }
-
-    /* Social Plug-In Row (Right-Aligned Square Buttons like image_4a81dc.png) */
-    .footer-social-row {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border-dark);
-    }
-    .social-icon-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--white);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: background 0.15s, border-color 0.15s;
-    }
-    .social-icon-btn:hover {
-      background: var(--blue-700);
-      border-color: var(--blue-400);
-    }
-
-    /* Bottom Legal Bar (Exact Hyphenate Match) */
-    .footer-bottom-bar {
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 12.5px;
-      color: #94A3B8;
-    }
-    .footer-legal-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .footer-legal-links a {
-      color: #CBD5E1;
-      text-decoration: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .footer-legal-links a:hover { color: var(--white); }
-
-    @media (max-width: 960px) {
-      .hero-grid, .pipeline-grid, .compare-open-grid, .role-open-split, .book-split-grid,
-      .open-grid-3, .open-grid-4, .feature-split-row, .team-open-4, .team-open-3,
-      .legal-layout, .trust-main-grid, .controls-2x2, .resources-grid-3, .form-row-2, .footer-top-grid {
-        grid-template-columns: 1fr;
+    @media (max-height: 740px) {
+      #canvas-wrapper {
+        height: 270px;
       }
-      .erp-open-row { grid-template-columns: repeat(2, 1fr); }
-      .mega-menu { display: none; }
-      .trust-hero-bar { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* Status pulse dot */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.92); }
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      box-shadow: 0 0 10px var(--brand-blue);
+      animation: pulseGlow 2.2s infinite ease-in-out;
     }
   </style>
-</head>
-<body>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.z-20{z-index:20}.my-auto{margin-top:auto;margin-bottom:auto}.mb-5{margin-bottom:1.25rem}.ml-1{margin-left:0.25rem}.mt-1{margin-top:0.25rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.select-none{-webkit-user-select:none;user-select:none}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.rounded-full{border-radius:9999px}.rounded-xl{border-radius:0.75rem}.\!border-\[\#6699CC\]{--tw-border-opacity:1 !important;border-color:rgb(102 153 204 / var(--tw-border-opacity, 1)) !important}.\!bg-\[\#2E5A8A\]\/60{background-color:rgb(46 90 138 / 0.6) !important}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.text-center{text-align:center}.text-\[10\.5px\]{font-size:10.5px}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[13px\]{font-size:13px}.text-\[21px\]{font-size:21px}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.tracking-\[-0\.03em\]{letter-spacing:-0.03em}.\!text-white{--tw-text-opacity:1 !important;color:rgb(255 255 255 / var(--tw-text-opacity, 1)) !important}.text-\[\#1E293B\]{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-\[\#64748B\]{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-\[\#6699CC\]{--tw-text-opacity:1;color:rgb(102 153 204 / var(--tw-text-opacity, 1))}.text-\[\#99AFBC\]{--tw-text-opacity:1;color:rgb(153 175 188 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.underline-offset-4{text-underline-offset:4px}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:inline{display:inline}.sm\:flex-row{flex-direction:row}.sm\:gap-5{gap:1.25rem}.sm\:px-8{padding-left:2rem;padding-right:2rem}.sm\:py-8{padding-top:2rem;padding-bottom:2rem}.sm\:text-left{text-align:left}.sm\:text-\[14px\]{font-size:14px}}</style></head>
+<body class="relative flex flex-col justify-between items-center min-h-screen px-4 py-6 sm:px-8 sm:py-8">
 
-  <!-- ================= STICKY HEADER ================= -->
-  <header class="site-header">
-    <div class="nav-inner">
-      <a class="brand-logo" onclick="showPage('home')" aria-label="Fortifai Home">
-        <svg width="154" height="34" viewBox="0 0 210 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="2,17 30,8 30,37 2,37" fill="#6699CC" />
-          <text x="40" y="36" font-family="'DM Sans', sans-serif" font-weight="600" font-size="34" letter-spacing="-1.2" fill="#0D1520">fortifai</text>
-          <rect x="86" y="18.5" width="84" height="3.4" fill="#0D1520" />
-        </svg>
-      </a>
+  <!-- Deep Obsidian-Navy Radial Spotlight & Grid -->
+  <div class="fortifai-canvas-bg"></div>
+  <div class="fortifai-grid-overlay"></div>
 
-      <nav class="nav-links">
-        <div class="nav-item-wrap">
-          <button class="nav-btn active" id="nav-home" onclick="showPage('home')">Home</button>
-        </div>
+  <!-- ================= TOP HEADER: OFFICIAL FORTIFAI LOGO LOCKUP ================= -->
+  <header class="relative z-20 w-full max-w-5xl flex items-center justify-between">
+    <!-- Brand Lockup -->
+    <div class="inline-flex items-center gap-2.5 select-none">
+      <span class="trapezoid-mark"></span>
+      <span class="text-white text-[21px] font-semibold tracking-[-0.03em] leading-none">fortifai</span>
+    </div>
 
-        <div class="nav-item-wrap">
-          <button class="nav-btn" id="nav-product" onclick="showPage('product')">Product ▾</button>
-          <div class="mega-menu">
-            <div class="mega-grid-3">
-              <div>
-                <div class="mega-col-title">Spend &amp; Working Capital</div>
-                <a class="mega-link" onclick="jumpToProductSection('sec-spend')">
-                  <div class="mega-link-title">Procurement Cost-Saving</div>
-                  <div class="mega-link-desc">Price variance &amp; rebate capture</div>
-                </a>
-                <a class="mega-link" onclick="jumpToProductSection('sec-spend')">
-                  <div class="mega-link-title">AP &amp; Working Capital</div>
-                  <div class="mega-link-desc">Pre-F110 duplicate payment blocks</div>
-                </a>
-                <a class="mega-link" onclick="jumpToProductSection('sec-spend')">
-                  <div class="mega-link-title">Pass-Through Vendor</div>
-                  <div class="mega-link-desc">Middleman markup detection</div>
-                </a>
-              </div>
-              <div>
-                <div class="mega-col-title">Close, Audit &amp; Revenue</div>
-                <a class="mega-link" onclick="jumpToProductSection('sec-close')">
-                  <div class="mega-link-title">Balance Sheet &amp; Close</div>
-                  <div class="mega-link-desc">GL reconciliation &amp; JE guard</div>
-                </a>
-                <a class="mega-link" onclick="jumpToProductSection('sec-close')">
-                  <div class="mega-link-title">SOX / ICFR Control Testing</div>
-                  <div class="mega-link-desc">100% population assurance</div>
-                </a>
-                <a class="mega-link" onclick="jumpToProductSection('sec-close')">
-                  <div class="mega-link-title">Revenue Cut-Off</div>
-                  <div class="mega-link-desc">Channel stuffing &amp; O2C guard</div>
-                </a>
-              </div>
-              <div>
-                <div class="mega-col-title">Compliance &amp; 3rd-Party</div>
-                <a class="mega-link" onclick="jumpToProductSection('sec-compliance')">
-                  <div class="mega-link-title">Bribery &amp; FCPA Monitoring</div>
-                  <div class="mega-link-desc">High-risk T&amp;E &amp; third-party spend</div>
-                </a>
-                <a class="mega-link" onclick="jumpToProductSection('sec-compliance')">
-                  <div class="mega-link-title">Export Trade-Diversion</div>
-                  <div class="mega-link-desc">Post-shipment transshipment checks</div>
-                </a>
-                <a class="mega-link" onclick="jumpToProductSection('sec-compliance')">
-                  <div class="mega-link-title">Internal Investigations</div>
-                  <div class="mega-link-desc">Employee-vendor collusion graph</div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="nav-item-wrap">
-          <button class="nav-btn" id="nav-role" onclick="showPage('role')">By Role ▾</button>
-          <div class="mega-menu role-menu">
-            <a class="mega-link" onclick="openRoleTab('CFO')">
-              <div class="mega-link-title">Chief Financial Officer (CFO)</div>
-              <div class="mega-link-desc">Prevent cash leakage and assure the close</div>
-            </a>
-            <a class="mega-link" onclick="openRoleTab('CPO')">
-              <div class="mega-link-title">Chief Procurement Officer (CPO)</div>
-              <div class="mega-link-desc">Eliminate price variance and middleman markups</div>
-            </a>
-            <a class="mega-link" onclick="openRoleTab('CCO')">
-              <div class="mega-link-title">Chief Compliance Officer &amp; GC</div>
-              <div class="mega-link-desc">Continuous FCPA, export, and D7 UBO screening</div>
-            </a>
-            <a class="mega-link" onclick="openRoleTab('CAE')">
-              <div class="mega-link-title">Chief Audit Executive (CAE)</div>
-              <div class="mega-link-desc">100% population SOX and ICFR control testing</div>
-            </a>
-            <a class="mega-link" onclick="openRoleTab('CRO')">
-              <div class="mega-link-title">Chief Revenue Officer (CRO)</div>
-              <div class="mega-link-desc">Protect quarter-end cut-off and O2C margins</div>
-            </a>
-          </div>
-        </div>
-
-        <div class="nav-item-wrap">
-          <button class="nav-btn" id="nav-security" onclick="showPage('security')">Security</button>
-        </div>
-
-        <div class="nav-item-wrap">
-          <button class="nav-btn" id="nav-about" onclick="showPage('about')">About Us</button>
-        </div>
-      </nav>
-
-      <button class="nav-cta" onclick="showPage('book')">Book a Call</button>
+    <!-- System Telemetry Status Pill -->
+    <div class="glass-pill px-3.5 py-1.5 rounded-full flex items-center gap-2">
+      <span class="pulse-dot"></span>
+      <span class="mono-telemetry text-[11px] font-medium uppercase text-[#99AFBC]">
+        SARA v2.0 Deployment
+      </span>
     </div>
   </header>
 
-  <!-- =====================================================================
-       1. HOME PAGE (#page-home)
-  ====================================================================== -->
-  <main id="page-home" class="page-view active">
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-grid">
-          <div>
-            <h1 class="hero-title">
-              Every ERP transaction audited and protected <span>as it posts.</span>
-            </h1>
-            <p class="hero-sub">
-              Fortifai SARA and D7 run inside your private VPC to monitor 100% of SAP, Oracle, and NetSuite activity—blocking overpayments and compliance risks before cash leaves the bank.
-            </p>
-            <div class="hero-cta-row">
-              <button class="btn-primary-hero" onclick="showPage('book')">Book a Call</button>
-              <button class="btn-ghost-hero" onclick="showPage('product')">Explore Platform</button>
-            </div>
-            <div class="hero-kpi-strip">
-              <div><div class="kpi-num">100%</div><div class="kpi-lbl">ERP Population</div></div>
-              <div><div class="kpi-num">Zero</div><div class="kpi-lbl">Data Egress</div></div>
-              <div><div class="kpi-num">170+</div><div class="kpi-lbl">Forensic Models</div></div>
-              <div><div class="kpi-num">$24.4M</div><div class="kpi-lbl">Avg. Verified ROI</div></div>
-            </div>
-          </div>
+  <!-- ================= CENTERPIECE: 3D OBJECT + ONE-LINE MESSAGE ================= -->
+  <main class="relative z-20 flex flex-col items-center justify-center w-full max-w-4xl my-auto text-center">
 
-          <div>
-            <div class="ui-window">
-              <div class="ui-header">
-                <span>Stage 0 ERP Completeness &amp; Tie-Out</span>
-                <span class="chip-ok">100.0% RECONCILED</span>
-              </div>
-              <div class="ui-row">
-                <span><strong>SAP ACDOCA / BSEG</strong> · General Ledger</span>
-                <span class="mono" style="color:var(--blue-700);">4,812,940 rows</span>
-              </div>
-              <div class="ui-row">
-                <span><strong>SAP EKKO / RBKP</strong> · Procure-to-Pay</span>
-                <span class="mono" style="color:var(--blue-700);">1,194,210 docs</span>
-              </div>
-              <div class="ui-row">
-                <span><strong>Fortifai D7 Graph</strong> · UBO &amp; Sanctions</span>
-                <span class="mono" style="color:var(--sev-ok);">18,420 vendors</span>
-              </div>
-            </div>
-
-            <div class="ui-window-dark" style="margin-top:-12px; margin-left:28px;">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                <span style="font-size:13px; font-weight:600;">Pre-F110 Payment Hold</span>
-                <span class="chip-crit">$418,900 BLOCKED</span>
-              </div>
-              <div style="font-size:12.5px; color:#CBD5E1;">
-                Vendor #4008912 billed 34.2% above OEM baseline across 4 split POs. Shared UBO director linked via Fortifai D7.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="statement-banner">
-      <div class="container">
-        <h2>
-          Enterprise risk happens in real time.
-          <span>Quarterly 25-row audit samples only tell you what you already lost.</span>
-        </h2>
-      </div>
-    </section>
-
-    <section class="section-open">
-      <div class="container">
-        <h2 class="sec-title">What happens when a transaction hits your ERP</h2>
-        <p class="sec-sub">Inspect how raw ERP tables become verified cash recovery and audit-ready assurance.</p>
-
-        <div class="pipeline-grid">
-          <div class="step-list">
-            <button class="step-btn active" onclick="selectPipelineStep(0, this)">
-              <span class="step-num">01</span>
-              <span class="step-title">Stage 0 ERP Ingestion &amp; Tie-Out</span>
-            </button>
-            <button class="step-btn" onclick="selectPipelineStep(1, this)">
-              <span class="step-num">02</span>
-              <span class="step-title">Deterministic Rule Execution</span>
-            </button>
-            <button class="step-btn" onclick="selectPipelineStep(2, this)">
-              <span class="step-num">03</span>
-              <span class="step-title">3-Arm Multi-Signal Corroboration</span>
-            </button>
-            <button class="step-btn" onclick="selectPipelineStep(3, this)">
-              <span class="step-num">04</span>
-              <span class="step-title">Exclusion Memory &amp; Deduplication</span>
-            </button>
-            <button class="step-btn" onclick="selectPipelineStep(4, this)">
-              <span class="step-num">05</span>
-              <span class="step-title">Xa Evidence &amp; QuantumQuery SQL</span>
-            </button>
-            <button class="step-btn" onclick="selectPipelineStep(5, this)">
-              <span class="step-num">06</span>
-              <span class="step-title">Pre-Payment Hold &amp; Board Closure</span>
-            </button>
-          </div>
-
-          <div class="ui-window" id="pipeline-widget-canvas" style="padding:32px;"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-tint">
-      <div class="container">
-        <h2 class="sec-title">Same ERP. Zero sampling blind spots.</h2>
-        <p class="sec-sub">Move from retrospective sampling to continuous pre-payment protection.</p>
-
-        <div class="compare-open-grid">
-          <div>
-            <h3 style="font-size:20px; color:var(--text-muted);">Legacy 5% Audit Sampling</h3>
-            <ul class="compare-list">
-              <li>✕ 95% of ERP transactions remain unexamined every quarter.</li>
-              <li>✕ Overpayments discovered months after cash leaves the bank.</li>
-              <li>✕ Static onboarding checks never reconnect to live invoice behavior.</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 style="font-size:20px; color:var(--blue-700);">100% Continuous Assurance</h3>
-            <ul class="compare-list">
-              <li>✓ Every PO, GRN, invoice, and journal entry inspected in real time.</li>
-              <li>✓ Pre-F110 payment holds and automated debit memos protect cash.</li>
-              <li>✓ Fortifai D7 links UBOs, sanctions, and trade data to live ledgers.</li>
-            </ul>
-            <svg viewBox="0 0 460 76" width="100%" height="76">
-              <defs>
-                <linearGradient id="fortifaiArea" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#2E5A8A" stop-opacity="0.3"/>
-                  <stop offset="100%" stop-color="#6699CC" stop-opacity="0.0"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,70 C90,64 170,50 260,34 C340,18 400,10 460,4 L460,76 L0,76 Z" fill="url(#fortifaiArea)"/>
-              <path d="M0,70 C90,64 170,50 260,34 C340,18 400,10 460,4" fill="none" stroke="#2E5A8A" stroke-width="2"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-open">
-      <div class="container">
-        <h2 class="sec-title">Built to fit your ERP stack</h2>
-        <p class="sec-sub">Read-only schema adapters deploy inside your AWS, Azure, GCP, or on-premise VPC.</p>
-
-        <div class="erp-open-row">
-          <div><div class="erp-name">SAP S/4HANA</div><div class="erp-tables">ACDOCA · EKKO</div></div>
-          <div><div class="erp-name">SAP ECC</div><div class="erp-tables">BKPF · BSEG</div></div>
-          <div><div class="erp-name">Oracle ERP</div><div class="erp-tables">AP · GL_JE</div></div>
-          <div><div class="erp-name">NetSuite</div><div class="erp-tables">TransactionLine</div></div>
-          <div><div class="erp-name">Dynamics 365</div><div class="erp-tables">VendTrans</div></div>
-          <div><div class="erp-name">SAP Concur</div><div class="erp-tables">T&amp;E · P-Card</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-dark">
-      <div class="container">
-        <h2 class="sec-title" style="color:var(--white); margin-bottom:48px;">One platform spine. Four executive outcomes.</h2>
-        <div class="open-grid-4">
-          <div class="open-item">
-            <span class="open-item-num">01</span>
-            <h3>Procurement Cost Savings</h3>
-            <p>Benchmark effective unit prices and capture unapplied volume rebates across 100% of POs.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">02</span>
-            <h3>Working Capital Protection</h3>
-            <p>Block fuzzy-matched duplicate invoices and middleman markups prior to the F110 payment run.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">03</span>
-            <h3>Close &amp; SOX Assurance</h3>
-            <p>Automate GL reconciliations, inspect manual journal entries, and test 100% of ICFR controls.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">04</span>
-            <h3>FCPA &amp; Trade Defense</h3>
-            <p>Screen UBO graphs, detect export diversion, and surface improper payments continuously.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-open">
-      <div class="container">
-        <h2 class="sec-title" style="margin-bottom:32px;">Frequently asked questions</h2>
-        <div class="faq-list">
-          <div class="faq-item open">
-            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-              <span>Does any ERP data leave our corporate network?</span><span class="mono">+</span>
-            </button>
-            <div class="faq-a">No. Fortifai runs with zero data egress inside your private VPC or on-premise infrastructure.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-              <span>How do you prevent false positives and double-counting?</span><span class="mono">+</span>
-            </button>
-            <div class="faq-a">Our Exclusion Registry and 4-Rung Precedence Waterfall ensure every dollar of exposure is deduplicated and assigned to a single owner.</div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-              <span>How quickly can we start?</span><span class="mono">+</span>
-            </button>
-            <div class="faq-a">Most enterprises start with a 4-week Rapid Diagnostic using standard read-only ERP table extracts before turning on continuous monitoring.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- =====================================================================
-       2. PRODUCT PAGE (#page-product)
-  ====================================================================== -->
-  <main id="page-product" class="page-view">
-    <section class="hero-section" style="padding: 72px 0;">
-      <div class="container">
-        <h1 class="hero-title" style="font-size:38px;">Fortifai SARA + D7 Platform Architecture</h1>
-        <p class="hero-sub" style="margin-bottom:0;">Six shared intelligence layers power nine functional enterprise risk agents inside your private VPC.</p>
-      </div>
-    </section>
-
-    <section class="section-open">
-      <div class="container">
-        <h2 class="sec-title">Core Horizontal Stack</h2>
-        <p class="sec-sub">Shared deterministic math, multi-signal corroboration, and conversational SQL across every workflow.</p>
-
-        <div class="open-grid-3">
-          <div class="open-item">
-            <span class="open-item-num">01 · R1 RULE BUILDER</span>
-            <h3>Deterministic Typology Engine</h3>
-            <p>170+ accounting, procurement, and compliance models executed with zero LLM hallucination.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">02 · F8 3-ARM DETECTION</span>
-            <h3>Multi-Signal Corroboration</h3>
-            <p>Triangulates price variance, process bypass, and D7 counterparty risk before elevating alerts.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">03 · Q2 EXCLUSION &amp; QC</span>
-            <h3>Exclusion Memory &amp; Waterfall</h3>
-            <p>Suppresses intercompany and approved exceptions while enforcing the 4-Rung Precedence Waterfall.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">04 · Xa EXPLANATION</span>
-            <h3>Forensic Case Narratives</h3>
-            <p>Plain-English evidence dossiers citing exact SAP/Oracle document numbers and timestamps.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">05 · ⌘K QUANTUMQUERY</span>
-            <h3>Conversational ERP SQL</h3>
-            <p>Natural-language investigator that runs governed, read-only SQL across millions of ledger rows.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">06 · FORTIFAI D7</span>
-            <h3>Counterparty Entity Graph</h3>
-            <p>Resolves beneficial owners, corporate registries, sanctions, and trade manifests continuously.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-tint">
-      <div class="container">
-        <h2 class="sec-title" style="margin-bottom:16px;">Functional Enterprise Risk Agents</h2>
-
-        <div class="feature-split-row" id="sec-spend">
-          <div>
-            <h3>Spend &amp; Working Capital</h3>
-            <p>Stop overpayments before the SAP F110 disbursement run and enforce contract pricing across every plant.</p>
-            <ul class="feature-Agents-list">
-              <li><strong>Procurement Cost-Saving Agent</strong> <span>— Effective Unit Price (P<sub>eff</sub>) variance, off-contract buying, and rebate capture.</span></li>
-              <li><strong>AP &amp; Working Capital Agent</strong> <span>— Pre-F110 fuzzy duplicate invoice blocks and early-payment term guard.</span></li>
-              <li><strong>Pass-Through Middleman Vendor Agent</strong> <span>— Exposes zero-substance intermediaries inflating Tier-2 OEM prices.</span></li>
-            </ul>
-          </div>
-          <div class="ui-window">
-            <div class="ui-header">
-              <span>Pre-F110 Hold · P<sub>eff</sub> Variance &amp; Middleman Markup</span>
-              <span class="chip-crit">$312,400 HELD</span>
-            </div>
-            <div class="ui-row"><span><strong>SAP Doc #5105609124</strong> · Vendor #4008912</span><span class="mono">+28.4% vs. OEM Rate</span></div>
-            <div class="ui-row"><span><strong>D7 Substance Check</strong> · Factory EPFO Headcount</span><span class="mono" style="color:var(--sev-crit);">0 Employees · Shell</span></div>
-            <div class="ui-row"><span><strong>Recommended Action</strong></span><span class="mono" style="color:var(--blue-700);">Hold F110 · Stage FB65 Debit Memo</span></div>
-          </div>
-        </div>
-
-        <div class="feature-split-row" id="sec-close">
-          <div>
-            <h3>Close, Audit &amp; Revenue Assurance</h3>
-            <p>Replace manual 25-row quarterly sampling with 100% continuous population testing across GL, SOX, and Order-to-Cash.</p>
-            <ul class="feature-Agents-list">
-              <li><strong>Balance Sheet &amp; Close Assurance Agent</strong> <span>— Auto-cleared GL reconciliations and top-side manual JE guard.</span></li>
-              <li><strong>SOX / ICFR Control Testing Agent</strong> <span>— 100% population COSO 2013 testing with PCAOB AS 1105 lineage.</span></li>
-              <li><strong>Revenue Cut-Off &amp; Channel Stuffing Agent</strong> <span>— Period-end shipment spike and unauthorized discount guard.</span></li>
-            </ul>
-          </div>
-          <div class="ui-window">
-            <div class="ui-header">
-              <span>Continuous ICFR &amp; Period-End Cut-Off Monitor</span>
-              <span class="chip-ok">AS 1105 VERIFIED</span>
-            </div>
-            <div class="ui-row"><span><strong>Control P2P-ICFR-04</strong> · 3-Way Match Override</span><span class="mono">1,194,210 / 1,194,210 Tested</span></div>
-            <div class="ui-row"><span><strong>Control R2R-JE-09</strong> · Weekend Top-Side Postings</span><span class="mono" style="color:var(--sev-crit);">3 Anomalous JEs Flagged</span></div>
-            <div class="ui-row"><span><strong>Control O2C-REV-02</strong> · Q4 Cut-Off Delivery Proof</span><span class="mono" style="color:var(--blue-700);">99.8% Matched to VLPOD</span></div>
-          </div>
-        </div>
-
-        <div class="feature-split-row" id="sec-compliance">
-          <div>
-            <h3>Compliance, Trade &amp; Investigations</h3>
-            <p>Surveil post-clearance export routing, third-party retainers, and employee-vendor collisions under legal privilege.</p>
-            <ul class="feature-Agents-list">
-              <li><strong>Bribery &amp; FCPA Monitoring Agent</strong> <span>— High-CPI consulting conduits and Concur T&amp;E tender spikes.</span></li>
-              <li><strong>Export Control &amp; Trade-Diversion Agent</strong> <span>— Post-GTS Ship-To country flips and transshipment rings.</span></li>
-              <li><strong>Internal Investigations &amp; Collusion Agent</strong> <span>— HR-to-Vendor bank/address overlaps and split-requisition rings.</span></li>
-            </ul>
-          </div>
-          <div class="ui-window">
-            <div class="ui-header">
-              <span>Privileged Legal Review · Signals, Not Verdicts</span>
-              <span class="chip-crit">SEALED DOSSIER</span>
-            </div>
-            <div class="ui-row"><span><strong>Post-GTS Change Log (CDHDR)</strong> · ECCN 3A001</span><span class="mono">Ship-To Flipped After Release</span></div>
-            <div class="ui-row"><span><strong>Concur + AP Correlation</strong> · Tender Window</span><span class="mono">3 Consulting Invoices &lt; $50k</span></div>
-            <div class="ui-row"><span><strong>Governance Status</strong></span><span class="mono" style="color:var(--blue-700);">Routed to General Counsel Queue</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-open">
-      <div class="container">
-        <h2 class="sec-title">Three Deployment Models</h2>
-        <p class="sec-sub">Start with a rapid historical diagnostic or transition to a permanent in-house capability.</p>
-
-        <div class="open-grid-3">
-          <div class="open-item">
-            <span class="open-item-num">01 · WEEKS 1–4</span>
-            <h3>Rapid Diagnostic</h3>
-            <p>Run the multi-agent suite on a standard ERP extract to quantify recoverable cash and control gaps with minimal IT lift.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">02 · CONTINUOUS MANAGED</span>
-            <h3>Co-Sourced Intelligence</h3>
-            <p>Fortifai runs in your VPC while our forensic specialists manage rule tuning and first-pass triage for your leadership team.</p>
-          </div>
-          <div class="open-item">
-            <span class="open-item-num">03 · ENTERPRISE LICENSE</span>
-            <h3>Build-Operate-Transfer (BOT)</h3>
-            <p>We deploy on live ERP feeds, calibrate exclusions, train your teams, and hand over full internal operation.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- =====================================================================
-       3. BY ROLE PAGE (#page-role)
-  ====================================================================== -->
-  <main id="page-role" class="page-view">
-    <section class="hero-section" style="padding: 72px 0;">
-      <div class="container">
-        <h1 class="hero-title" style="font-size:38px;">One ERP Integration. Five Executive Mandates.</h1>
-        <p class="hero-sub" style="margin-bottom:0;">Select your leadership role to inspect tailored workflows and live KPI views.</p>
-      </div>
-    </section>
-
-    <section class="section-open">
-      <div class="container">
-        <div class="role-tabs-bar">
-          <button class="role-tab-btn active" data-role-btn="CFO" onclick="switchRoleView('CFO')">CFO · Finance</button>
-          <button class="role-tab-btn" data-role-btn="CPO" onclick="switchRoleView('CPO')">CPO · Procurement</button>
-          <button class="role-tab-btn" data-role-btn="CCO" onclick="switchRoleView('CCO')">CCO &amp; GC · Compliance</button>
-          <button class="role-tab-btn" data-role-btn="CAE" onclick="switchRoleView('CAE')">CAE · Internal Audit</button>
-          <button class="role-tab-btn" data-role-btn="CRO" onclick="switchRoleView('CRO')">CRO · Revenue</button>
-        </div>
-
-        <div class="role-open-split" id="role-dynamic-panel"></div>
-      </div>
-    </section>
-  </main>
-
-  <!-- =====================================================================
-       4. ABOUT US PAGE (#page-about)
-  ====================================================================== -->
-  <main id="page-about" class="page-view">
-    <section class="hero-section" style="padding: 72px 0;">
-      <div class="container">
-        <h1 class="hero-title" style="font-size:38px;">Built by Forensic Partners, Prosecutors &amp; AI Architects</h1>
-        <p class="hero-sub" style="margin-bottom:0;">Encoding partner-level forensic judgment directly inside enterprise ERP systems.</p>
-      </div>
-    </section>
-
-    <section class="section-open">
-      <div class="container">
-        <h2 class="sec-title" style="margin-bottom:36px;">Leadership Team</h2>
-        <div class="team-open-4">
-          <div>
-            <div class="portrait-wrap">
-              <img src="VM BW2.jpg" alt="Varun Mowar" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-              <span class="portrait-fallback" style="display:none;">VM</span>
-            </div>
-            <div class="leader-role">Co-Founder &amp; CEO</div>
-            <h3 class="leader-name">Varun Mowar</h3>
-            <p class="leader-bio">Former Forensic &amp; Risk Advisory Partner at Alvarez &amp; Marsal and KPMG leading global ERP investigations and FCPA monitorships.</p>
-          </div>
-
-          <div>
-            <div class="portrait-wrap">
-              <img src="MP BW.jpg" alt="Manish Patil" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-              <span class="portrait-fallback" style="display:none;">MP</span>
-            </div>
-            <div class="leader-role">Co-Founder &amp; COO</div>
-            <h3 class="leader-name">Manish Patil</h3>
-            <p class="leader-bio">Enterprise procurement transformation and P2P/O2C continuous control leader across global shared services.</p>
-          </div>
-
-          <div>
-            <div class="portrait-wrap">
-              <img src="AVR BW.jpg" alt="Adityavijay Rathore" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-              <span class="portrait-fallback" style="display:none;">AR</span>
-            </div>
-            <div class="leader-role">Co-Founder &amp; Chief AI Architect</div>
-            <h3 class="leader-name">Adityavijay Rathore</h3>
-            <p class="leader-bio">Architect of the Fortifai SARA multi-agent spine, 3-Arm detection engine, and zero-egress VPC stack.</p>
-          </div>
-
-          <div>
-            <div class="portrait-wrap">
-              <span class="portrait-fallback">DM</span>
-            </div>
-            <div class="leader-role">Head of Americas</div>
-            <h3 class="leader-name">David Maria</h3>
-            <p class="leader-bio">Former U.S. DOJ Fraud Section Trial Attorney and public-company General Counsel specializing in FCPA and board governance.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section-tint">
-      <div class="container">
-        <h2 class="sec-title" style="margin-bottom:36px;">Advisory Board</h2>
-        <div class="team-open-3">
-          <div>
-            <div class="portrait-wrap">
-              <img src="Arun Pic.png" alt="Arunava Mitra" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-              <span class="portrait-fallback" style="display:none;">AM</span>
-            </div>
-            <div class="leader-role">Advisory Board</div>
-            <h3 class="leader-name">Arunava Mitra</h3>
-            <p class="leader-bio">Executive advisor guiding enterprise go-to-market strategy and institutional risk governance.</p>
-          </div>
-
-          <div>
-            <div class="portrait-wrap">
-              <img src="Kaiwan.avif" alt="Kaiwan Bharucha" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-              <span class="portrait-fallback" style="display:none;">KB</span>
-            </div>
-            <div class="leader-role">Advisory Board</div>
-            <h3 class="leader-name">Kaiwan Bharucha</h3>
-            <p class="leader-bio">Advises on global industrial supply chains, capital allocation, and executive CFO/CPO adoption.</p>
-          </div>
-
-          <div>
-            <div class="portrait-wrap">
-              <img src="Chandra.avif" alt="Chandra Yeleshwarapu" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-              <span class="portrait-fallback" style="display:none;">CY</span>
-            </div>
-            <div class="leader-role">Advisory Board</div>
-            <h3 class="leader-name">Chandra Yeleshwarapu</h3>
-            <p class="leader-bio">Computational systems advisor supporting graph resolution and high-assurance AI engineering.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- =====================================================================
-       5. SECURITY & TRUST CENTER PAGE (#page-security) — SPRINTO STYLE
-  ====================================================================== -->
-  <main id="page-security" class="page-view">
-    <section class="trust-section">
-      <div class="container">
-        <!-- Top Overview Header Card -->
-        <div class="trust-hero-bar">
-          <div>
-            <div class="trust-title-row">
-              <h1 style="font-size:26px; letter-spacing:-0.5px;">Fortifai Security &amp; Trust Center</h1>
-              <span class="trust-verified-badge">✓ Verified Zero-Egress Architecture</span>
-            </div>
-            <p style="font-size:14px; color:var(--text-sub); max-width:660px;">
-              At Fortifai, security and data sovereignty are foundational. Fortifai SARA and D7 deploy directly inside your enterprise Virtual Private Cloud (VPC) or on-premise perimeter—ensuring zero outbound data egress and zero foundation-model training on customer ledgers.
-            </p>
-            <div style="margin-top:12px; font-size:12.5px; color:var(--text-muted);">
-              Security &amp; Compliance inquiries: <strong style="color:var(--text-main);">security@fortifai.io</strong>
-            </div>
-          </div>
-
-          <button class="nav-cta" onclick="openSecurityModal('Complete Security & SOC 2 Documentation Pack')" style="flex-shrink:0; padding:11px 20px;">
-            🔒 Request Access
-          </button>
-        </div>
-
-        <!-- Sprinto-Style Sub-Tabs -->
-        <div class="trust-subnav">
-          <button class="trust-tab-btn active" onclick="scrollTrustSection('trust-compliances', this)">Overview</button>
-          <button class="trust-tab-btn" onclick="scrollTrustSection('trust-compliances', this)">Compliances</button>
-          <button class="trust-tab-btn" onclick="scrollTrustSection('trust-controls', this)">Controls</button>
-          <button class="trust-tab-btn" onclick="scrollTrustSection('trust-resources', this)">Resources</button>
-        </div>
-
-        <!-- Main 2-Column Grid: Compliances Left + Controls Right -->
-        <div class="trust-main-grid" id="trust-compliances">
-          <!-- Left: Compliances -->
-          <div class="trust-panel">
-            <div class="trust-panel-header">
-              <span style="font-size:15px; font-weight:600;">Compliances &amp; Standards</span>
-              <span class="chip-ok">ACTIVE</span>
-            </div>
-
-            <div class="compliance-item">
-              <div style="display:flex; align-items:center; gap:12px;">
-                <div class="comp-badge-circle">SOC2</div>
-                <div>
-                  <div style="font-size:13.5px; font-weight:600;">SOC 2 Type II</div>
-                  <div style="font-size:12px; color:var(--text-muted);">Security, Availability &amp; Confidentiality</div>
-                </div>
-              </div>
-              <span class="chip-ok">✓ Compliant</span>
-            </div>
-
-            <div class="compliance-item">
-              <div style="display:flex; align-items:center; gap:12px;">
-                <div class="comp-badge-circle">27001</div>
-                <div>
-                  <div style="font-size:13.5px; font-weight:600;">ISO / IEC 27001</div>
-                  <div style="font-size:12px; color:var(--text-muted);">Information Security Management</div>
-                </div>
-              </div>
-              <span class="chip-ok">✓ Aligned</span>
-            </div>
-
-            <div class="compliance-item">
-              <div style="display:flex; align-items:center; gap:12px;">
-                <div class="comp-badge-circle">PCAOB</div>
-                <div>
-                  <div style="font-size:13.5px; font-weight:600;">PCAOB AS 1105 &amp; COSO 2013</div>
-                  <div style="font-size:12px; color:var(--text-muted);">Stage 0 Completeness &amp; ICFR Lineage</div>
-                </div>
-              </div>
-              <span class="chip-ok">✓ Native</span>
-            </div>
-
-            <div class="compliance-item">
-              <div style="display:flex; align-items:center; gap:12px;">
-                <div class="comp-badge-circle">GDPR</div>
-                <div>
-                  <div style="font-size:13.5px; font-weight:600;">GDPR &amp; CCPA</div>
-                  <div style="font-size:12px; color:var(--text-muted);">Data Privacy &amp; In-VPC Residency</div>
-                </div>
-              </div>
-              <span class="chip-ok">✓ Compliant</span>
-            </div>
-          </div>
-
-          <!-- Right: Controls Posture (2x2 Grid) -->
-          <div class="trust-panel" id="trust-controls">
-            <div class="trust-panel-header">
-              <div>
-                <span style="font-size:15px; font-weight:600;">Continuous Security Controls</span>
-                <span style="font-size:12px; color:var(--text-muted); margin-left:8px;">44 Enterprise Controls Enforced</span>
-              </div>
-              <span class="chip-ok">100% PASSING</span>
-            </div>
-
-            <div class="controls-2x2">
-              <div class="control-cat-box">
-                <div class="control-cat-title">
-                  <span>Infrastructure &amp; Zero-Egress VPC</span>
-                  <span class="chip-ok">12 / 12</span>
-                </div>
-                <ul class="control-list">
-                  <li>✓ Customer-hosted AWS, Azure, GCP, or On-Premise VPC</li>
-                  <li>✓ Strict 0.0.0.0/0 outbound egress deny rules</li>
-                  <li>✓ Zero external LLM training on ERP data</li>
-                </ul>
-              </div>
-
-              <div class="control-cat-box">
-                <div class="control-cat-title">
-                  <span>Product &amp; Access Security</span>
-                  <span class="chip-ok">11 / 11</span>
-                </div>
-                <ul class="control-list">
-                  <li>✓ SAML 2.0 / OIDC SSO &amp; MFA enforcement</li>
-                  <li>✓ Role-Based Segregation of Duties (SoD)</li>
-                  <li>✓ Maker-Checker privileged legal review routing</li>
-                </ul>
-              </div>
-
-              <div class="control-cat-box">
-                <div class="control-cat-title">
-                  <span>Cryptographic &amp; Data Integrity</span>
-                  <span class="chip-ok">10 / 10</span>
-                </div>
-                <ul class="control-list">
-                  <li>✓ AES-256 encryption at rest &amp; TLS 1.3 in transit</li>
-                  <li>✓ FIPS 140-3 HMAC-SHA256 sealed forensic dossiers</li>
-                  <li>✓ Read-only ERP database service accounts</li>
-                </ul>
-              </div>
-
-              <div class="control-cat-box">
-                <div class="control-cat-title">
-                  <span>Audit Logging &amp; Incident Response</span>
-                  <span class="chip-ok">11 / 11</span>
-                </div>
-                <ul class="control-list">
-                  <li>✓ Immutable append-only investigator audit trail</li>
-                  <li>✓ Continuous vulnerability &amp; container scanning</li>
-                  <li>✓ 24x7 automated anomaly &amp; health telemetry</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Gated Resources Section (Sprinto Style with Lock Icons) -->
-        <div class="trust-panel" id="trust-resources">
-          <div class="trust-panel-header">
-            <div>
-              <span style="font-size:15px; font-weight:600;">Resources &amp; Security Documentation</span>
-              <span style="font-size:12px; color:var(--text-muted); margin-left:8px;">Click any document to request gated access</span>
-            </div>
-          </div>
-
-          <div class="resources-grid-3">
-            <div class="resource-doc-card" onclick="openSecurityModal('SOC 2 Type II Attestation Report')">
-              <div>
-                <div style="font-size:13.5px; font-weight:600;">SOC 2 Type II Report</div>
-                <div style="font-size:11.5px; color:var(--text-muted);">Attestation Report · PDF</div>
-              </div>
-              <span title="Gated Document">🔒</span>
-            </div>
-
-            <div class="resource-doc-card" onclick="openSecurityModal('Zero-Egress VPC Architecture Whitepaper')">
-              <div>
-                <div style="font-size:13.5px; font-weight:600;">Zero-Egress VPC Architecture</div>
-                <div style="font-size:11.5px; color:var(--text-muted);">Technical Whitepaper · PDF</div>
-              </div>
-              <span title="Gated Document">🔒</span>
-            </div>
-
-            <div class="resource-doc-card" onclick="openSecurityModal('Annual Penetration Test Executive Summary')">
-              <div>
-                <div style="font-size:13.5px; font-weight:600;">Penetration Test Summary</div>
-                <div style="font-size:11.5px; color:var(--text-muted);">Independent Security Assessment · PDF</div>
-              </div>
-              <span title="Gated Document">🔒</span>
-            </div>
-
-            <div class="resource-doc-card" onclick="openSecurityModal('Information Security & Encryption Policy')">
-              <div>
-                <div style="font-size:13.5px; font-weight:600;">Information Security Policy</div>
-                <div style="font-size:11.5px; color:var(--text-muted);">Sprinto Policy Pack · PDF</div>
-              </div>
-              <span title="Gated Document">🔒</span>
-            </div>
-
-            <div class="resource-doc-card" onclick="openSecurityModal('Acceptable Usage & Access Control Policy')">
-              <div>
-                <div style="font-size:13.5px; font-weight:600;">Acceptable Usage Policy</div>
-                <div style="font-size:11.5px; color:var(--text-muted);">Sprinto Policy Pack · PDF</div>
-              </div>
-              <span title="Gated Document">🔒</span>
-            </div>
-
-            <div class="resource-doc-card" onclick="openLegalTab('dpa')">
-              <div>
-                <div style="font-size:13.5px; font-weight:600;">Data Processing Addendum</div>
-                <div style="font-size:11.5px; color:var(--blue-700);">Public Legal Document →</div>
-              </div>
-              <span>↗</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Security Document Request Modal -->
-  <div class="sec-modal-backdrop" id="sec-modal">
-    <div class="sec-modal-card">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-        <h3 style="font-size:18px;">Request Security Access</h3>
-        <button onclick="closeSecurityModal()" style="background:none; border:none; font-size:18px; cursor:pointer; color:var(--text-muted);">✕</button>
-      </div>
-      <p style="font-size:13px; color:var(--text-sub); margin-bottom:16px;">
-        Enter your corporate email to receive NDA-gated access to: <strong id="sec-doc-name" style="color:var(--text-main);">Security Pack</strong>
-      </p>
-      <form onsubmit="submitSecurityRequest(event)">
-        <div class="f-group">
-          <label class="f-label">Full Name *</label>
-          <input type="text" name="name" class="f-input" placeholder="Jane Smith" required />
-        </div>
-        <div class="f-group">
-          <label class="f-label">Work Email *</label>
-          <input type="email" name="email" class="f-input" placeholder="jane.smith@company.com" required />
-        </div>
-        <div class="f-group">
-          <label class="f-label">Company *</label>
-          <input type="text" name="company" class="f-input" placeholder="Enterprise Inc." required />
-        </div>
-        <button type="submit" class="submit-demo-btn" id="sec-submit-btn">Send Access Request →</button>
-      </form>
+    <!-- Interactive 3D WebGL Canvas (Drag to Rotate / Click Flip) -->
+    <div id="canvas-wrapper" title="Drag to rotate 3D view · Double-click to flip">
+      <canvas id="three-canvas" class="w-full h-full block" width="1120" height="720" style="width: 560px; height: 360px;"></canvas>
     </div>
-  </div>
 
-  <!-- =====================================================================
-       6. BOOK A DEMO PAGE (#page-book)
-  ====================================================================== -->
-  <main id="page-book" class="page-view">
-    <section class="book-section">
-      <div class="container">
-        <div class="book-split-grid">
-          <div class="book-left-panel">
-            <span class="demo-soft-pill">30 Minute Demo</span>
-            <h1 class="book-left-title">Book a demo to see Fortifai in action.</h1>
-            <p class="book-left-sub">
-              Fortifai works with the ERP stack you already run—SAP, Oracle, NetSuite, and Concur—inside your private VPC.
-            </p>
-            <div class="book-quote-open">
-              <p style="font-size:14px; color:var(--text-main); margin-bottom:8px;">
-                "Fortifai surfaced $24.4M in deduplicated price variance and pre-F110 payment holds across 100% of our SAP population in four weeks."
-              </p>
-              <span style="font-size:12px; color:var(--text-muted);">Global Fortune 500 Industrial Deployment</span>
-            </div>
-          </div>
-
-          <div>
-            <form id="hyphenate-book-form" onsubmit="submitAndOpenBookings(event)">
-              <div class="form-row-2">
-                <div class="f-group">
-                  <label class="f-label">First Name *</label>
-                  <input type="text" name="firstName" class="f-input" placeholder="Jane" required />
-                </div>
-                <div class="f-group">
-                  <label class="f-label">Last Name *</label>
-                  <input type="text" name="lastName" class="f-input" placeholder="Smith" required />
-                </div>
-              </div>
-
-              <div class="form-row-2">
-                <div class="f-group">
-                  <label class="f-label">Work Email *</label>
-                  <input type="email" name="email" class="f-input" placeholder="jane.smith@company.com" required />
-                </div>
-                <div class="f-group">
-                  <label class="f-label">Phone Number</label>
-                  <input type="tel" name="phone" class="f-input" placeholder="+1 (555) 000-0000" />
-                </div>
-              </div>
-
-              <div class="f-group">
-                <label class="f-label">Job Title *</label>
-                <input type="text" name="jobTitle" class="f-input" placeholder="CFO, CPO, General Counsel, CAE..." required />
-              </div>
-
-              <div class="f-group">
-                <label class="f-label">What outcome(s) are you looking to achieve?</label>
-                <div class="outcome-grid">
-                  <label class="outcome-item">
-                    <input type="checkbox" name="outcomes" value="Procurement Cost Savings" />
-                    <span>Procurement Cost Savings</span>
-                  </label>
-                  <label class="outcome-item">
-                    <input type="checkbox" name="outcomes" value="Pre-F110 Payment Protection" />
-                    <span>Pre-F110 Payment Protection</span>
-                  </label>
-                  <label class="outcome-item">
-                    <input type="checkbox" name="outcomes" value="Balance Sheet & SOX Automation" />
-                    <span>Balance Sheet &amp; SOX</span>
-                  </label>
-                  <label class="outcome-item">
-                    <input type="checkbox" name="outcomes" value="FCPA, Export & D7 Screening" />
-                    <span>FCPA, Export &amp; D7 Risk</span>
-                  </label>
-                </div>
-              </div>
-
-              <button type="submit" class="submit-demo-btn" id="book-submit-btn">
-                Continue to Calendar →
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- =====================================================================
-       7. LEGAL HUB PAGE (#page-legal) — MATCHES HYPHENATE SCREENSHOT
-  ====================================================================== -->
-  <main id="page-legal" class="page-view">
-    <section class="legal-section">
-      <div class="container">
-        <span class="legal-pill">Legal</span>
-        <h1 class="legal-main-title" id="legal-doc-heading">Privacy Policy</h1>
-        <div class="legal-date" id="legal-doc-date">Effective date: October 8, 2026. Last updated: October 8, 2026.</div>
-
-        <div class="legal-layout">
-          <aside class="legal-nav">
-            <button class="legal-nav-link active" data-legal-btn="privacy" onclick="switchLegalDoc('privacy')">Privacy Policy</button>
-            <button class="legal-nav-link" data-legal-btn="cookie" onclick="switchLegalDoc('cookie')">Cookie Policy</button>
-            <button class="legal-nav-link" data-legal-btn="dpa" onclick="switchLegalDoc('dpa')">Data Processing Addendum</button>
-            <button class="legal-nav-link" data-legal-btn="msa" onclick="switchLegalDoc('msa')">Master Services Agreement</button>
-            <button class="legal-nav-link" data-legal-btn="choices" onclick="switchLegalDoc('choices')">Your Privacy Choices</button>
-          </aside>
-
-          <div class="legal-doc-surface" id="legal-doc-body"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ================= HYPHENATE-STYLE FOOTER (SOCIAL ICONS + LEGAL BOTTOM BAR) ================= -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top-grid">
-        <div>
-          <svg width="148" height="32" viewBox="0 0 210 44" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:14px;">
-            <polygon points="2,17 30,8 30,37 2,37" fill="#6699CC" />
-            <text x="40" y="36" font-family="'DM Sans', sans-serif" font-weight="600" font-size="34" letter-spacing="-1.2" fill="#FFFFFF">fortifai</text>
-            <rect x="86" y="18.5" width="84" height="3.4" fill="#FFFFFF" />
-          </svg>
-          <p style="max-width:290px; color:#94A3B8; line-height:1.55; margin-bottom:14px;">
-            AI for Enterprise Risk. Continuous ERP assurance inside your private VPC.
-          </p>
-          <div style="font-size:12px; color:#64748B;">
-            205 W 37th Street, New York, NY 10018<br/>
-            Gurugram, NCR, India
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>Platform Overview</h4>
-          <a onclick="jumpToProductSection('sec-spend')">Procure-to-Pay &amp; Spend</a>
-          <a onclick="jumpToProductSection('sec-spend')">AP &amp; Working Capital</a>
-          <a onclick="jumpToProductSection('sec-close')">GL Close &amp; SOX Assurance</a>
-          <a onclick="jumpToProductSection('sec-close')">Order-to-Cash &amp; Cut-Off</a>
-          <a onclick="jumpToProductSection('sec-compliance')">FCPA, Trade &amp; D7 Graph</a>
-        </div>
-
-        <div class="footer-col">
-          <h4>By Role</h4>
-          <a onclick="openRoleTab('CFO')">For CFOs &amp; Controllers</a>
-          <a onclick="openRoleTab('CPO')">For CPOs &amp; Procurement</a>
-          <a onclick="openRoleTab('CCO')">For CCOs &amp; General Counsel</a>
-          <a onclick="openRoleTab('CAE')">For Chief Audit Executives</a>
-          <a onclick="openRoleTab('CRO')">For Chief Revenue Officers</a>
-        </div>
-
-        <div class="footer-col">
-          <h4>Company</h4>
-          <a onclick="showPage('book')">Book a Call</a>
-          <a onclick="showPage('product')">Architecture</a>
-          <a onclick="showPage('about')">About</a>
-          <a onclick="showPage('security')">Security</a>
-        </div>
-      </div>
-
-      <!-- Social Plug-In Row (LinkedIn, YouTube, X) matching image_4a81dc.png -->
-      <div class="footer-social-row">
-        <!-- LinkedIn -->
-        <a class="social-icon-btn" href="https://www.linkedin.com/company/fortifai" target="_blank" rel="noopener" aria-label="Fortifai on LinkedIn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-          </svg>
-        </a>
-        <!-- YouTube -->
-        <a class="social-icon-btn" href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="Fortifai on YouTube">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
-          </svg>
-        </a>
-        <!-- X (Twitter) -->
-        <a class="social-icon-btn" href="https://x.com" target="_blank" rel="noopener" aria-label="Fortifai on X">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-        </a>
-      </div>
-
-      <!-- Bottom Legal Bar matching image_4a81dc.png -->
-      <div class="footer-bottom-bar">
-        <span>© 2026 Fortifai Inc. All rights reserved.</span>
-
-        <div class="footer-legal-links">
-          <a onclick="openLegalTab('choices')">
-            <!-- CCPA Privacy Options Pill Icon -->
-            <svg width="26" height="13" viewBox="0 0 30 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.5" y="0.5" width="29" height="13" rx="6.5" fill="#FFFFFF" stroke="#2563EB"/>
-              <path d="M16 1H23C26.3137 1 29 3.68629 29 7C29 10.3137 26.3137 13 23 13H16V1Z" fill="#2563EB"/>
-              <path d="M5.5 7L7.5 9L11.5 5" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M20.5 5L24.5 9M24.5 5L20.5 9" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <span>Your Privacy Choices</span>
-          </a>
-          <a onclick="openLegalTab('privacy')">Privacy Policy</a>
-          <a onclick="openLegalTab('cookie')">Cookies</a>
-          <a onclick="openLegalTab('dpa')">DPA</a>
-          <a onclick="openLegalTab('msa')">MSA</a>
-        </div>
-      </div>
+    <!-- Interactive 3D Action & Hint Pill -->
+    <div class="mt-1 mb-5 flex items-center gap-2">
+      <button id="flip-trigger-btn" onclick="triggerHourglassFlip()" class="glass-btn mono-telemetry flex items-center gap-1.5">
+        <span>↻</span> <span id="action-btn-label">Flip Sand Clock</span>
+      </button>
+      <span class="mono-telemetry text-[10.5px] text-[#64748B] hidden sm:inline">
+        · Drag 3D object to inspect
+      </span>
     </div>
+
+    <!-- Single-Line Upgrade Statement (Strict Fortifai v2.0 Typography) -->
+    <h1 id="headline-text" class="upgrade-headline max-w-3xl px-2">
+      We are upgrading and be live by 10 am on November 17.
+    </h1>
+
+    <!-- Live Tabular Countdown Pill -->
+    <div class="mt-6 glass-pill px-5 py-2.5 rounded-xl inline-flex flex-wrap items-center justify-center gap-3 sm:gap-5 shadow-2xl">
+      <span class="mono-telemetry text-[11px] uppercase text-[#99AFBC] flex items-center gap-1.5">
+        <span class="text-[#6699CC]">●</span> T-Minus
+      </span>
+      <div class="mono-telemetry text-[13px] sm:text-[14px] font-medium text-white flex items-center gap-2">
+        <span id="cd-hours" class="text-[#6699CC]">23</span><span class="text-[#64748B] text-[10px]">HRS</span>
+        <span class="text-[#64748B]">:</span>
+        <span id="cd-mins" class="text-[#6699CC]">47</span><span class="text-[#64748B] text-[10px]">MIN</span>
+        <span class="text-[#64748B]">:</span>
+        <span id="cd-secs" class="text-white">18</span><span class="text-[#64748B] text-[10px]">SEC</span>
+      </div>
+      <span class="hidden sm:inline text-[#1E293B]">|</span>
+      <span class="mono-telemetry text-[11px] text-[#99AFBC]">
+        NOV 17 · 10:00 AM
+      </span>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER & ADMIN CUSTOMIZATION TOOLBAR ================= -->
+  <footer class="relative z-20 w-full max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+    <div class="text-[12.5px] text-[#64748B]">
+      Need immediate assistance or an executive demo during our upgrade?
+      <a href="https://bookings.cloud.microsoft/book/FortifaiDemo@fortifai.io/?ismsaljsauthenabled" target="_blank" rel="noopener" class="text-[#99AFBC] hover:text-white underline underline-offset-4 transition-colors ml-1 font-medium">
+        Schedule a Call →
+      </a>
+    </div>
+
+    <!-- Admin Studio Switcher (Hidden automatically when exported for production) -->
+    
   </footer>
 
-  <!-- ================= INTERACTIVE SCRIPT ================= -->
+  <!-- ================= THREE.JS 3D SCENE & COUNTDOWN LOGIC ================= -->
   <script>
-    const SHARED_BOOKINGS_URL = "https://bookings.cloud.microsoft/book/FortifaiDemo@fortifai.io/?ismsaljsauthenabled";
-    const FORMSPREE_ENDPOINT = "https://formspree.io/f/myeeodjv";
-
-    function showPage(pageId) {
-      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-      const target = document.getElementById('page-' + pageId);
-      if (target) target.classList.add('active');
-
-      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-      const activeBtn = document.getElementById('nav-' + pageId);
-      if (activeBtn) activeBtn.classList.add('active');
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function jumpToProductSection(secId) {
-      showPage('product');
-      setTimeout(() => {
-        const el = document.getElementById(secId);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 60);
-    }
-
-    function openRoleTab(roleKey) {
-      showPage('role');
-      switchRoleView(roleKey);
-    }
-
-    function openLegalTab(docKey) {
-      showPage('legal');
-      switchLegalDoc(docKey);
-    }
-
-    function scrollTrustSection(secId, btnEl) {
-      document.querySelectorAll('.trust-tab-btn').forEach(b => b.classList.remove('active'));
-      if (btnEl) btnEl.classList.add('active');
-      const el = document.getElementById(secId);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function openSecurityModal(docTitle) {
-      document.getElementById('sec-doc-name').textContent = docTitle;
-      document.getElementById('sec-modal').classList.add('open');
-    }
-
-    function closeSecurityModal() {
-      document.getElementById('sec-modal').classList.remove('open');
-    }
-
-    function submitSecurityRequest(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = document.getElementById('sec-submit-btn');
-      const docName = document.getElementById('sec-doc-name').textContent;
-      btn.textContent = "Submitting Request...";
-
-      fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          event: "SECURITY_TRUST_CENTER_REQUEST",
-          requestedDocument: docName,
-          name: form.name.value.trim(),
-          email: form.email.value.trim(),
-          company: form.company.value.trim(),
-          timestamp: new Date().toISOString()
-        })
-      }).finally(() => {
-        btn.textContent = "✓ Request Logged — Security Team Notified";
-        setTimeout(() => {
-          closeSecurityModal();
-          btn.textContent = "Send Access Request →";
-          form.reset();
-        }, 1400);
-      });
-    }
-
-    function submitAndOpenBookings(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = document.getElementById('book-submit-btn');
-      btn.textContent = "Opening Microsoft Bookings Calendar...";
-
-      const selectedOutcomes = Array.from(form.querySelectorAll('input[name="outcomes"]:checked')).map(cb => cb.value);
-      const payload = {
-        event: "WEBSITE_DEMO_REQUEST",
-        firstName: form.firstName.value.trim(),
-        lastName: form.lastName.value.trim(),
-        email: form.email.value.trim(),
-        phone: form.phone.value.trim(),
-        jobTitle: form.jobTitle.value.trim(),
-        outcomes: selectedOutcomes.join(', '),
-        timestamp: new Date().toISOString()
-      };
-
-      fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload)
-      }).finally(() => {
-        window.open(SHARED_BOOKINGS_URL, '_blank', 'noopener');
-        btn.textContent = "Calendar Opened — Click to Re-Open →";
-      });
-    }
-
-    const PIPELINE_STEPS = [
-      {
-        title: "100% Trial Balance & Sub-Ledger Tie-Out",
-        detail: "Read-only extraction across SAP ACDOCA, BKPF, BSEG, EKKO, and RBKP with automated completeness verification under PCAOB AS 1105.",
-        metric: "4,812,940 ERP rows reconciled (0.00 variance)",
-        code: "SELECT SUM(DMBTR) FROM ACDOCA WHERE RLDNR='0L' → VERIFIED"
-      },
-      {
-        title: "Deterministic Typology Execution",
-        detail: "Computes exact contract-to-invoice unit price drift, split-PO threshold bypasses, and fuzzy duplicate invoice keys across all company codes.",
-        metric: "170+ deterministic risk models executed",
-        code: "RULE P2P-014: (Invoice_Unit_Price - Contract_Rate) * Qty > Threshold"
-      },
-      {
-        title: "3-Arm Multi-Signal Corroboration",
-        detail: "Combines Arm 1 (Financial Variance), Arm 2 (Approval Bypass), and Arm 3 (Fortifai D7 UBO Graph) before elevating severity.",
-        metric: "Composite Risk Score: 96.4 / 100 (Critical)",
-        code: "[Arm 1: +$184k Variance] + [Arm 2: Retro-PO] + [Arm 3: Shared UBO]"
-      },
-      {
-        title: "Exclusion Registry & 4-Rung Waterfall",
-        detail: "Suppresses verified intercompany transfers and assigns every exception to a single remediation rung so zero dollars are double-counted.",
-        metric: "Net deduplicated exposure isolated",
-        code: "Assigned: Rung 1 (Pre-F110 Hold) · Deduplicated across Rung 2–4"
-      },
-      {
-        title: "Xa Narratives & ⌘K QuantumQuery",
-        detail: "Generates plain-English evidence dossiers citing exact document numbers, paired with conversational SQL for ad-hoc follow-up.",
-        metric: "50%+ faster investigator triage",
-        code: "⌘K: 'Show all POs approved by User JSMITH4 within 5% of $50k limit'"
-      },
-      {
-        title: "Pre-F110 Payment Holds & Board Packs",
-        detail: "Stages SAP payment blocks and FB65 debit memos for controller sign-off while compiling one-click Audit Committee reports.",
-        metric: "$418,900 held prior to disbursement",
-        code: "STAGED: SAP F110 Block [Z-FORTIFAI] + FB65 Debit Memo"
-      }
+    // Default configuration (persisted when exporting clean production file)
+    let current3DMode = 'hourglass'; // 'hourglass' | 'clock'
+    let copyVariantIndex = 0;
+    const COPY_VARIANTS = [
+      "We are upgrading and be live by 10 am on November 17.",
+      "We are upgrading and will be live by 10:00 AM on November 17."
     ];
 
-    function selectPipelineStep(idx, btnEl) {
-      document.querySelectorAll('.step-btn').forEach(b => b.classList.remove('active'));
-      if (btnEl) btnEl.classList.add('active');
-      const s = PIPELINE_STEPS[idx];
-      document.getElementById('pipeline-widget-canvas').innerHTML = `
-        <div class="ui-header">
-          <span>${s.title}</span>
-          <span class="chip-ok">${s.metric}</span>
-        </div>
-        <p style="font-size:14px; color:var(--text-sub); margin-bottom:20px;">${s.detail}</p>
-        <div class="mono" style="font-size:12px; background:var(--navy-950); color:var(--blue-400); padding:14px; border-radius:6px;">
-          ${s.code}
-        </div>
-      `;
-    }
+    // Three.js Globals
+    let scene, camera, renderer;
+    let rootGroup, hourglassGroup, clockGroup;
+    let sandParticles, sandGeometry, sandPositions, sandVelocities;
+    let topSandMesh, bottomSandMesh, sandStreamMesh;
+    let clockSecondHand, clockMinuteHand, clockHourHand, gimbalRing1, gimbalRing2;
 
-    const ROLE_DATA = {
-      CFO: {
-        title: "Protect EBITDA, stop pre-F110 leakage, and assure the close",
-        summary: "Catch duplicate invoices, contract price variance, and anomalous journal entries before cash or financial statements leave the building.",
-        widgetTitle: "CFO Control Tower · Live Cash & Close Telemetry",
-        badge: "$4.82M PROTECTED",
-        rows: [
-          ["Pre-F110 Duplicate & Markup Holds", "$1,420,000 Blocked"],
-          ["Contract Price Variance (Peff) Recovery", "$3,400,000 Staged (FB65)"],
-          ["GL Sub-Ledger Reconciliation Tie-Out", "100.0% Verified"]
-        ]
-      },
-      CPO: {
-        title: "Eliminate off-contract pricing, middleman markups, and shell suppliers",
-        summary: "Benchmark effective unit prices across plants, expose pass-through middlemen inflating Tier-2 costs, and screen vendors with Fortifai D7.",
-        widgetTitle: "CPO Spend & Supplier Substance Telemetry",
-        badge: "34.2% MARKUP EXPOSED",
-        rows: [
-          ["Cross-Plant Unit Price Drift (Peff)", "$2,190,000 Identified"],
-          ["Zero-Substance Middleman Vendors (D7)", "14 Vendors Flagged"],
-          ["Unapplied Volume Rebate Tiers", "$640,000 Recoverable"]
-        ]
-      },
-      CCO: {
-        title: "Continuous FCPA monitoring, export control, and privileged investigations",
-        summary: "Meet DOJ compliance expectations with continuous third-party payment monitoring, Concur T&E correlation, and post-shipment trade diversion checks.",
-        widgetTitle: "General Counsel & CCO Privileged Queue",
-        badge: "DOJ ECCP ALIGNED",
-        rows: [
-          ["Post-GTS Export Route Flips (CDHDR)", "2 Shipments Quarantined"],
-          ["High-CPI Retainer + Concur T&E Spikes", "5 Dossiers in Legal Review"],
-          ["D7 Beneficial Owner & Sanctions Drift", "18,420 Vendors Screened"]
-        ]
-      },
-      CAE: {
-        title: "Replace 25-row sampling with 100% population SOX & ICFR assurance",
-        summary: "Test every transaction against COSO 2013 controls continuously, verify completeness under PCAOB AS 1105, and export Audit Committee packs in one click.",
-        widgetTitle: "CAE Continuous SOX / ICFR Workbench",
-        badge: "100% POPULATION",
-        rows: [
-          ["Stage 0 PCAOB AS 1105 Completeness Gate", "4,812,940 Rows Reconciled"],
-          ["Automated COSO 2013 Control Tests", "42 / 42 Controls Active"],
-          ["Segregation of Duties (SoD) Collisions", "7 Confirmed Exceptions"]
-        ]
-      },
-      CRO: {
-        title: "Stop quarter-end channel stuffing and unauthorized discounting",
-        summary: "Monitor abnormal period-end distributor shipments, off-policy sales discounts, credit-limit overrides, and subsequent-period return spikes.",
-        widgetTitle: "CRO Order-to-Cash & Cut-Off Guard",
-        badge: "ASC 606 GUARD",
-        rows: [
-          ["Quarter-End Cut-Off Delivery Proof", "99.8% Verified (VLPOD)"],
-          ["Off-Policy Distributor Discounting", "$890,000 Flagged"],
-          ["Subsequent-Period Credit Memo Spikes", "3 Accounts Under Review"]
-        ]
-      }
-    };
+    // Interactive rotation & flip state
+    let isDragging = false;
+    let prevMouse = { x: 0, y: 0 };
+    let targetRot = { x: 0.14, y: 0.35 };
+    let currentRot = { x: 0.14, y: 0.35 };
+    let flipAngle = 0;
+    let targetFlipAngle = 0;
 
-    function switchRoleView(roleKey) {
-      document.querySelectorAll('.role-tab-btn').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-role-btn') === roleKey);
+    // Sand progress simulation (cycles smoothly so it never looks stuck)
+    let sandProgress = 0.32; // 0.0 = all top, 1.0 = all bottom
+    const SAND_COUNT = 260;
+
+    function initThreeScene() {
+      const container = document.getElementById('canvas-wrapper');
+      const canvas = document.getElementById('three-canvas');
+
+      scene = new THREE.Scene();
+
+      const w = container.clientWidth || 500;
+      const h = container.clientHeight || 350;
+      camera = new THREE.PerspectiveCamera(36, w / h, 0.1, 100);
+      camera.position.set(0, 0.2, 8.2);
+
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance"
       });
-      const r = ROLE_DATA[roleKey];
-      document.getElementById('role-dynamic-panel').innerHTML = `
-        <div>
-          <h3 style="font-size:28px; line-height:1.2; letter-spacing:-0.5px; margin-bottom:14px;">${r.title}</h3>
-          <p style="font-size:15px; color:var(--text-sub); margin-bottom:28px;">${r.summary}</p>
-          <button class="nav-cta" onclick="showPage('book')">Book a ${roleKey} Demo</button>
-        </div>
-        <div class="ui-window">
-          <div class="ui-header">
-            <span>${r.widgetTitle}</span>
-            <span class="chip-ok">${r.badge}</span>
-          </div>
-          ${r.rows.map(row => `
-            <div class="ui-row">
-              <span><strong>${row[0]}</strong></span>
-              <span class="mono" style="color:var(--blue-700);">${row[1]}</span>
-            </div>
-          `).join('')}
-        </div>
-      `;
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Lighting tailored to Fortifai v2.0 (#6699CC Brand Blue & #2E5A8A Deep Blue)
+      const ambientLight = new THREE.AmbientLight(0x99AFBC, 0.75);
+      scene.add(ambientLight);
+
+      const keyLight = new THREE.DirectionalLight(0xFFFFFF, 1.35);
+      keyLight.position.set(5, 8, 6);
+      scene.add(keyLight);
+
+      const brandRimLight = new THREE.PointLight(0x6699CC, 2.4, 18);
+      brandRimLight.position.set(-4, 2, 4);
+      scene.add(brandRimLight);
+
+      const deepBottomLight = new THREE.PointLight(0x2E5A8A, 1.8, 15);
+      deepBottomLight.position.set(3, -5, 3);
+      scene.add(deepBottomLight);
+
+      rootGroup = new THREE.Group();
+      scene.add(rootGroup);
+
+      build3DHourglass();
+      build3DTickingClock();
+      applyModeVisibility();
+
+      setupInteractionEvents(container);
+      window.addEventListener('resize', onWindowResize);
+
+      animateScene();
     }
 
-    const LEGAL_DOCS = {
-      privacy: {
-        title: "Privacy Policy",
-        date: "Effective date: October 8, 2026. Last updated: October 8, 2026.",
-        body: `
-          <p>Fortifai Inc. ("Fortifai", "we", "us", or "our") has prepared this Privacy Policy to explain (1) what personal information we collect, (2) how we use and share that information, and (3) your choices concerning our information practices.</p>
-          <p>At Fortifai, we automate continuous ERP transaction assurance, cash protection, close integrity, and third-party compliance with built-in audit trails—delivering deterministic outputs CFOs, General Counsel, and Chief Audit Executives trust inside their own private cloud environment.</p>
-          <h2>Applicability of this Privacy Policy</h2>
-          <p>This Privacy Policy applies to personal information that we collect in connection with our website (www.fortifai.io) and marketing communications (the "Services"). This Privacy Policy does not apply to customer ERP financial ledgers processed inside a customer-hosted Virtual Private Cloud ("VPC") or on-premise deployment, which are governed exclusively by our Master Services Agreement and Data Processing Addendum with that enterprise customer.</p>
-          <h2>Zero Data Egress &amp; Enterprise VPC Deployments</h2>
-          <p>When deployed in a customer's private VPC (AWS, Azure, GCP) or on-premise environment, Fortifai SARA and Fortifai D7 operate with zero outbound data egress. Customer ERP tables are never transmitted to external third-party foundation models or used to train multi-tenant AI models.</p>
-          <h2>Information We Collect on Our Website</h2>
-          <p>When you request an executive demo or security documentation via www.fortifai.io, we collect your name, work email address, phone number, job title, company name, and workflow priorities solely to schedule and tailor your walkthrough.</p>
-          <h2>Contact Us</h2>
-          <p>If you have any questions about this Privacy Policy or our data protection practices, please contact our Privacy &amp; Legal team at <strong>privacy@fortifai.io</strong>.</p>
-        `
-      },
-      cookie: {
-        title: "Cookie Policy",
-        date: "Effective date: October 8, 2026. Last updated: October 8, 2026.",
-        body: `
-          <p>This Cookie Policy explains how Fortifai Inc. ("Fortifai") uses strictly necessary and analytical cookies when you visit www.fortifai.io.</p>
-          <h2>How We Use Cookies</h2>
-          <p>We use minimal, privacy-respecting cookies required for website security, session continuity, and scheduling integration (such as Microsoft Bookings when you book a call). We do not sell personal data or deploy invasive cross-site behavioural advertising trackers.</p>
-          <h2>Managing Your Preferences</h2>
-          <p>You can control and delete cookies through your browser settings at any time without affecting your ability to browse our public documentation.</p>
-        `
-      },
-      dpa: {
-        title: "Data Processing Addendum",
-        date: "Effective date: October 8, 2026. Last updated: October 8, 2026.",
-        body: `
-          <p>This Data Processing Addendum ("DPA") forms part of the Master Services Agreement between Fortifai Inc. and the enterprise Customer governing the processing of personal data in connection with Fortifai SARA and Fortifai D7.</p>
-          <h2>1. In-VPC Processing &amp; Data Residency</h2>
-          <p>All ERP, procurement, general ledger, HR master, and travel &amp; expense data stays 100% resident within the Customer's designated security perimeter (On-Premise, Private Cloud VPC, or GovCloud). Fortifai processes data strictly on a read-only basis in accordance with Customer's documented instructions.</p>
-          <h2>2. Security &amp; Cryptographic Controls</h2>
-          <p>Fortifai maintains SOC 2 Type II and ISO/IEC 27001 aligned technical and organizational controls, including role-based Segregation of Duties (SoD), Maker-Checker privileged legal routing, and FIPS 140-3 HMAC cryptographic dossier sealing.</p>
-        `
-      },
-      msa: {
-        title: "Master Services Agreement",
-        date: "Effective date: October 8, 2026. Last updated: October 8, 2026.",
-        body: `
-          <p>This Master Services Agreement ("MSA") governs enterprise subscriptions to the Fortifai SARA platform, functional risk agents, and Fortifai D7 counterparty intelligence feeds.</p>
-          <h2>1. Intellectual Property &amp; Customer Data Ownership</h2>
-          <p>Customer retains 100% ownership, title, and control over all Customer ERP data, anomaly outputs, and forensic dossiers. Fortifai retains ownership of the underlying deterministic rule taxonomies, 3-Arm detection methodologies, 4-Rung Precedence Waterfall, and platform software.</p>
-          <h2>2. Epistemic Clarity ("Signals, Not Verdicts")</h2>
-          <p>Fortifai outputs are objective mathematical, accounting, and behavioural risk indicators designed to assist Customer's finance, audit, procurement, and legal professionals. Fortifai does not render formal legal verdicts or statutory audit opinions.</p>
-        `
-      },
-      choices: {
-        title: "Your Privacy Choices",
-        date: "Effective date: October 8, 2026. Last updated: October 8, 2026.",
-        body: `
-          <p>Under the California Consumer Privacy Act (CCPA), GDPR, and similar global privacy frameworks, you have the right to opt out of the sale or sharing of personal information and to request access to or deletion of your personal data.</p>
-          <h2>Zero Sale of Personal Information</h2>
-          <p>Fortifai Inc. does not sell or rent personal information or enterprise customer data to third parties or data brokers under any circumstances.</p>
-          <h2>Exercising Your Privacy Rights</h2>
-          <p>To submit a data access, correction, or deletion request, please email <strong>privacy@fortifai.io</strong> with your work email address, and our Privacy Officer will respond within the statutory timeframe.</p>
-        `
-      }
-    };
+    // =========================================================================
+    // 1. BUILD 3D FORENSIC SAND CLOCK (HOURGLASS)
+    // =========================================================================
+    function build3DHourglass() {
+      hourglassGroup = new THREE.Group();
+      rootGroup.add(hourglassGroup);
 
-    function switchLegalDoc(docKey) {
-      document.querySelectorAll('.legal-nav-link').forEach(b => {
-        b.classList.toggle('active', b.getAttribute('data-legal-btn') === docKey);
+      // Materials
+      const metalCapMat = new THREE.MeshStandardMaterial({
+        color: 0x15263B,
+        metalness: 0.82,
+        roughness: 0.22
       });
-      const d = LEGAL_DOCS[docKey];
-      document.getElementById('legal-doc-heading').textContent = d.title;
-      document.getElementById('legal-doc-date').textContent = d.date;
-      document.getElementById('legal-doc-body').innerHTML = d.body;
+
+      const accentRingMat = new THREE.MeshStandardMaterial({
+        color: 0x6699CC,
+        emissive: 0x2E5A8A,
+        emissiveIntensity: 0.35,
+        metalness: 0.75,
+        roughness: 0.2
+      });
+
+      const pillarMat = new THREE.MeshStandardMaterial({
+        color: 0x2E5A8A,
+        metalness: 0.85,
+        roughness: 0.25
+      });
+
+      const smokedGlassMat = new THREE.MeshPhysicalMaterial({
+        color: 0x6699CC,
+        transparent: true,
+        opacity: 0.22,
+        roughness: 0.1,
+        metalness: 0.1,
+        reflectivity: 0.9,
+        side: THREE.DoubleSide
+      });
+
+      const glassWireMat = new THREE.MeshBasicMaterial({
+        color: 0x6699CC,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.12
+      });
+
+      const glowingSandMat = new THREE.MeshStandardMaterial({
+        color: 0x6699CC,
+        emissive: 0x2E5A8A,
+        emissiveIntensity: 0.55,
+        roughness: 0.45,
+        metalness: 0.15
+      });
+
+      // Top & Bottom Hexagonal/Cylindrical Architectural End Caps
+      const capGeo = new THREE.CylinderGeometry(1.42, 1.42, 0.16, 36);
+      const topCap = new THREE.Mesh(capGeo, metalCapMat);
+      topCap.position.y = 1.85;
+      hourglassGroup.add(topCap);
+
+      const botCap = new THREE.Mesh(capGeo, metalCapMat);
+      botCap.position.y = -1.85;
+      hourglassGroup.add(botCap);
+
+      // Glowing Brand-Blue Bezel Rings on Caps & Center Neck
+      const bezelGeo = new THREE.TorusGeometry(1.42, 0.032, 16, 64);
+      const topBezel = new THREE.Mesh(bezelGeo, accentRingMat);
+      topBezel.rotation.x = Math.PI / 2;
+      topBezel.position.y = 1.77;
+      hourglassGroup.add(topBezel);
+
+      const botBezel = new THREE.Mesh(bezelGeo, accentRingMat);
+      botBezel.rotation.x = Math.PI / 2;
+      botBezel.position.y = -1.77;
+      hourglassGroup.add(botBezel);
+
+      const neckCollarGeo = new THREE.TorusGeometry(0.22, 0.038, 16, 48);
+      const neckCollar = new THREE.Mesh(neckCollarGeo, accentRingMat);
+      neckCollar.rotation.x = Math.PI / 2;
+      hourglassGroup.add(neckCollar);
+
+      // 4 Precision Outer Strut Pillars
+      const pillarGeo = new THREE.CylinderGeometry(0.045, 0.045, 3.65, 16);
+      for (let i = 0; i < 4; i++) {
+        const angle = (i * Math.PI) / 2 + Math.PI / 4;
+        const pillar = new THREE.Mesh(pillarGeo, pillarMat);
+        pillar.position.set(Math.cos(angle) * 1.22, 0, Math.sin(angle) * 1.22);
+        hourglassGroup.add(pillar);
+      }
+
+      // Lathe Geometry for Curved Hourglass Glass Bulbs
+      const bulbPoints = [];
+      for (let i = 0; i <= 32; i++) {
+        const t = i / 32; // 0 at neck, 1 at cap
+        const y = t * 1.76;
+        // Smooth forensic bell curve profile
+        const r = 0.14 + 0.96 * Math.pow(Math.sin(t * Math.PI * 0.58), 1.35);
+        bulbPoints.push(new THREE.Vector2(r, y));
+      }
+
+      const topBulbGeo = new THREE.LatheGeometry(bulbPoints, 48);
+      const topBulbMesh = new THREE.Mesh(topBulbGeo, smokedGlassMat);
+      const topBulbWire = new THREE.Mesh(topBulbGeo, glassWireMat);
+      hourglassGroup.add(topBulbMesh);
+      hourglassGroup.add(topBulbWire);
+
+      const botBulbMesh = new THREE.Mesh(topBulbGeo, smokedGlassMat);
+      botBulbMesh.rotation.z = Math.PI;
+      const botBulbWire = new THREE.Mesh(topBulbGeo, glassWireMat);
+      botBulbWire.rotation.z = Math.PI;
+      hourglassGroup.add(botBulbMesh);
+      hourglassGroup.add(botBulbWire);
+
+      // Inner Top Sand Volume (Draining Cone/Cylinder)
+      const topSandGeo = new THREE.CylinderGeometry(0.92, 0.12, 1.1, 36);
+      topSandGeo.translate(0, 0.55, 0);
+      topSandMesh = new THREE.Mesh(topSandGeo, glowingSandMat);
+      topSandMesh.position.y = 0.08;
+      hourglassGroup.add(topSandMesh);
+
+      // Inner Bottom Sand Mound (Accumulating Cone)
+      const botSandGeo = new THREE.ConeGeometry(0.98, 1.15, 36);
+      botSandGeo.translate(0, 0.575, 0);
+      bottomSandMesh = new THREE.Mesh(botSandGeo, glowingSandMat);
+      bottomSandMesh.position.y = -1.76;
+      hourglassGroup.add(bottomSandMesh);
+
+      // Central Falling Data-Sand Stream Beam
+      const streamGeo = new THREE.CylinderGeometry(0.028, 0.045, 1.72, 16);
+      const streamMat = new THREE.MeshBasicMaterial({
+        color: 0x93C5FD,
+        transparent: true,
+        opacity: 0.75
+      });
+      sandStreamMesh = new THREE.Mesh(streamGeo, streamMat);
+      sandStreamMesh.position.y = -0.86;
+      hourglassGroup.add(sandStreamMesh);
+
+      // Glowing Falling Sand Particles inside Bottom Chamber
+      sandGeometry = new THREE.BufferGeometry();
+      sandPositions = new Float32Array(SAND_COUNT * 3);
+      sandVelocities = new Float32Array(SAND_COUNT);
+
+      for (let i = 0; i < SAND_COUNT; i++) {
+        resetSandParticle(i, true);
+      }
+      sandGeometry.setAttribute('position', new THREE.BufferAttribute(sandPositions, 3));
+
+      const particleMat = new THREE.PointsMaterial({
+        color: 0x93C5FD,
+        size: 0.055,
+        transparent: true,
+        opacity: 0.88
+      });
+
+      sandParticles = new THREE.Points(sandGeometry, particleMat);
+      hourglassGroup.add(sandParticles);
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      selectPipelineStep(0, document.querySelector('.step-btn'));
-      switchRoleView('CFO');
-      switchLegalDoc('privacy');
-    });
+    function resetSandParticle(i, randomY = false) {
+      const idx = i * 3;
+      const spread = 0.035;
+      sandPositions[idx] = (Math.random() - 0.5) * spread;
+      sandPositions[idx + 1] = randomY ? -Math.random() * 1.55 : 0.02;
+      sandPositions[idx + 2] = (Math.random() - 0.5) * spread;
+      sandVelocities[i] = 0.018 + Math.random() * 0.022;
+    }
+
+    // =========================================================================
+    // 2. BUILD 3D PRECISION TICKING CLOCK (CHRONOMETER)
+    // =========================================================================
+    function build3DTickingClock() {
+      clockGroup = new THREE.Group();
+      rootGroup.add(clockGroup);
+
+      const darkBodyMat = new THREE.MeshStandardMaterial({
+        color: 0x0D1520,
+        metalness: 0.75,
+        roughness: 0.3
+      });
+
+      const ringBlueMat = new THREE.MeshStandardMaterial({
+        color: 0x2E5A8A,
+        metalness: 0.85,
+        roughness: 0.2
+      });
+
+      const brandGlowMat = new THREE.MeshStandardMaterial({
+        color: 0x6699CC,
+        emissive: 0x2E5A8A,
+        emissiveIntensity: 0.45,
+        metalness: 0.6,
+        roughness: 0.2
+      });
+
+      const handWhiteMat = new THREE.MeshStandardMaterial({
+        color: 0xFFFFFF,
+        emissive: 0x6699CC,
+        emissiveIntensity: 0.25,
+        metalness: 0.4,
+        roughness: 0.2
+      });
+
+      // Outer Gimbal Ring 1 (Gyroscopic 3D ring)
+      gimbalRing1 = new THREE.Mesh(new THREE.TorusGeometry(1.92, 0.045, 20, 80), ringBlueMat);
+      clockGroup.add(gimbalRing1);
+
+      // Outer Gimbal Ring 2
+      gimbalRing2 = new THREE.Mesh(new THREE.TorusGeometry(1.68, 0.032, 16, 80), brandGlowMat);
+      clockGroup.add(gimbalRing2);
+
+      // Main Watch/Chronometer Bezel & Dial Plate
+      const dialPlate = new THREE.Mesh(new THREE.CylinderGeometry(1.48, 1.48, 0.14, 64), darkBodyMat);
+      dialPlate.rotation.x = Math.PI / 2;
+      clockGroup.add(dialPlate);
+
+      const innerRim = new THREE.Mesh(new THREE.TorusGeometry(1.48, 0.055, 20, 64), ringBlueMat);
+      clockGroup.add(innerRim);
+
+      // 60 Precision Tick Marks around the 3D Dial
+      for (let i = 0; i < 60; i++) {
+        const isMajor = i % 5 === 0;
+        const tickGeo = new THREE.BoxGeometry(isMajor ? 0.045 : 0.02, isMajor ? 0.18 : 0.08, 0.04);
+        const tickMesh = new THREE.Mesh(tickGeo, isMajor ? brandGlowMat : ringBlueMat);
+        const angle = (i / 60) * Math.PI * 2;
+        const radius = isMajor ? 1.25 : 1.3;
+        tickMesh.position.set(Math.sin(angle) * radius, Math.cos(angle) * radius, 0.08);
+        tickMesh.rotation.z = -angle;
+        clockGroup.add(tickMesh);
+      }
+
+      // Hour Hand
+      clockHourHand = new THREE.Group();
+      const hMesh = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.68, 0.04), handWhiteMat);
+      hMesh.position.y = 0.28;
+      clockHourHand.position.z = 0.11;
+      clockHourHand.add(hMesh);
+      clockGroup.add(clockHourHand);
+
+      // Minute Hand
+      clockMinuteHand = new THREE.Group();
+      const mMesh = new THREE.Mesh(new THREE.BoxGeometry(0.055, 0.98, 0.04), handWhiteMat);
+      mMesh.position.y = 0.42;
+      clockMinuteHand.position.z = 0.13;
+      clockMinuteHand.add(mMesh);
+      clockGroup.add(clockMinuteHand);
+
+      // Ticking Second Hand (Brand Blue)
+      clockSecondHand = new THREE.Group();
+      const sMesh = new THREE.Mesh(new THREE.BoxGeometry(0.026, 1.26, 0.03), brandGlowMat);
+      sMesh.position.y = 0.45;
+      clockSecondHand.position.z = 0.16;
+      clockSecondHand.add(sMesh);
+      clockGroup.add(clockSecondHand);
+
+      // Center Cap Pin
+      const centerCap = new THREE.Mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.12, 24), brandGlowMat);
+      centerCap.rotation.x = Math.PI / 2;
+      centerCap.position.z = 0.16;
+      clockGroup.add(centerCap);
+    }
+
+    // =========================================================================
+    // 3. ANIMATION LOOP (60FPS)
+    // =========================================================================
+    function animateScene() {
+      requestAnimationFrame(animateScene);
+
+      const now = performance.now() * 0.001;
+
+      // Gentle autonomous idle rotation when not dragging
+      if (!isDragging) {
+        targetRot.y += 0.0035;
+      }
+
+      // Smooth spring interpolation for mouse drag & flip
+      currentRot.x += (targetRot.x - currentRot.x) * 0.08;
+      currentRot.y += (targetRot.y - currentRot.y) * 0.08;
+      flipAngle += (targetFlipAngle - flipAngle) * 0.07;
+
+      rootGroup.rotation.x = currentRot.x;
+      rootGroup.rotation.y = currentRot.y;
+      rootGroup.rotation.z = flipAngle;
+      rootGroup.position.y = Math.sin(now * 1.6) * 0.06;
+
+      if (current3DMode === 'hourglass') {
+        // Slowly advance sand progress and cycle cleanly
+        sandProgress += 0.00055;
+        if (sandProgress >= 0.92) {
+          sandProgress = 0.12;
+          targetFlipAngle += Math.PI;
+        }
+
+        // Scale top & bottom sand volumes proportionally
+        const topScale = Math.max(0.08, 1 - sandProgress);
+        topSandMesh.scale.set(Math.pow(topScale, 0.45), topScale, Math.pow(topScale, 0.45));
+
+        const botScale = Math.max(0.12, sandProgress);
+        bottomSandMesh.scale.set(Math.pow(botScale, 0.5), botScale, Math.pow(botScale, 0.5));
+
+        // Update falling particles
+        const posArr = sandGeometry.attributes.position.array;
+        const moundTopY = -1.76 + (botScale * 1.05);
+
+        for (let i = 0; i < SAND_COUNT; i++) {
+          const idx = i * 3;
+          posArr[idx + 1] -= sandVelocities[i];
+          // Slight radial scatter near bottom mound
+          if (posArr[idx + 1] < -0.7) {
+            posArr[idx] *= 1.03;
+            posArr[idx + 2] *= 1.03;
+          }
+          if (posArr[idx + 1] <= moundTopY) {
+            resetSandParticle(i, false);
+          }
+        }
+        sandGeometry.attributes.position.needsUpdate = true;
+      } else {
+        // 3D Precision Ticking Clock Mode
+        const d = new Date();
+        const ms = d.getMilliseconds();
+        const sec = d.getSeconds() + Math.pow(ms / 1000, 4); // Crisp mechanical tick snap
+        const min = d.getMinutes() + sec / 60;
+        const hr = (d.getHours() % 12) + min / 60;
+
+        clockSecondHand.rotation.z = -(sec / 60) * Math.PI * 2;
+        clockMinuteHand.rotation.z = -(min / 60) * Math.PI * 2;
+        clockHourHand.rotation.z = -(hr / 12) * Math.PI * 2;
+
+        // Subtle gimbal ring counter-rotation
+        gimbalRing1.rotation.x = Math.sin(now * 0.7) * 0.28;
+        gimbalRing1.rotation.y = Math.cos(now * 0.5) * 0.28;
+        gimbalRing2.rotation.x = -Math.cos(now * 0.8) * 0.22;
+        gimbalRing2.rotation.y = Math.sin(now * 0.6) * 0.22;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    // =========================================================================
+    // 4. INTERACTIVITY, MODE SWITCHING & LIVE COUNTDOWN
+    // =========================================================================
+    function setupInteractionEvents(el) {
+      el.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        prevMouse = { x: e.clientX, y: e.clientY };
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - prevMouse.x;
+        const dy = e.clientY - prevMouse.y;
+        targetRot.y += dx * 0.008;
+        targetRot.x = Math.max(-0.65, Math.min(0.65, targetRot.x + dy * 0.008));
+        prevMouse = { x: e.clientX, y: e.clientY };
+      });
+
+      window.addEventListener('mouseup', () => { isDragging = false; });
+
+      // Touch support for mobile/tablet
+      el.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          isDragging = true;
+          prevMouse = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging || e.touches.length !== 1) return;
+        const dx = e.touches[0].clientX - prevMouse.x;
+        const dy = e.touches[0].clientY - prevMouse.y;
+        targetRot.y += dx * 0.008;
+        targetRot.x = Math.max(-0.65, Math.min(0.65, targetRot.x + dy * 0.008));
+        prevMouse = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => { isDragging = false; });
+
+      el.addEventListener('dblclick', triggerHourglassFlip);
+    }
+
+    function triggerHourglassFlip() {
+      targetFlipAngle += Math.PI;
+      if (current3DMode === 'hourglass') {
+        sandProgress = 0.14;
+      }
+    }
+
+    function set3DMode(mode) {
+      current3DMode = mode;
+      targetFlipAngle = 0;
+      flipAngle = 0;
+      applyModeVisibility();
+
+      const btnH = document.getElementById('btn-mode-hourglass');
+      const btnC = document.getElementById('btn-mode-clock');
+      const actionLbl = document.getElementById('action-btn-label');
+
+      if (btnH && btnC) {
+        btnH.classList.toggle('active', mode === 'hourglass');
+        btnC.classList.toggle('active', mode === 'clock');
+      }
+      if (actionLbl) {
+        actionLbl.textContent = mode === 'hourglass' ? 'Flip Sand Clock' : 'Pulse Chronometer';
+      }
+    }
+
+    function applyModeVisibility() {
+      if (!hourglassGroup || !clockGroup) return;
+      hourglassGroup.visible = (current3DMode === 'hourglass');
+      clockGroup.visible = (current3DMode === 'clock');
+    }
+
+    function toggleHeadlineCopy() {
+      copyVariantIndex = (copyVariantIndex + 1) % COPY_VARIANTS.length;
+      document.getElementById('headline-text').textContent = COPY_VARIANTS[copyVariantIndex];
+    }
+
+    function onWindowResize() {
+      const container = document.getElementById('canvas-wrapper');
+      if (!container || !renderer || !camera) return;
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    }
+
+    // Live Countdown to November 17 at 10:00:00 AM
+    function updateCountdown() {
+      const now = new Date();
+      let targetYear = now.getFullYear();
+      let target = new Date(targetYear, 10, 17, 10, 0, 0); // Month 10 = November
+
+      // If November 17 10:00 AM has already passed in the current year, clamp at 00
+      const diff = Math.max(0, target.getTime() - now.getTime());
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const hours = Math.floor(totalSeconds / 3600);
+      const mins = Math.floor((totalSeconds % 3600) / 60);
+      const secs = totalSeconds % 60;
+
+      document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+    }
+
+    // One-Click Export Clean HTML for GitHub / Vercel Deployment
+    function exportCleanHTML() {
+      const clone = document.documentElement.cloneNode(true);
+
+      // Remove the Three.js runtime canvas children & studio toolbar from exported snapshot
+      const studioBar = clone.querySelector('#studio-controls');
+      if (studioBar) studioBar.remove();
+
+      let htmlContent = '<!DOCTYPE html>\n' + clone.outerHTML;
+      // Bake the currently chosen 3D mode and copy variant into the exported file
+      htmlContent = htmlContent.replace(
+        "let current3DMode = 'hourglass';",
+        `let current3DMode = '${current3DMode}';`
+      );
+      htmlContent = htmlContent.replace(
+        "let copyVariantIndex = 0;",
+        `let copyVariantIndex = ${copyVariantIndex};`
+      );
+
+      const blob = new Blob([htmlContent], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    window.onload = function () {
+      initThreeScene();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    };
   </script>
-</body>
-</html>
+
+</body></html>
